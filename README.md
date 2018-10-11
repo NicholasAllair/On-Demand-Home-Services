@@ -1,5 +1,5 @@
 # SEG2105_Project
-Project for SEG2105 Introduction to Software Engineering
+Project for SEG2105 - Introduction to Software Engineering
 
 Github URL: https://github.com/NicholasAllair/SEG2105_Project
 
