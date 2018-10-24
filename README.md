@@ -10,6 +10,7 @@ Caroline Davies
 Nicholas Allair
 Eleanor Rumsey
 Joseph Ezema 
+Charles Obasi
 <<<<<<< HEAD
 The final product of this project is a On-Demand Home Repair application for android devices.
 =======
