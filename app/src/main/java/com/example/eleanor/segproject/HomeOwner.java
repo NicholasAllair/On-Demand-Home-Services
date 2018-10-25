@@ -6,21 +6,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-    Button button;
+public class HomeOwner extends AppCompatActivity {
+    Button createProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home_owner);
 
-        button = (Button) findViewById(R.id.HomeownerProfile);
+        createProfile = (Button) findViewById(R.id.ReturnHome);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this,
-                        HomeOwner.class);
+                Intent myIntent = new Intent(HomeOwner.this,
+                        MainActivity.class);
                 startActivity(myIntent);
             }
         });
