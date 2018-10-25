@@ -27,24 +27,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Username" />
+            android:hint="Username"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/EnterEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="Email address" />
+            android:hint="Email address"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/EnterPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword|textVisiblePassword"
-            android:text="Password" />
+            android:hint="Password"
+            android:inputType="textPassword|textVisiblePassword" />
 
         <Button
             android:id="@+id/ReturnHome"

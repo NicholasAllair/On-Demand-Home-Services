@@ -1,20 +1,23 @@
 package com.example.eleanor.segproject;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
-public class WelcomeScreen extends HomeOwner {
-    String name = editName.getText().toString();
+public class WelcomeScreen{
+    HomeOwner homeOwner;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_screen;
+    public WelcomeScreen(HomeOwner homeOwner){
+        this.homeOwner = homeOwner;
+    }
 
-        EditText e (EditText) findViewById 
+    String name = homeOwner.editName.getText().toString();
+
+    private void onCreate(Bundle savedInstanceState) {
+        homeOwner.onCreate(savedInstanceState);
+        homeOwner.setContentView(R.layout.activity_welcome_screen);
+
+        TextView t = (TextView) homeOwner.findViewById(R.id.username);
+        t.setText(name);
 
     }
 

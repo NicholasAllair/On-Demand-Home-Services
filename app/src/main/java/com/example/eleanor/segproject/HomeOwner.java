@@ -31,7 +31,7 @@ public class HomeOwner extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent validate = new Intent(HomeOwner.this,
-                        ProfileValidator.class);
+                        ProfileValidatorFactory.class);
                 startActivity(validate);
 
                 Intent returnHome = new Intent(HomeOwner.this,
