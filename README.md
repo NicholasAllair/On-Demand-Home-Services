@@ -1,5 +1,6 @@
 # SEG2105_Project
 Project for SEG2105 - Introduction to Software Engineering
+The final product of this project is a On-Demand Home Repair application for android devices.
 
 Github URL: https://github.com/NicholasAllair/SEG2105_Project
 
@@ -11,9 +12,3 @@ Nicholas Allair (student number: ??)
 Eleanor Rumsey (student number: ??)
 Joseph Ezema (student number: ??)
 Charles Obasi (student number: 300028945)
-
-<<<<<<< HEAD
-The final product of this project is a On-Demand Home Repair application for android devices.
-=======
-The final product of this project is a On-Demand Home Repair application for android devices.
->>>>>>> 6f27b0a05cddab484166244b65fd6eef057d65e3
