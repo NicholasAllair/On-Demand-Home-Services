@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">SEGProject</string>
-    <string name = "welcome">Service provider app</string>
+    <string name="welcome">Service provider app</string>
+    <string name="title_activity_welcome_screen_activity">welcome_screen_activity</string>
 </resources>
