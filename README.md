@@ -1,5 +1,6 @@
 # SEG2105_Project
 Project for SEG2105 - Introduction to Software Engineering
+
 The final product of this project is a On-Demand Home Repair application for android devices.
 
 Github URL: https://github.com/NicholasAllair/SEG2105_Project
