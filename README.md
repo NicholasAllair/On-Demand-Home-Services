@@ -3,9 +3,7 @@ Project for SEG2105 - Introduction to Software Engineering
 
 Github URL: https://github.com/NicholasAllair/SEG2105_Project
 
-Umple UML Diagram : https://cruise.eecs.uottawa.ca/umpleonline/umple.php?model=181024645063
-
-Umple UML Diagram v2: https://cruise.eecs.uottawa.ca/umpleonline/umple.php?model=181025614893
+Umple UML Diagram : https://cruise.eecs.uottawa.ca/umpleonline/umple.php?model=181025614893
 
 Members:
 Caroline Davies (student number: 300014250)
