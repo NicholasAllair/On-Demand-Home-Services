@@ -1,18 +1,16 @@
 # SEG2105_Project
 Project for SEG2105 - Introduction to Software Engineering
 
+The final product of this project is a On-Demand Home Repair application for android devices.
+
 Github URL: https://github.com/NicholasAllair/SEG2105_Project
 
-Umple UML Diagram : https://cruise.eecs.uottawa.ca/umpleonline/umple.php?model=181024645063
+Umple UML Diagram : https://cruise.eecs.uottawa.ca/umpleonline/umple.php?model=181025614893
+
 
 Members:
-Caroline Davies
-Nicholas Allair
-Eleanor Rumsey
-Joseph Ezema 
-Charles Obasi
-<<<<<<< HEAD
-The final product of this project is a On-Demand Home Repair application for android devices.
-=======
-The final product of this project is a On-Demand Home Repair application for android devices.
->>>>>>> 6f27b0a05cddab484166244b65fd6eef057d65e3
+Caroline Davies (student number: 300014250)
+Nicholas Allair (student number: 8147249)
+Eleanor Rumsey (student number: ??)
+Joseph Ezema (student number: 8339504)
+Charles Obasi (student number: 300028945)
