@@ -30,9 +30,9 @@ public class HomeOwner extends AppCompatActivity {
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent validate = new Intent(HomeOwner.this,
+                /*Intent validate = new Intent(HomeOwner.this,
                         ProfileValidatorFactory.class);
-                startActivity(validate);
+                startActivity(validate);*/
 
                 Intent returnHome = new Intent(HomeOwner.this,
                         WelcomeScreen.class);
