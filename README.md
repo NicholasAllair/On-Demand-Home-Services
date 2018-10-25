@@ -7,10 +7,10 @@ Umple UML Diagram : https://cruise.eecs.uottawa.ca/umpleonline/umple.php?model=1
 
 Members:
 Caroline Davies (student number: 300014250)
-Nicholas Allair
-Eleanor Rumsey
-Joseph Ezema 
-Charles Obasi (Studen number 300028945)
+Nicholas Allair (student number: ??)
+Eleanor Rumsey (student number: ??)
+Joseph Ezema (student number: ??)
+Charles Obasi (student number: 300028945)
 
 <<<<<<< HEAD
 The final product of this project is a On-Demand Home Repair application for android devices.
