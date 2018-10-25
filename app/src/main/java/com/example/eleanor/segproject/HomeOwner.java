@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import fieldvalidators.ProfileValidator;
+import fieldvalidators.ProfileValidatorFactory;
+
 public class HomeOwner extends AppCompatActivity {
     Button createProfile;
 
@@ -19,9 +22,13 @@ public class HomeOwner extends AppCompatActivity {
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(HomeOwner.this,
+                Intent validate = new Intent(HomeOwner.this,
+                        ProfileValidator.class);
+                startActivity(validate);
+
+                /*Intent returnHome = new Intent(HomeOwner.this,
                         MainActivity.class);
-                startActivity(myIntent);
+                startActivity(returnHome); */
             }
         });
     }
