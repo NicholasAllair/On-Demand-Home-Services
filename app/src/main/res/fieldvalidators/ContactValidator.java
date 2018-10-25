@@ -4,7 +4,7 @@ public class ContactValidator extends TextValidator.java implements OnFocusChang
         super(textView);
     }
 
-    @O
+    @Override
 
 
 }
