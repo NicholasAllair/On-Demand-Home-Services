@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,12 +20,33 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Create New Service Provider Account"
+=======
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeOwner">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ServiceProviderProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Create a New Service Provider Profile"
+>>>>>>> fe0457d9fb4c673612df7e9245e2416cfb66c156
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
             tools:fontFamily="sans-serif"
             tools:layout_margin="12dp" />
 
         <EditText
+<<<<<<< HEAD
             android:id="@+id/enterName2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,6 +56,26 @@
 
         <EditText
             android:id="@+id/enterEmail"
+=======
+            android:id="@+id/ServiceType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Type of Service Provided"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/EnterName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            />
+
+        <EditText
+            android:id="@+id/EnterEmail"
+>>>>>>> fe0457d9fb4c673612df7e9245e2416cfb66c156
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -41,7 +83,11 @@
             android:inputType="textEmailAddress" />
 
         <EditText
+<<<<<<< HEAD
             android:id="@+id/enterPassword2"
+=======
+            android:id="@+id/EnterPassword"
+>>>>>>> fe0457d9fb4c673612df7e9245e2416cfb66c156
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -49,7 +95,11 @@
             android:inputType="textPassword|textVisiblePassword" />
 
         <Button
+<<<<<<< HEAD
             android:id="@+id/returnHome"
+=======
+            android:id="@+id/ReturnHome"
+>>>>>>> fe0457d9fb4c673612df7e9245e2416cfb66c156
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@string/title_activity_welcome_screen_activity"

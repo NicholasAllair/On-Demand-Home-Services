@@ -54,7 +54,17 @@
             android:id="@+id/homeownerProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Administration" />
+=======
+            android:text="Create a Service Provider Profile" />
+
+        <Button
+            android:id="@+id/Admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Access Admin Profile" />
+>>>>>>> fe0457d9fb4c673612df7e9245e2416cfb66c156
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -7,21 +7,44 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button button;
+    Button homeOwnerButton;
+    Button serviceProviderButton;
+    Button adminButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.HomeownerProfile);
+        homeOwnerButton = (Button) findViewById(R.id.HomeownerProfile);
+        serviceProviderButton = (Button) findViewById(R.id.ServiceProviderProfile);
+        adminButton = (Button) findViewById(R.id.Admin);
 
-        button.setOnClickListener(new View.OnClickListener() {
+
+        homeOwnerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this,
+                Intent intent1 = new Intent(MainActivity.this,
                         HomeOwner.class);
-                startActivity(myIntent);
+                startActivity(intent1);
+            }
+        });
+
+        serviceProviderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(MainActivity.this,
+                        ServiceProvider.class);
+                startActivity(intent2);
+            }
+        });
+
+        adminButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3 = new Intent(MainActivity.this,
+                        Admin.class);
+                startActivity(intent3);
             }
         });
     }
