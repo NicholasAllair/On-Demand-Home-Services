@@ -11,9 +11,9 @@ import android.widget.TextView;
 import fieldvalidators.ProfileValidator;
 import fieldvalidators.ProfileValidatorFactory;
 
-public class ServiceProvider extends AppCompatActivity {
-    Button createProfile;
-    EditText editName, editEmail, editPassword;
+public class Admin extends AppCompatActivity {
+    Button createNewService;
+    EditText newService, ratePerHour;
     TextView result;
 
     @Override
@@ -21,21 +21,18 @@ public class ServiceProvider extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_owner);
 
-        editName = (EditText) findViewById(R.id.EnterName);
-        editEmail = (EditText) findViewById(R.id.EnterEmail);
-        editPassword = (EditText) findViewById(R.id.EnterPassword);
-        createProfile = (Button) findViewById(R.id.ReturnHome);
+        newService = (EditText) findViewById(R.id.EnterName);
+        ratePerHour = (EditText) findViewById(R.id.EnterEmail);
 
-
-        createProfile.setOnClickListener(new View.OnClickListener() {
+        createNewService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent validate = new Intent(ServiceProvider.this,
+                /*Intent validate = new Intent(Admin.this,
                         ProfileValidatorFactory.class);
                 startActivity(validate);*/
 
-                Intent returnHome = new Intent(ServiceProvider.this,
-                        WelcomeScreen.class);
+                Intent returnHome = new Intent(Admin.this,
+                        AdminWelcomeScreen.class);
                 startActivity(returnHome);
             }
         });
