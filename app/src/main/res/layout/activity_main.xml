@@ -11,6 +11,39 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/HOProfileCreator2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Login"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            tools:fontFamily="sans-serif"
+            tools:layout_margin="12dp" />
+
+        <EditText
+            android:id="@+id/enterName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/enterPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword|textVisiblePassword" />
+
+        <Button
+            android:id="@+id/ServiceProviderProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create a Service Provider Profile" />
+
         <Button
             android:id="@+id/HomeownerProfile"
             android:layout_width="match_parent"
@@ -18,10 +51,10 @@
             android:text="Create a Homeowner Profile" />
 
         <Button
-            android:id="@+id/ServiceProviderProfile"
+            android:id="@+id/homeownerProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create a Service Provider Profile" />
+            android:text="Administration" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
