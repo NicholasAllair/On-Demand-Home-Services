@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeOwner">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/c"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="504dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="7dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/ServiceProviderProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Create a New Service Provider Profile"
+            android:text="Create New Service Provider Account"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
             tools:fontFamily="sans-serif"
@@ -36,11 +39,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Username"
-            android:inputType="textPersonName"
-            />
+            android:inputType="textPersonName"/>
 
         <EditText
-            android:id="@+id/EnterEmail"
+            android:id="@+id/enterEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

@@ -13,7 +13,7 @@ import fieldvalidators.ProfileValidatorFactory;
 
 public class HomeOwner extends AppCompatActivity {
     Button createProfile;
-    EditText editName, editEmail, editPassword;
+    EditText editServiceProvider, editEmailService, editPasswordService;
     TextView result;
 
     @Override
@@ -21,9 +21,9 @@ public class HomeOwner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_owner);
 
-        editName = (EditText) findViewById(R.id.EnterName);
-        editEmail = (EditText) findViewById(R.id.EnterEmail);
-        editPassword = (EditText) findViewById(R.id.EnterPassword);
+        editServiceProvider = (EditText) findViewById(R.id.EnterName);
+        editEmailService = (EditText) findViewById(R.id.EnterEmail);
+        editPasswordService = (EditText) findViewById(R.id.EnterPassword);
         createProfile = (Button) findViewById(R.id.ReturnHome);
 
 

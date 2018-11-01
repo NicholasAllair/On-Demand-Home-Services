@@ -21,23 +21,24 @@ public class ServiceProvider extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_owner);
 
-        editName = (EditText) findViewById(R.id.EnterName);
-        editEmail = (EditText) findViewById(R.id.EnterEmail);
-        editPassword = (EditText) findViewById(R.id.EnterPassword);
-        createProfile = (Button) findViewById(R.id.ReturnHome);
+        editName = findViewById(R.id.EnterName);
+        editEmail = findViewById(R.id.EnterEmail);
+        editPassword = findViewById(R.id.EnterPassword);
+        createProfile = findViewById(R.id.ReturnHome);
 
 
         createProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*Intent validate = new Intent(ServiceProvider.this,
+                @Override
+                public void onClick(View v) {
+
+                /*Intent validate = new Intent(HomeOwner.this,
                         ProfileValidatorFactory.class);
                 startActivity(validate);*/
 
-                Intent returnHome = new Intent(ServiceProvider.this,
-                        WelcomeScreen.class);
-                startActivity(returnHome);
-            }
-        });
+                    Intent returnHome = new Intent(ServiceProvider.this,
+                            WelcomeScreen.class);
+                    startActivity(returnHome);
+                }
+            });
+        }
     }
-}

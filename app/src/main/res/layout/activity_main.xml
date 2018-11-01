@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -11,11 +10,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/HomeownerProfile"
+        <EditText
+            android:id="@+id/enterName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create a Homeowner Profile" />
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/enterPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword|textVisiblePassword" />
 
         <Button
             android:id="@+id/ServiceProviderProfile"
@@ -24,11 +33,22 @@
             android:text="Create a Service Provider Profile" />
 
         <Button
+            android:id="@+id/HomeownerProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create a Homeowner Profile" />
+
+        <Button
+            android:id="@+id/homeownerProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create a Service Provider Profile" />
+
+        <Button
             android:id="@+id/Admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Access Admin Profile" />
-    </LinearLayout>
+            android:text="Access Admin Profile" /></LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
 
