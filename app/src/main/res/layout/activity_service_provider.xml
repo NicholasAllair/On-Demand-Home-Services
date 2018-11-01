@@ -1,33 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
-<<<<<<< HEAD
-<android.support.constraint.ConstraintLayout
->>>>>>> 4440d0553aafe5fb95192c034b4e8a4b13de9b39
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:id="@+id/c"
-        android:layout_width="match_parent"
-        android:layout_height="504dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="7dp"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/ServiceProviderProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Create New Service Provider Account"
-<<<<<<< HEAD
-=======
-=======
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
