@@ -21,11 +21,10 @@ public class HomeOwner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_owner);
 
-        editServiceProvider = (EditText) findViewById(R.id.EnterName);
-        editEmailService = (EditText) findViewById(R.id.EnterEmail);
-        editPasswordService = (EditText) findViewById(R.id.EnterPassword);
-        createProfile = (Button) findViewById(R.id.ReturnHome);
-
+        editServiceProvider = findViewById(R.id.EnterName);
+        editEmailService = findViewById(R.id.EnterEmail);
+        editPasswordService = findViewById(R.id.EnterPassword);
+        createProfile = findViewById(R.id.ReturnHome);
 
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override

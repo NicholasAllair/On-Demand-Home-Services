@@ -27,6 +27,20 @@
             android:inputType="textPassword|textVisiblePassword" />
 
         <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log in " />
+
+        <TextView
+            android:id="@+id/or"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text=" - or -" />
+
+        <Button
             android:id="@+id/ServiceProviderProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,25 +56,15 @@
             android:id="@+id/homeownerProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
             android:text="Administration" />
-=======
->>>>>>> 4440d0553aafe5fb95192c034b4e8a4b13de9b39
-            android:text="Create a Service Provider Profile" />
 
         <Button
             android:id="@+id/Admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:text="Access Admin Profile" /></LinearLayout>
-=======
             android:text="Access Admin Profile" />
->>>>>>> fe0457d9fb4c673612df7e9245e2416cfb66c156
+
     </LinearLayout>
->>>>>>> 4440d0553aafe5fb95192c034b4e8a4b13de9b39
 
 </android.support.constraint.ConstraintLayout>
 

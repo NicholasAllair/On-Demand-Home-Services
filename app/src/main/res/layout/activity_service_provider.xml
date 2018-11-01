@@ -16,23 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Create a New Service Provider Profile" />
-
-        <EditText
-            android:id="@+id/enterName2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Username"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/ServiceType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Type of Service Provided"
-            android:inputType="textPersonName" />
+            android:padding="12dp"
+            android:text="Create a New Service Provider Profile"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/EnterName"
@@ -41,6 +28,14 @@
             android:ems="10"
             android:hint="Username"
             android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/ServiceType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Type of Service Provided"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/EnterEmail"
@@ -59,7 +54,7 @@
             android:inputType="textPassword|textVisiblePassword" />
 
         <Button
-            android:id="@+id/returnHome"
+            android:id="@+id/ReturnHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@string/title_activity_welcome_screen_activity"
