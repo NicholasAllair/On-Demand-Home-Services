@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import fieldvalidators.ProfileValidator;
-import fieldvalidators.ProfileValidatorFactory;
 
 public class Admin extends AppCompatActivity {
     Button createNewService;
@@ -27,9 +25,6 @@ public class Admin extends AppCompatActivity {
         createNewService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent validate = new Intent(Admin.this,
-                        ProfileValidatorFactory.class);
-                startActivity(validate);*/
 
                 Intent returnHome = new Intent(Admin.this,
                         AdminWelcomeScreen.class);

@@ -53,12 +53,6 @@
             android:text="Create a Homeowner Profile" />
 
         <Button
-            android:id="@+id/homeownerProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Administration" />
-
-        <Button
             android:id="@+id/Admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

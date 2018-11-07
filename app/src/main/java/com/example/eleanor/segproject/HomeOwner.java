@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import fieldvalidators.ProfileValidator;
-import fieldvalidators.ProfileValidatorFactory;
 
 public class HomeOwner extends AppCompatActivity {
     Button createProfile;
@@ -29,9 +27,6 @@ public class HomeOwner extends AppCompatActivity {
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent validate = new Intent(HomeOwner.this,
-                        ProfileValidatorFactory.class);
-                startActivity(validate);*/
 
                 Intent returnHome = new Intent(HomeOwner.this,
                         WelcomeScreen.class);
