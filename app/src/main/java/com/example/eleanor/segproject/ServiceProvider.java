@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 
 public class ServiceProvider extends AppCompatActivity {
-    Button createProfile;
-    EditText editName, editEmail, serviceType, editPassword;
+    Button createSPProfile;
+    EditText editName, editEmail, editServiceType, editPassword;
     TextView result;
 
     @Override
@@ -19,13 +19,13 @@ public class ServiceProvider extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_provider);
 
-        editName = findViewById(R.id.EnterName);
-        serviceType = findViewById(R.id.ServiceType);
-        editEmail = findViewById(R.id.EnterEmail);
-        editPassword = findViewById(R.id.EnterPassword);
-        createProfile = findViewById(R.id.ReturnHome);
+        editName = findViewById(R.id.EnterSPName);
+        editServiceType = findViewById(R.id.ServiceType);
+        editEmail = findViewById(R.id.EnterSPEmail);
+        editPassword = findViewById(R.id.EnterSPPassword);
+        createSPProfile = findViewById(R.id.SPReturnHome);
 
-        createProfile.setOnClickListener(new View.OnClickListener() {
+        createSPProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

@@ -9,7 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">>
 
         <TextView
             android:id="@+id/ServiceProviderProfile"
@@ -18,11 +21,13 @@
             android:gravity="center_horizontal"
             android:padding="12dp"
             android:text="Create a New Service Provider Profile"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            tools:fontFamily="sans-serif"
+            tools:layout_margin="12dp"/>
 
         <EditText
-            android:id="@+id/EnterName"
+            android:id="@+id/EnterSPName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -35,10 +40,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Type of Service Provided"
-            android:inputType="textPersonName" />
+            android:inputType="text" />
 
         <EditText
-            android:id="@+id/EnterEmail"
+            android:id="@+id/EnterSPEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -46,7 +51,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/EnterPassword"
+            android:id="@+id/EnterSPPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -54,7 +59,7 @@
             android:inputType="textPassword|textVisiblePassword" />
 
         <Button
-            android:id="@+id/ReturnHome"
+            android:id="@+id/SPReturnHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@string/title_activity_welcome_screen_activity"

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class HomeOwner extends AppCompatActivity {
     Button createProfile;
-    EditText editServiceProvider, editEmailService, editPasswordService;
+    EditText editName, editEmail, editPassword;
     TextView result;
 
     @Override
@@ -19,9 +19,9 @@ public class HomeOwner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_owner);
 
-        editServiceProvider = findViewById(R.id.EnterName);
-        editEmailService = findViewById(R.id.EnterEmail);
-        editPasswordService = findViewById(R.id.EnterPassword);
+        editName = findViewById(R.id.EnterName);
+        editEmail = findViewById(R.id.EnterEmail);
+        editPassword = findViewById(R.id.EnterPassword);
         createProfile = findViewById(R.id.ReturnHome);
 
         createProfile.setOnClickListener(new View.OnClickListener() {
