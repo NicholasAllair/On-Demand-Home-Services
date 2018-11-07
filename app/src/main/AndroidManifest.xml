@@ -19,8 +19,9 @@
         <activity android:name=".Admin"/>
         <activity android:name=".AdminWelcomeScreen" />
         <activity android:name=".HomeOwner" />
-        <activity android:name=".WelcomeScreen" />
+        <activity android:name=".HomeOwnerWelcome" />
         <activity android:name=".ServiceProvider"/>
+        <activity android:name=".ServiceProviderWelcome" />
 
     </application>
 

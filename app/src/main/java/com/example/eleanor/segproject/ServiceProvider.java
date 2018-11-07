@@ -30,7 +30,7 @@ public class ServiceProvider extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent returnHome = new Intent(ServiceProvider.this,
-                        WelcomeScreen.class);
+                        ServiceProviderWelcome.class);
                 startActivity(returnHome);
             }
         });
