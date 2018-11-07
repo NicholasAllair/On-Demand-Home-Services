@@ -13,10 +13,7 @@ public abstract class User extends AppCompatActivity {
     EditText editName, editEmail, editPassword;
     String content;
 
-    public User(EditText editName, EditText editEmail, EditText editPassword){
-        this.editName = editName;
-        this.editEmail = editEmail;
-        this.editPassword = editPassword;
+    public User(){
     }
 
     public abstract String getName();

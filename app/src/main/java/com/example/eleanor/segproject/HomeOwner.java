@@ -11,9 +11,8 @@ import android.widget.TextView;
 
 public class HomeOwner extends User{
 
+    public HomeOwner(){
 
-    public HomeOwner(EditText editName, EditText editEmail, EditText editPassword){
-        super(editName, editEmail, editPassword);
     }
 
     @Override
@@ -24,6 +23,8 @@ public class HomeOwner extends User{
         editName = findViewById(R.id.EnterName);
         setName(editName);
 
+        System.out.println(editName.getText().toString());
+
         editEmail = findViewById(R.id.EnterEmail);
         setEmail(editEmail);
 
@@ -31,8 +32,6 @@ public class HomeOwner extends User{
         setPassword(editPassword);
 
         createProfile = findViewById(R.id.ReturnHome);
-
-        HomeOwnerWelcome welcome = new HomeOwnerWelcome(this);
 
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
