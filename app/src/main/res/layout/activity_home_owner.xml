@@ -55,5 +55,6 @@
             android:layout_height="wrap_content"
             android:onClick="@string/title_activity_welcome_screen_activity"
             android:text="Create Profile and Return Home" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

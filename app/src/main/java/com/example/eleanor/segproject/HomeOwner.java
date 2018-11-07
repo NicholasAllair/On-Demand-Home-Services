@@ -12,7 +12,8 @@ import android.widget.TextView;
 public class HomeOwner extends AppCompatActivity {
     Button createProfile;
     EditText editName, editEmail, editPassword;
-    TextView result;
+    String content;
+    int usertype = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +34,10 @@ public class HomeOwner extends AppCompatActivity {
                 startActivity(returnHome);
             }
         });
+
+    }
+
+    public int getUsertype() {
+        return usertype;
     }
 }
