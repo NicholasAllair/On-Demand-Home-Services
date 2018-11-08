@@ -43,17 +43,19 @@ public class HomeOwner extends User{
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isValidEmail(editEmail.getText().toString())){
+                Intent returnHome = new Intent(HomeOwner.this, HomeOwnerWelcome.class);
+
+                do {
                     TextView invalidEmail = findViewById(R.id.InvalidEmail);
                     invalidEmail.setText(invalidEmailMessage);
-                }
-                if(!isValidUsername(editName.getText().toString())){
+                }while(!isValidEmail(editEmail.getText().toString()));
+               do {
                     TextView invalidUser = findViewById(R.id.InvalidUsername);
                     invalidUser.setText(invalidUserNameMessage);
-                }else {
-                    Intent returnHome = new Intent(HomeOwner.this, HomeOwnerWelcome.class);
-                    startActivity(returnHome);
-                }
+                }while(!isValidUsername(editName.getText().toString()));
+
+
+               startActivity(returnHome);
             }
         });
 
