@@ -1,8 +1,14 @@
 package com.example.eleanor.segproject;
 
 import android.content.Intent;
+import android.support.v4.widget.TextViewCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,7 +22,7 @@ public class HomeOwner extends User{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_owner_create);
+        setContentView(R.layout.activity_homeowner_homepage);
 
         editName = findViewById(R.id.EnterName);
         setName(editName);
@@ -43,7 +49,8 @@ public class HomeOwner extends User{
                     TextView invalidEmail = findViewById(R.id.InvalidEmail);
                     invalidEmail.setText(invalidEmailMessage);
                 }while(!isValidEmail(editEmail.getText().toString()));
-               do {
+
+                do {
                     TextView invalidUser = findViewById(R.id.InvalidUsername);
                     invalidUser.setText(invalidUserNameMessage);
                 }while(!isValidUsername(editName.getText().toString()));
