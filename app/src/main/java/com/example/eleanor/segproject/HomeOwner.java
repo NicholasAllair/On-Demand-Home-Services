@@ -42,7 +42,7 @@ public class HomeOwner extends User{
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                while(!isValidEmail(editEmail.getText().toString())){
+                if(!isValidEmail(editEmail.getText().toString())){
                     TextView invalidEmail = findViewById(R.id.InvalidEmail);
                     invalidEmail.setText(invalid);
                 }
