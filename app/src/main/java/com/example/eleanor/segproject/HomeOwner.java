@@ -25,21 +25,11 @@ public class HomeOwner extends User{
         setContentView(R.layout.activity_home_owner);
 
         editName = findViewById(R.id.EnterName);
-        editName.addTextChangedListener(new TextValidator(editName) {
-            @Override
-            public void validate(TextView textView, String text) {
-
-            }
-        });
-
         setName(editName);
 
-        System.out.println(editName.getText().toString());
-
         editEmail = findViewById(R.id.EnterEmail);
-
-
         setEmail(editEmail);
+
 
         editPassword = findViewById(R.id.EnterPassword);
 
@@ -47,9 +37,16 @@ public class HomeOwner extends User{
 
         createProfile = findViewById(R.id.ReturnHome);
 
+        final String invalid = "invalid";
+
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                while(!isValidEmail(editEmail.getText().toString())){
+                    TextView invalidEmail = findViewById(R.id.InvalidEmail);
+                    invalidEmail.setText(invalid);
+                }
+
                 Intent returnHome = new Intent(HomeOwner.this,
                         HomeOwnerWelcome.class);
                 startActivity(returnHome);
@@ -58,18 +55,16 @@ public class HomeOwner extends User{
 
     }
     public String getName(){ return editName.getText().toString(); }
-
     public void setName(EditText name){
         this.editName = name;
     }
-    public String getEmail(){ return editEmail.getText().toString(); }
 
+    public String getEmail(){ return editEmail.getText().toString(); }
     public void setEmail(EditText email){
         this.editEmail = email;
     }
 
     public String getPassword(){ return editPassword.getText().toString(); }
-
     public void setPassword(EditText password){
         this.editPassword = password;
     }
