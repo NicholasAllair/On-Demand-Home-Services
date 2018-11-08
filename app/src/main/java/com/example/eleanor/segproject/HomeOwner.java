@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class HomeOwner extends User implements android.text.TextWatcher {
+public class HomeOwner extends User{
 
     public HomeOwner(){
 
@@ -28,7 +28,7 @@ public class HomeOwner extends User implements android.text.TextWatcher {
         editName.addTextChangedListener(new TextValidator(editName) {
             @Override
             public void validate(TextView textView, String text) {
-                
+
             }
         });
 
