@@ -13,7 +13,7 @@ public class HomeOwnerWelcome extends HomeOwner{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homeowner_welcome);
+        setContentView(R.layout.activity_homeowner_homepage);
         TextView username = (TextView) findViewById(R.id.username);
         username.setText(this.getName());
     }

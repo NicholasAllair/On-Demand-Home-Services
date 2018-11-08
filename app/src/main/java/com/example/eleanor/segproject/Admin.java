@@ -17,7 +17,7 @@ public class Admin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_owner);
+        setContentView(R.layout.activity_administrator);
 
         newService = (EditText) findViewById(R.id.EnterName);
         ratePerHour = (EditText) findViewById(R.id.EnterEmail);

@@ -22,7 +22,7 @@ public class HomeOwner extends User{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_owner);
+        setContentView(R.layout.activity_homeowner_homepage);
 
         editName = findViewById(R.id.EnterName);
         setName(editName);
@@ -49,7 +49,8 @@ public class HomeOwner extends User{
                     TextView invalidEmail = findViewById(R.id.InvalidEmail);
                     invalidEmail.setText(invalidEmailMessage);
                 }while(!isValidEmail(editEmail.getText().toString()));
-               do {
+
+                do {
                     TextView invalidUser = findViewById(R.id.InvalidUsername);
                     invalidUser.setText(invalidUserNameMessage);
                 }while(!isValidUsername(editName.getText().toString()));

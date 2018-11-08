@@ -17,7 +17,7 @@ public class ServiceProvider extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service_provider);
+        setContentView(R.layout.activity_service_provider_create);
 
         editName = findViewById(R.id.EnterSPName);
         editServiceType = findViewById(R.id.ServiceType);
