@@ -48,8 +48,8 @@ public class HomeOwner extends User{
                     invalidEmail.setText(invalidEmailMessage);
                 }
                 if(!isValidUsername(editName.getText().toString())){
-                    TextView invalidEmail = findViewById(R.id.InvalidUsername);
-                    invalidEmail.setText(invalidUserNameMessage);
+                    TextView invalidUser = findViewById(R.id.InvalidUsername);
+                    invalidUser.setText(invalidUserNameMessage);
                 }else {
                     Intent returnHome = new Intent(HomeOwner.this, HomeOwnerWelcome.class);
                     startActivity(returnHome);
