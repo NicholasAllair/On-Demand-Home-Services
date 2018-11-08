@@ -1,15 +1,19 @@
 package com.example.eleanor.segproject;
 
 import android.content.Intent;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class HomeOwner extends User{
+public class HomeOwner extends User implements android.text.TextWatcher {
 
     public HomeOwner(){
 
@@ -21,14 +25,24 @@ public class HomeOwner extends User{
         setContentView(R.layout.activity_home_owner);
 
         editName = findViewById(R.id.EnterName);
+        editName.addTextChangedListener(new TextValidator(editName) {
+            @Override
+            public void validate(TextView textView, String text) {
+                
+            }
+        });
+
         setName(editName);
 
         System.out.println(editName.getText().toString());
 
         editEmail = findViewById(R.id.EnterEmail);
+
+
         setEmail(editEmail);
 
         editPassword = findViewById(R.id.EnterPassword);
+
         setPassword(editPassword);
 
         createProfile = findViewById(R.id.ReturnHome);
@@ -59,4 +73,5 @@ public class HomeOwner extends User{
     public void setPassword(EditText password){
         this.editPassword = password;
     }
+
 }

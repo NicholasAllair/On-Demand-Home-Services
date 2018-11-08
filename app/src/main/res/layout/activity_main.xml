@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
-        android:orientation="vertical">
-        android:paddingBottom = "16dp" &gt;
+        android:orientation="vertical"
+        android:paddingBottom = "16dp">
 
         <EditText
             android:id="@+id/enterName"
@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Username"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            />
 
         <EditText
             android:id="@+id/enterPassword"
