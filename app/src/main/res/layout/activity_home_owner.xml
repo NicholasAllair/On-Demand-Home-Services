@@ -33,6 +33,14 @@
             android:hint="Username"
             android:inputType="textPersonName" />
 
+        <TextView
+            android:id="@+id/InvalidUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_red_dark" />
+
+
         <EditText
             android:id="@+id/EnterEmail"
             android:layout_width="match_parent"

@@ -31,5 +31,8 @@ public abstract class User extends AppCompatActivity {
             return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
         }
     }
+    public final static boolean isValidUsername(CharSequence target) {
+        return (TextUtils.isEmpty(target));
+    }
 }
 

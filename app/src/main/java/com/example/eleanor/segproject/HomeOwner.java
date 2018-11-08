@@ -37,19 +37,23 @@ public class HomeOwner extends User{
 
         createProfile = findViewById(R.id.ReturnHome);
 
-        final String invalid = "invalid";
+        final String invalidEmailMessage = "Email address invalid";
+        final String invalidUserNameMessage = "Username invalid";
 
         createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!isValidEmail(editEmail.getText().toString())){
                     TextView invalidEmail = findViewById(R.id.InvalidEmail);
-                    invalidEmail.setText(invalid);
+                    invalidEmail.setText(invalidEmailMessage);
                 }
-
-                Intent returnHome = new Intent(HomeOwner.this,
-                        HomeOwnerWelcome.class);
-                startActivity(returnHome);
+                if(!isValidUsername(editName.getText().toString())){
+                    TextView invalidEmail = findViewById(R.id.InvalidUsername);
+                    invalidEmail.setText(invalidUserNameMessage);
+                }else {
+                    Intent returnHome = new Intent(HomeOwner.this, HomeOwnerWelcome.class);
+                    startActivity(returnHome);
+                }
             }
         });
 
