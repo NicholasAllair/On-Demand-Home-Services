@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 
 public class Admin extends AppCompatActivity {
-    Button createNewService;
-    EditText newService, ratePerHour;
-    TextView result;
+    public static String adminUserName = "Admin";
+    public static String adminPassword = "group5";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

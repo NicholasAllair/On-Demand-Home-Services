@@ -6,4 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".AdminWelcomeScreen">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ServiceProviderProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="12dp"
+            android:text="Enter Admin Username and Password"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            tools:fontFamily="sans-serif"
+            tools:layout_margin="12dp"/>
+
+        <EditText
+            android:id="@+id/EnterAdminUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/EnterAdminPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Passwaord"
+            android:inputType="textPersonName"/>
+
+        <Button
+            android:id="@+id/SPReturnHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickCreateSPProfile"
+            android:text="Login to Admin Account" />
+
+    </LinearLayout>
+
+
 </android.support.constraint.ConstraintLayout>
