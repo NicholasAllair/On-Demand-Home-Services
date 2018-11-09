@@ -47,18 +47,21 @@
             android:id="@+id/ServiceProviderProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onCreateServiceProviderButtonClick"
             android:text="Create a Service Provider Profile" />
 
         <Button
             android:id="@+id/HomeownerProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onCreateHomeOwnerButtonClick"
             android:text="Create a Homeowner Profile" />
 
         <Button
             android:id="@+id/Admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onCreateAdminButtonClick"
             android:text="Access Admin Profile" />
 
     </LinearLayout>

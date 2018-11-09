@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button homeOwnerButton;
-    Button serviceProviderButton;
     Button adminButton;
 
     @Override
@@ -16,40 +14,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        homeOwnerButton = (Button) findViewById(R.id.HomeownerProfile);
-        serviceProviderButton = (Button) findViewById(R.id.ServiceProviderProfile);
-        adminButton = (Button) findViewById(R.id.Admin);
-
-
-        homeOwnerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(MainActivity.this,
-                        HomeOwner.class);
-                startActivity(intent1);
-            }
-        });
-
-        serviceProviderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2 = new Intent(MainActivity.this,
-                        ServiceProvider.class);
-                startActivity(intent2);
-            }
-        });
-
-        adminButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent3 = new Intent(MainActivity.this,
-                        Admin.class);
-                startActivity(intent3);
-            }
-        });
     }
 
-    public void createHomeOwnerButtonClick(View view){
+    public void onCreateHomeOwnerButtonClick(View view){
+        Intent HOIntent = new Intent(MainActivity.this, HomeOwner.class);
+        startActivity(HOIntent);
+    }
 
+    public void onCreateServiceProviderButtonClick(View view){
+        Intent SPIntent = new Intent(MainActivity.this,
+                ServiceProvider.class);
+        startActivity(SPIntent);
+    }
+
+    public void onCreateAdminButtonClick(View view){
+        Intent AdminIntent = new Intent(MainActivity.this,
+                Admin.class);
+        startActivity(AdminIntent);
     }
 }
