@@ -25,20 +25,21 @@ public class RemoveService extends AppCompatActivity {
 
     }
 
-    public void onNewServiceClick(View view){
+    public void onRemoveServiceClick(View view){
 
         serviceName = findViewById(R.id.ServiceToRemove);
 
         TextView ServiceDoesNotExist = findViewById(R.id.ServiceDoesNotExist);
 
-        if (serviceList.isIn(serviceName.getText().toString())){
+        if (!serviceList.isIn(serviceName.getText().toString())){
             ServiceDoesNotExist.setText("That Service Does Not Exist");
         }
+        else {
+            serviceList.removeService(serviceName.getText().toString());
 
-        serviceList.removeService(serviceName.getText().toString());
-
-        Intent HOIntent = new Intent(RemoveService.this, Admin.class);
-        startActivity(HOIntent);
+            Intent HOIntent = new Intent(RemoveService.this, Admin.class);
+            startActivity(HOIntent);
+        }
     }
 }
 

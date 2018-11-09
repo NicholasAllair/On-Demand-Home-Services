@@ -39,7 +39,7 @@
             android:id="@+id/ReturnHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickCreateHOProfile"
+            android:onClick="onRemoveServiceClick"
             android:text="Remove Service and Return Home" />
 
 
