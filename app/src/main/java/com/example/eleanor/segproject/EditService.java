@@ -1,4 +1,6 @@
 package com.example.eleanor.segproject;
 
-public class EditService {
+import android.support.v7.app.AppCompatActivity;
+
+public class EditService extends AppCompatActivity {
 }

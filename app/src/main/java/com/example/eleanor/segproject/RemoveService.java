@@ -1,4 +1,6 @@
 package com.example.eleanor.segproject;
 
-public class RemoveService {
+import android.support.v7.app.AppCompatActivity;
+
+public class RemoveService extends AppCompatActivity {
 }
