@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onCreateAdminButtonClick(View view){
-        Intent AdminIntent = new Intent(MainActivity.this, Admin.class);
+        Intent AdminIntent = new Intent(MainActivity.this, AdminLogin.class);
         startActivity(AdminIntent);
     }
 }

@@ -9,14 +9,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class Admin extends AppCompatActivity {
+public class AdminLogin extends AppCompatActivity {
     public static String adminUserName = "Admin";
     public static String adminPassword = "group5";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_administrator);
+        setContentView(R.layout.activity_administrator_login);
 
         }
 
