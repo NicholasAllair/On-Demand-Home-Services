@@ -68,7 +68,7 @@
             android:id="@+id/ReturnHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@string/title_activity_welcome_screen_activity"
+            android:onClick="onClickCreateHOProfile"
             android:text="Create Profile and Return Home" />
 
     </LinearLayout>
