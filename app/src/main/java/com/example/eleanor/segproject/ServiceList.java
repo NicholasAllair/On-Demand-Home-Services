@@ -10,7 +10,6 @@ public class ServiceList extends AppCompatActivity {
 
     public static ArrayList<Service> LISTOFSERVICES;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LISTOFSERVICES = new ArrayList<Service>(0);

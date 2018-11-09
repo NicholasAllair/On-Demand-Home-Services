@@ -13,6 +13,7 @@ import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 public class AddService extends AppCompatActivity {
 
     public ServiceList serviceList = new ServiceList();
+
     EditText serviceName;
     EditText hourlyPrice;
     Service newService;
@@ -29,9 +30,9 @@ public class AddService extends AppCompatActivity {
         serviceName = findViewById(R.id.serviceName);
         hourlyPrice = findViewById(R.id.hourlyPrice);
 
-        newService = new Service(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
+        //newService = new Service(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
 
-        LISTOFSERVICES.add(newService);
+        serviceList.addService(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
 
         Intent HOIntent = new Intent(AddService.this, Admin.class);
         startActivity(HOIntent);
