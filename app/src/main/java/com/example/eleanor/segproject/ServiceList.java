@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.ServiceConfigurationError;
 
 public class ServiceList extends AppCompatActivity {
 
@@ -11,6 +12,7 @@ public class ServiceList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LISTOFSERVICES = new ArrayList<Service>(0);
         super.onCreate(savedInstanceState);
     }
 
