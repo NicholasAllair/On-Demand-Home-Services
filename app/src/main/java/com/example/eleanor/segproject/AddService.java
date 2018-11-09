@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import java.util.ArrayList;
 
 import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 
@@ -28,7 +29,9 @@ public class AddService extends AppCompatActivity {
         serviceName = findViewById(R.id.serviceName);
         hourlyPrice = findViewById(R.id.hourlyPrice);
 
-        serviceList.addService(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
+        newService = new Service(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
+
+        LISTOFSERVICES.add(newService);
 
         Intent HOIntent = new Intent(AddService.this, Admin.class);
         startActivity(HOIntent);
