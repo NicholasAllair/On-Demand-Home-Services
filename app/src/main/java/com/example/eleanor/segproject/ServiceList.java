@@ -14,7 +14,7 @@ public class ServiceList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    public void addService(String serviceName, double payrate){
+    public static void addService(String serviceName, double payrate){
         Service aService = new Service(serviceName, payrate);
         LISTOFSERVICES.add(aService);
     }

@@ -19,7 +19,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/serviceName"
+            android:id="@+id/serviceNamePrompt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -36,7 +36,7 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/hourlyPrice"
+            android:id="@+id/hourlyPricePrompt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -45,7 +45,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/hourlyPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -56,6 +56,7 @@
             android:id="@+id/addService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onNewServiceClick"
             android:text="Add Service" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
