@@ -31,11 +31,14 @@ public class AdminLogin extends AppCompatActivity {
         invalidName.setText((" "));
         invalidPassword.setText((" "));
 
-        if (AdminNameEntered.getText().toString() != adminUserName) {
+        if (!(AdminNameEntered.getText().toString().equals(adminUserName))) {
             invalidName.setText(("Email invalid"));
         }
-        if (AdminPasswordEntered.getText().toString() != adminPassword) {
+        if (!(AdminPasswordEntered.getText().toString().equals(adminPassword))) {
             invalidPassword.setText(("Password invalid"));
+        }else {
+            Intent AdminIntent = new Intent(AdminLogin.this, Admin.class);
+            startActivity(AdminIntent);
         }
 
 
