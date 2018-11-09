@@ -39,7 +39,14 @@ public class ServiceList extends AppCompatActivity {
         LISTOFSERVICES.remove(indexOfItemToRemove);
     }
 
-    public void editService(String servicename, double newPrice){
+    public void editService(String serviceName, double newPrice){
+        int indexOfItemToEdit = 0;
+        for (int i = 0; i < LISTOFSERVICES.size(); i++){
+            if (serviceName.equals(LISTOFSERVICES.get(i).getServiceName())){
+                indexOfItemToEdit = i;
+            }
+        }
+        LISTOFSERVICES.get(indexOfItemToEdit).setServiceRate(newPrice);
 
     }
 
