@@ -1,6 +1,15 @@
 package com.example.eleanor.segproject;
 
-public class Service {
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+public class Service extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     String serviceName;//string variable to hold name of service
     double serviceRate;//double variable to hold hourly rate of the service
