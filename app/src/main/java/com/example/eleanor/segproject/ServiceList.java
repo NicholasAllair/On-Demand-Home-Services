@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ServiceList extends AppCompatActivity {
 
-    public ArrayList<Service> LISTOFSERVICES;
+    public static ArrayList<Service> LISTOFSERVICES;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

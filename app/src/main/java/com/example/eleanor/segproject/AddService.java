@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
+
 
 public class AddService extends AppCompatActivity {
 
@@ -16,6 +18,10 @@ public class AddService extends AppCompatActivity {
     }
 
     public void onNewServiceClick(View view){
+
+
+        LISTOFSERVICES.add(service);
+
         Intent HOIntent = new Intent(AddService.this, Admin.class);
         startActivity(HOIntent);
     }
