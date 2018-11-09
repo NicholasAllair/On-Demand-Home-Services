@@ -8,15 +8,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 
 public class Admin extends AppCompatActivity {
+   //ServiceList serviceList = new ServiceList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrator);
 
+        TextView numServices = findViewById(R.id.numServices);
+        numServices.setText(ServiceList.getSize());
+
+        TextView mostRecentElement = findViewById(R.id.mostRecentElement);
+        mostRecentElement.setText(ServiceList.getLast());
     }
+
 
     public void onAddServiceClick(View view){
         Intent addService = new Intent(Admin.this, AddService.class);

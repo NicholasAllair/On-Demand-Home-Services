@@ -9,7 +9,11 @@ import java.util.ServiceConfigurationError;
 
 public class ServiceList extends AppCompatActivity {
 
-    public static ArrayList<Service> LISTOFSERVICES = new ArrayList<>();;
+    public static ArrayList<Service> LISTOFSERVICES = new ArrayList<>(10);
+
+    public ServiceList(){
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,19 @@ public class ServiceList extends AppCompatActivity {
 
     }
 
+    public static String getSize(){
+        if(LISTOFSERVICES.isEmpty()){
+            return "0";
+        }
+        return Integer.toString(LISTOFSERVICES.size());
+    }
+
+    public static String getLast(){
+        if(LISTOFSERVICES.isEmpty()){
+            return "List is Empty";
+        }
+        return (LISTOFSERVICES.get(LISTOFSERVICES.size()-1).getServiceName());
+    }
 
 
 }
