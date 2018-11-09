@@ -87,5 +87,12 @@
             android:layout_height="wrap_content"
             android:onClick="onRemoveServiceClick"
             android:text="Remove Services" />
+
+        <Button
+            android:id="@+id/viewServiceList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onViewServicesClick"
+            android:text="View Services" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

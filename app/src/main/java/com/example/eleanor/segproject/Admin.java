@@ -41,6 +41,11 @@ public class Admin extends AppCompatActivity {
         startActivity(removeService);
     }
 
+    public void onViewServicesClick(View view){
+        Intent viewServices = new Intent(Admin.this, ViewList.class);
+        startActivity(viewServices);
+    }
+
 
 
 }
