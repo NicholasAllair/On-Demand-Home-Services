@@ -19,5 +19,29 @@ public class Admin extends AppCompatActivity {
         setContentView(R.layout.activity_administrator);
 
         }
+
+    public void onClickLoginToAdmin(View view){
+        TextView invalidName = findViewById(R.id.InvalidUsername);
+        TextView invalidPassword = findViewById(R.id.InvalidPassword);
+
+
+        EditText AdminNameEntered  = findViewById(R.id.EnterAdminUsername);
+        EditText AdminPasswordEntered  = findViewById(R.id.EnterAdminPassword);
+
+
+        if(AdminNameEntered.getText().toString() != adminUserName){
+            invalidName.setText(("Email invalid"));
+        }
+        if(AdminPasswordEntered.getText().toString() != adminPassword){
+            invalidPassword.setText(("Email invalid"));
+        }
+
+    }
+
+
+
 }
+
+
+
 
