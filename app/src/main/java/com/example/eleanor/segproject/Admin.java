@@ -18,6 +18,21 @@ public class Admin extends AppCompatActivity {
 
     }
 
+    public void onAddServiceClick(View view){
+        Intent addService = new Intent(Admin.this, AddService.class);
+        startActivity(addService);
+    }
+
+    public void onEditServiceClick(View view){
+        Intent editService = new Intent(Admin.this, EditService.class);
+        startActivity(editService);
+    }
+
+    public void onRemoveServiceClick(View view){
+        Intent removeService = new Intent(Admin.this, RemoveService.class);
+        startActivity(removeService);
+    }
+
 
 
 }
