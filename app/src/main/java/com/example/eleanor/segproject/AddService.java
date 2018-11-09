@@ -11,7 +11,7 @@ import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 
 public class AddService extends AppCompatActivity {
 
-    ServiceList serviceList = new ServiceList();
+    public ServiceList serviceList = new ServiceList();
     EditText serviceName;
     EditText hourlyPrice;
     Service newService;
