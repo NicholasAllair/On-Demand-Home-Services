@@ -19,7 +19,7 @@ public class ServiceList extends AppCompatActivity {
     public static void addService(String serviceName, double payrate){
         Service aService = new Service(serviceName, payrate);
         LISTOFSERVICES.add(aService);
-
+        
     }
 
     public void removeService(String serviceName){
