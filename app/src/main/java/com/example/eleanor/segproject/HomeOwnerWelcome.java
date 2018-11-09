@@ -2,17 +2,13 @@ package com.example.eleanor.segproject;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
-import android.view.LayoutInflater;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 import static com.example.eleanor.segproject.HomeOwner.HONAME;
 
 public class HomeOwnerWelcome extends AppCompatActivity{
-    TextView username;
+    TextView HOusername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +18,8 @@ public class HomeOwnerWelcome extends AppCompatActivity{
         setUserName(HONAME);
     }
 
-    public String getUserName(){
-        EditText username = findViewById(R.id.EnterName);
-        return username.getText().toString();
-    }
-
     public void setUserName(String name){
-        username = findViewById(R.id.HOusername);
-        username.setText(name);
+        HOusername = findViewById(R.id.HOusername);
+        HOusername.setText(name);
     }
 }

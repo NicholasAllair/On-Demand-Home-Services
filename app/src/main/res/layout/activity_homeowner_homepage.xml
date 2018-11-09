@@ -15,13 +15,18 @@
             android:id="@+id/HOwelcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="5dp"
             android:gravity="center_horizontal"
-            android:text="Welcome" />
+            android:text="Welcome, homeowner" />
 
         <TextView
             android:id="@+id/HOusername"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

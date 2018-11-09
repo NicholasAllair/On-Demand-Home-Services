@@ -18,8 +18,6 @@ public class HomeOwner extends User{
     EditText editEmail;
     EditText editPassword;
 
-
-
     public HomeOwner(){
 
     }

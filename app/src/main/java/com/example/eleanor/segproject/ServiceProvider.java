@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 
 public class ServiceProvider extends User {
+    public static String SPNAME;
+
     EditText SPname;
     EditText SPemail;
     EditText SPpassword;
@@ -37,6 +39,8 @@ public class ServiceProvider extends User {
             Intent SPIntent = new Intent(ServiceProvider.this, ServiceProviderWelcome.class);
             startActivity(SPIntent);
         }
+
+        SPNAME = getName();
     }
 
     public String getName(){
