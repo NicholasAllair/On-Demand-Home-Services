@@ -19,7 +19,7 @@
             android:text="Welcome" />
 
         <TextView
-            android:id="@+id/username"
+            android:id="@+id/HOusername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
