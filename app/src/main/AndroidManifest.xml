@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Admin"/>
-        <activity android:name=".AdminWelcomeScreen" />
         <activity android:name=".HomeOwner" />
         <activity android:name=".HomeOwnerWelcome" />
         <activity android:name=".ServiceProvider"/>
