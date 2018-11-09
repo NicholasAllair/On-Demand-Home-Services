@@ -40,11 +40,11 @@ public class HomeOwner extends User{
         final String invalidEmailMessage = "Email address invalid";
         final String invalidUserNameMessage = "Username invalid";
 
-        createProfile.setOnClickListener(new View.OnClickListener() {
+/*        createProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent returnHome = new Intent(HomeOwner.this, HomeOwnerWelcome.class);
-
+                /*
                 do {
                     TextView invalidEmail = findViewById(R.id.InvalidEmail);
                     invalidEmail.setText(invalidEmailMessage);
@@ -56,7 +56,18 @@ public class HomeOwner extends User{
                 }while(!isValidUsername(editName.getText().toString()));
 
 
-               startActivity(returnHome);
+                startActivity(returnHome);
+            }
+        });
+*/
+
+        createProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent returnHome = new Intent(HomeOwner.this,
+                        ServiceProviderWelcome.class);
+                startActivity(returnHome);
             }
         });
 

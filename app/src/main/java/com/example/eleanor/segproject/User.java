@@ -24,15 +24,16 @@ public abstract class User extends AppCompatActivity {
     public abstract String getPassword();
     public abstract void setPassword(EditText password);
 
-    public final static boolean isValidEmail(CharSequence target) {
+    public final static boolean isValidEmail(String target) {
         if (TextUtils.isEmpty(target)) {
             return false;
         } else {
-            return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+            return (target.contains("@"));
+            //return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
         }
     }
     public final static boolean isValidUsername(CharSequence target) {
-        return (TextUtils.isEmpty(target));
+        return (!TextUtils.isEmpty(target));
     }
 }
 
