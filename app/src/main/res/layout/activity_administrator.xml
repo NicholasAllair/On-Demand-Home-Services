@@ -23,7 +23,40 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:gravity="center_horizontal"
-            android:textSize="20sp"
-            android:text="Administrator" />
+            android:text="Administrator"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp" />
+
+        <TextView
+            android:id="@+id/adminActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="Administrator Actions" />
+
+        <Button
+            android:id="@+id/addServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Services" />
+
+        <Button
+            android:id="@+id/editServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Services" />
+
+        <Button
+            android:id="@+id/removeServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remove Services" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
