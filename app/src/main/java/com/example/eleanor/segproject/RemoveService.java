@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
@@ -24,7 +26,14 @@ public class RemoveService extends AppCompatActivity {
     }
 
     public void onNewServiceClick(View view){
-        serviceName = findViewById(R.id.serviceName);
+
+        serviceName = findViewById(R.id.ServiceToRemove);
+
+        TextView ServiceDoesNotExist = findViewById(R.id.ServiceDoesNotExist);
+
+        if (serviceList.isIn(serviceName.getText().toString())){
+            ServiceDoesNotExist.setText("That Service Does Not Exist");
+        }
 
         serviceList.removeService(serviceName.getText().toString());
 
