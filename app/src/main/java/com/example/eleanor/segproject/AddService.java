@@ -26,7 +26,15 @@ public class AddService extends AppCompatActivity {
         serviceName = findViewById(R.id.serviceName);
         hourlyPrice = findViewById(R.id.hourlyPrice);
 
+<<<<<<< Updated upstream
         ServiceList.addService(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
+=======
+        newService = new Service();
+        newService.setServiceName(serviceName.getText().toString());
+        newService.setServiceRate(Double.parseDouble(hourlyPrice.getText().toString()));
+
+        ServiceList.addService(newService.getServiceName(), newService.getServiceRate());
+>>>>>>> Stashed changes
 
         Intent HOIntent = new Intent(AddService.this, Admin.class);
         startActivity(HOIntent);
