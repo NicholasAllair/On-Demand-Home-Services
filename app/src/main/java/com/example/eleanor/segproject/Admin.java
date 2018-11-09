@@ -18,7 +18,6 @@ public class Admin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrator);
 
-
         }
 }
 
