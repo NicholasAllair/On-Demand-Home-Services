@@ -36,8 +36,6 @@ public class AdminLogin extends AppCompatActivity {
         }
         if (AdminPasswordEntered.getText().toString() != adminPassword) {
             invalidPassword.setText(("Password invalid"));
-
-
         }
 
 
