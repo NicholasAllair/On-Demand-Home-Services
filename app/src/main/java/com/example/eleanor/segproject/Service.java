@@ -39,4 +39,8 @@ public class Service extends AppCompatActivity {
 
     public double getServiceRate(){ return this.serviceRate; }
 
+    public String toString(){
+        return (getServiceName() + " " + getServiceRate());
+    }
+
 }

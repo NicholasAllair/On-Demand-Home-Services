@@ -2,9 +2,12 @@ package com.example.eleanor.segproject;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.ServiceConfigurationError;
 
 public class ServiceList extends AppCompatActivity {
@@ -58,6 +61,7 @@ public class ServiceList extends AppCompatActivity {
         }
         return (LISTOFSERVICES.get(LISTOFSERVICES.size()-1).getServiceName());
     }
+
 
 
 }
