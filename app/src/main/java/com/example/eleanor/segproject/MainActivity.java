@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button adminButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +21,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onCreateServiceProviderButtonClick(View view){
-        Intent SPIntent = new Intent(MainActivity.this,
-                ServiceProvider.class);
+        Intent SPIntent = new Intent(MainActivity.this, ServiceProvider.class);
         startActivity(SPIntent);
     }
 
     public void onCreateAdminButtonClick(View view){
-        Intent AdminIntent = new Intent(MainActivity.this,
-                Admin.class);
+        Intent AdminIntent = new Intent(MainActivity.this, Admin.class);
         startActivity(AdminIntent);
     }
 }
