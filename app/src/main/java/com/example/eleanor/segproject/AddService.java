@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
@@ -28,9 +30,20 @@ public class AddService extends AppCompatActivity {
         serviceName = findViewById(R.id.serviceName);
         hourlyPrice = findViewById(R.id.hourlyPrice);
 
-        serviceList.addService(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
+        TextView isNameValid = findViewById(R.id.ServiceNameValid);
+        TextView isPriceValid = findViewById(R.id.priceValid);
 
-        Intent HOIntent = new Intent(AddService.this, Admin.class);
-        startActivity(HOIntent);
+        if(serviceName.getText().toString().isEmpty()){
+            isNameValid.setText("Service name invalid");
+        }
+        if(hourlyPrice.getText().toString().isEmpty()){
+            isPriceValid.setText("Price invalid");
+        }
+        else {
+            serviceList.addService(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
+
+            Intent HOIntent = new Intent(AddService.this, Admin.class);
+            startActivity(HOIntent);
+        }
     }
 }
