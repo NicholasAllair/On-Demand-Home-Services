@@ -19,17 +19,7 @@ public class Admin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrator);
 
-        newService = (EditText) findViewById(R.id.EnterName);
-        ratePerHour = (EditText) findViewById(R.id.EnterEmail);
 
-        createNewService.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent returnHome = new Intent(Admin.this,
-                        AdminWelcomeScreen.class);
-                startActivity(returnHome);
-            }
-        });
-    }
+        }
 }
+
