@@ -29,10 +29,20 @@ public class ServiceList extends AppCompatActivity {
     public void removeService(String serviceName){
 
 
+
     }
 
-    public void editService(String servicename){
+    public void editService(String servicename, double newPrice){
 
+    }
+
+    public boolean isIn(String serviceName){
+        for (int i = 0; i < LISTOFSERVICES.size(); i++){
+            if (serviceName.equals(LISTOFSERVICES.get(i).getServiceName())){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static String getSize(){

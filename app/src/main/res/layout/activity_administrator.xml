@@ -85,6 +85,7 @@
             android:id="@+id/removeServices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onRemoveServiceClick"
             android:text="Remove Services" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

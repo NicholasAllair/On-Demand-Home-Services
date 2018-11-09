@@ -16,8 +16,6 @@ public class AddService extends AppCompatActivity {
 
     EditText serviceName;
     EditText hourlyPrice;
-    Service newService;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +27,6 @@ public class AddService extends AppCompatActivity {
     public void onNewServiceClick(View view){
         serviceName = findViewById(R.id.serviceName);
         hourlyPrice = findViewById(R.id.hourlyPrice);
-
-        //newService = new Service(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
 
         serviceList.addService(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
 
