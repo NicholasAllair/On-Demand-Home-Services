@@ -4,21 +4,22 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ServiceConfigurationError;
 
 public class ServiceList extends AppCompatActivity {
 
-    public static ArrayList<Service> LISTOFSERVICES;
+    public static ArrayList<Service> LISTOFSERVICES = new ArrayList<>();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        LISTOFSERVICES = new ArrayList<Service>(0);
         super.onCreate(savedInstanceState);
     }
 
     public static void addService(String serviceName, double payrate){
         Service aService = new Service(serviceName, payrate);
         LISTOFSERVICES.add(aService);
+        
     }
 
     public void removeService(String serviceName){
