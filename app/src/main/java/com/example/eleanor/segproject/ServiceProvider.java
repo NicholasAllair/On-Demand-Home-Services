@@ -21,15 +21,18 @@ public class ServiceProvider extends User {
     }
 
     public void onClickCreateSPProfile(View view){
-        TextView invalidEmail = findViewById(R.id.InvalidEmail);
-        TextView invalidName = findViewById(R.id.InvalidUsername);
+        TextView invalidEmail = findViewById(R.id.InvalidSPEmail);
+        TextView invalidName = findViewById(R.id.InvalidSPUsername);
 
-        if(!isValidEmail(getEmail())){
-            invalidEmail.setText(("Email invalid"));
+        if(!isValidEmail(getEmail()) || !isValidUsername(getName()) ){
+            if(!isValidEmail(getEmail())) {
+                invalidEmail.setText(("Email invalid"));
+            }
+            if(!isValidUsername(getName())){
+                invalidName.setText("Name invalid");
+            }
         }
-        if(!isValidUsername(getName())){
-            invalidName.setText("Name invalid");
-        }
+
         else {
             Intent SPIntent = new Intent(ServiceProvider.this, ServiceProviderWelcome.class);
             startActivity(SPIntent);
