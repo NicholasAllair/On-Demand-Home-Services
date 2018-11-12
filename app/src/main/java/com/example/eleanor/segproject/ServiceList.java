@@ -86,13 +86,13 @@ public class ServiceList extends AppCompatActivity {
 
         TextView ServiceDoesNotExist = findViewById(R.id.ServiceDoesNotExist);
 
-        if (!LISTOFSERVICES.isIn(serviceName.getText().toString())){
+        if (!isIn(serviceName.getText().toString())){
             ServiceDoesNotExist.setText("That Service Does Not Exist");
         }
         else {
-            LISTOFSERVICES.removeService(serviceName.getText().toString());
+            removeService(serviceName.getText().toString());
 
-            Intent HOIntent = new Intent(RemoveService.this, Admin.class);
+            Intent HOIntent = new Intent(ServiceList.this, Admin.class);
             startActivity(HOIntent);
         }
     }
