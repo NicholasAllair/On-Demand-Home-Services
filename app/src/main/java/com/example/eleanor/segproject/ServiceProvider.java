@@ -11,9 +11,14 @@ import android.widget.TextView;
 public class ServiceProvider extends User {
     public static String SPNAME;
 
-    EditText SPname;
-    EditText SPemail;
-    EditText SPpassword;
+    EditText editName;
+    EditText editEmail;
+    EditText editPassword;
+
+    public ServiceProvider(){
+        //inherits userName, password, email
+        super();
+    }
 
 
     @Override
@@ -25,6 +30,14 @@ public class ServiceProvider extends User {
     public void onClickCreateSPProfile(View view){
         TextView invalidEmail = findViewById(R.id.InvalidSPEmail);
         TextView invalidName = findViewById(R.id.InvalidSPUsername);
+
+        editName = findViewById(R.id.EnterSPName);
+        editEmail = findViewById(R.id.EnterSPEmail);
+        editPassword = findViewById(R.id.EnterSPPassword);
+
+        setName(editName.getText().toString());
+        setEmail(editEmail.getText().toString());
+        setPassword(editPassword.getText().toString());
 
         if(!isValidEmail(getEmail()) || !isValidUsername(getName()) ){
             if(!isValidEmail(getEmail())) {
@@ -43,27 +56,5 @@ public class ServiceProvider extends User {
         SPNAME = getName();
     }
 
-    public String getName(){
-        SPname = findViewById(R.id.EnterSPName);
-        return SPname.getText().toString();
-    }
-    public void setName(EditText name){
-        this.SPname = name;
-    }
 
-    public String getEmail(){
-        SPemail = findViewById(R.id.EnterSPEmail);
-        return SPemail.getText().toString();
-    }
-    public void setEmail(EditText email){
-        this.SPemail = email;
-    }
-
-    public String getPassword(){
-        SPpassword = findViewById(R.id.EnterSPPassword);
-        return SPpassword.getText().toString();
-    }
-    public void setPassword(EditText password){
-        this.SPpassword = password;
-    }
 }

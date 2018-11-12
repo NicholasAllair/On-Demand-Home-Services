@@ -26,7 +26,7 @@
             tools:layout_margin="12dp" />
 
         <EditText
-            android:id="@+id/EnterName"
+            android:id="@+id/EnterHOName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -41,7 +41,7 @@
             android:textColor="@android:color/holo_red_dark" />
 
         <EditText
-            android:id="@+id/EnterEmail"
+            android:id="@+id/EnterHOEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -56,7 +56,7 @@
             android:textColor="@android:color/holo_red_dark" />
 
         <EditText
-            android:id="@+id/EnterPassword"
+            android:id="@+id/EnterHOPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

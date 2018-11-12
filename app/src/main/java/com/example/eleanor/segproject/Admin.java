@@ -10,8 +10,13 @@ import android.widget.TextView;
 
 import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 
-public class Admin extends AppCompatActivity {
-   //ServiceList serviceList = new ServiceList();
+public class Admin extends User {
+    public static String ADMINUSERNAME = "Admin";
+    public static String ADMINPASSWORD = "Group5";
+
+    public Admin(){
+        super();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +28,11 @@ public class Admin extends AppCompatActivity {
 
         TextView mostRecentElement = findViewById(R.id.mostRecentElement);
         mostRecentElement.setText(ServiceList.getLast());
-    }
 
+        this.setName(ADMINUSERNAME);
+        this.setPassword(ADMINPASSWORD);
+
+    }
 
     public void onAddServiceClick(View view){
         Intent addService = new Intent(Admin.this, AddService.class);
@@ -45,8 +53,6 @@ public class Admin extends AppCompatActivity {
         Intent viewServices = new Intent(Admin.this, ViewList.class);
         startActivity(viewServices);
     }
-
-
 
 }
 

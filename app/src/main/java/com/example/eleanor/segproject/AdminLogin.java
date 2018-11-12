@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static com.example.eleanor.segproject.Admin.ADMINUSERNAME;
+import static com.example.eleanor.segproject.Admin.ADMINPASSWORD;
 
 public class AdminLogin extends AppCompatActivity {
-    public static String adminUserName = "Admin";
-    public static String adminPassword = "group5";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +30,10 @@ public class AdminLogin extends AppCompatActivity {
         invalidName.setText((" "));
         invalidPassword.setText((" "));
 
-        if (!(AdminNameEntered.getText().toString().equals(adminUserName))) {
+        if (!(AdminNameEntered.getText().toString().equals(ADMINUSERNAME))) {
             invalidName.setText(("Email invalid"));
         }
-        if (!(AdminPasswordEntered.getText().toString().equals(adminPassword))) {
+        if (!(AdminPasswordEntered.getText().toString().equals(ADMINPASSWORD))) {
             invalidPassword.setText(("Password invalid"));
         }else {
             Intent AdminIntent = new Intent(AdminLogin.this, Admin.class);

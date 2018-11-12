@@ -19,7 +19,8 @@ public class HomeOwner extends User{
     EditText editPassword;
 
     public HomeOwner(){
-
+        //inherits userName, password, email
+        super();
     }
 
     @Override
@@ -32,42 +33,30 @@ public class HomeOwner extends User{
         TextView invalidEmail = findViewById(R.id.InvalidEmail);
         TextView invalidName = findViewById(R.id.InvalidUsername);
 
-        if(!isValidEmail(getEmail())){
-            invalidEmail.setText(("Email invalid"));
-        }
-        if(!isValidUsername(getName())){
-            invalidName.setText("Name invalid");
+        editName = findViewById(R.id.EnterHOName);
+        editEmail = findViewById(R.id.EnterHOEmail);
+        editPassword = findViewById(R.id.EnterHOPassword);
+
+        setName(editName.getText().toString());
+        setEmail(editEmail.getText().toString());
+        setPassword(editPassword.getText().toString());
+
+        if(!isValidEmail(getEmail()) || !isValidUsername(getName()) ) {
+            if (!isValidEmail(this.getEmail())) {
+                invalidEmail.setText(("Email invalid"));
+            }
+            if (!isValidUsername(this.getName())) {
+                invalidName.setText("Name invalid");
+            }
         }
         else {
             Intent HOIntent = new Intent(HomeOwner.this, HomeOwnerWelcome.class);
             startActivity(HOIntent);
         }
 
+
         HONAME = getName();
     }
 
-    public String getName(){
-        editName = findViewById(R.id.EnterName);
-        return editName.getText().toString();
-    }
-    public void setName(EditText editName){
-        this.editName = editName;
-    }
-
-    public String getEmail(){
-        editEmail = findViewById(R.id.EnterEmail);
-        return editEmail.getText().toString();
-    }
-    public void setEmail(EditText editEmail){
-        this.editEmail = editEmail;
-    }
-
-    public String getPassword(){
-        editPassword = findViewById(R.id.EnterPassword);
-        return editPassword.getText().toString();
-    }
-    public void setPassword(EditText password){
-        this.editPassword = password;
-    }
 
 }
