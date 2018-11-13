@@ -80,22 +80,7 @@ public class ServiceList extends AppCompatActivity {
         return (LISTOFSERVICES.get(LISTOFSERVICES.size()-1).getServiceName());
     }
 
-    public void onRemoveServiceClick(View view){
 
-        EditText serviceName = findViewById(R.id.ServiceToRemove);
-
-        TextView ServiceDoesNotExist = findViewById(R.id.ServiceDoesNotExist);
-
-        if (!isIn(serviceName.getText().toString())){
-            ServiceDoesNotExist.setText("That Service Does Not Exist");
-        }
-        else {
-            removeService(serviceName.getText().toString());
-
-            Intent HOIntent = new Intent(ServiceList.this, Admin.class);
-            startActivity(HOIntent);
-        }
-    }
 
 
 }

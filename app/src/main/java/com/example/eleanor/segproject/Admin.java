@@ -34,6 +34,7 @@ public class Admin extends User {
 
     }
 
+
     public void onAddServiceClick(View view){
         Intent addService = new Intent(Admin.this, AddService.class);
         startActivity(addService);
