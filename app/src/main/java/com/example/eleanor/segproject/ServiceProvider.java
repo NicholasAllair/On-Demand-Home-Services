@@ -4,16 +4,20 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
 
-public class ServiceProvider extends User {
+
+public class ServiceProvider extends User{
     public static String SPNAME;
 
-    EditText editName;
-    EditText editEmail;
-    EditText editPassword;
+    TextView invalidEmail, invalidName, invalidAddress, invalidPhone;
+    EditText editName, editAddress, editPhone, editEmail, editDescription, editPassword;
+    String description;
+    CheckBox checkLicensed;
 
     public ServiceProvider(){
         //inherits userName, password, email
@@ -28,26 +32,40 @@ public class ServiceProvider extends User {
     }
 
     public void onClickCreateSPProfile(View view){
-        TextView invalidEmail = findViewById(R.id.InvalidSPEmail);
-        TextView invalidName = findViewById(R.id.InvalidSPUsername);
+        invalidEmail = findViewById(R.id.invalidSPEmail);
+        invalidName = findViewById(R.id.invalidSPUsername);
+        invalidAddress = findViewById(R.id.invalidSPAddress);
+        invalidPhone = findViewById(R.id.invalidSPPhone);
 
-        editName = findViewById(R.id.EnterSPName);
-        editEmail = findViewById(R.id.EnterSPEmail);
-        editPassword = findViewById(R.id.EnterSPPassword);
+        editName = findViewById(R.id.enterSPName);
+        editAddress = findViewById(R.id.enterSPAddress);
+        editPhone = findViewById(R.id.enterSPPhone);
+        editEmail = findViewById(R.id.enterSPEmail);
+        editDescription = findViewById(R.id.enterSPDescription);
+        editPassword = findViewById(R.id.enterSPPassword);
 
         setName(editName.getText().toString());
+        setAddress(editAddress.getText().toString());
+        setPhone(editPhone.getText().toString());
         setEmail(editEmail.getText().toString());
         setPassword(editPassword.getText().toString());
+        setDescription(editDescription.getText().toString());
 
-        if(!isValidEmail(getEmail()) || !isValidUsername(getName()) ){
-            if(!isValidEmail(getEmail())) {
+        if(!isValidEmail(getEmail()) || !isValidUsername(getName())
+                || !isValidAddress(getAddress()) || !isValidPhone(getPhone()) ) {
+            if (!isValidEmail(this.getEmail())) {
                 invalidEmail.setText(("Email invalid"));
             }
-            if(!isValidUsername(getName())){
+            if (!isValidUsername(this.getName())) {
                 invalidName.setText("Name invalid");
             }
+            if (!isValidAddress(this.getAddress())) {
+                invalidAddress.setText("Address invalid");
+            }
+            if (!isValidPhone(this.getPhone())) {
+                invalidPhone.setText("Phone number invalid");
+            }
         }
-
         else {
             Intent SPIntent = new Intent(ServiceProvider.this, ServiceProviderWelcome.class);
             startActivity(SPIntent);
@@ -56,5 +74,21 @@ public class ServiceProvider extends User {
         SPNAME = getName();
     }
 
+    public boolean isLicensed(){
+        checkLicensed = findViewById(R.id.licensedCheckBox);
+
+        if(checkLicensed.isChecked()){
+            return true;
+        }
+        return false;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
 
 }

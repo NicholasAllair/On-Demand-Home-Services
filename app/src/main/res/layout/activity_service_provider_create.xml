@@ -19,30 +19,60 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:padding="12dp"
+            android:padding="8dp"
             android:text="Create a New Service Provider Profile"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
             tools:fontFamily="sans-serif"
-            tools:layout_margin="12dp"/>
+            tools:layout_margin="12dp" />
 
         <EditText
-            android:id="@+id/EnterSPName"
+            android:id="@+id/enterSPName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Username"
-            android:inputType="textPersonName"/>
+            android:hint="Company Name (Mandatory)"
+            android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/InvalidSPUsername"
+            android:id="@+id/invalidSPUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textColor="@android:color/holo_red_dark" />
 
         <EditText
-            android:id="@+id/EnterSPEmail"
+            android:id="@+id/enterSPAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Address (Mandatory)"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/invalidSPAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_red_dark" />
+
+        <EditText
+            android:id="@+id/enterSPPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Phone Number (Mandatory)"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/invalidSPPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_red_dark" />
+
+        <EditText
+            android:id="@+id/enterSPEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -50,14 +80,28 @@
             android:inputType="textEmailAddress" />
 
         <TextView
-            android:id="@+id/InvalidSPEmail"
+            android:id="@+id/invalidSPEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textColor="@android:color/holo_red_dark" />
 
         <EditText
-            android:id="@+id/EnterSPPassword"
+            android:id="@+id/enterSPDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Description"
+            android:inputType="textMultiLine" />
+
+        <CheckBox
+            android:id="@+id/licensedCheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Licensed" />
+
+        <EditText
+            android:id="@+id/enterSPPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

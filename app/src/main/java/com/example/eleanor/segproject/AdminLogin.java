@@ -23,7 +23,6 @@ public class AdminLogin extends AppCompatActivity {
         TextView invalidName = findViewById(R.id.InvalidUsername);
         TextView invalidPassword = findViewById(R.id.InvalidPassword);
 
-
         EditText AdminNameEntered = findViewById(R.id.EnterAdminUsername);
         EditText AdminPasswordEntered = findViewById(R.id.EnterAdminPassword);
 
@@ -40,9 +39,7 @@ public class AdminLogin extends AppCompatActivity {
             startActivity(AdminIntent);
         }
 
-
     }
-
 }
 
 
