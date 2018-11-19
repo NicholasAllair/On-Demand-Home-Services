@@ -2,7 +2,9 @@ package com.example.eleanor.segproject;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -17,11 +19,11 @@ public class SpecifyAvailability extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_availability);
 
-        CalendarView calendar = findViewById(R.id.specAvailCalendar);
-        TextView showDate = findViewById(R.id.showDate);
-        long selectedDate = calendar.getDate();
+        Spinner daySpinner = findViewById(R.id.daySpinner);
 
-        showDate.setText(formatDate(selectedDate, "dd/MM/yyyy"));
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.days, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        daySpinner.setAdapter(adapter);
 
     }
 
