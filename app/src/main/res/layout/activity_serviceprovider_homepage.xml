@@ -27,6 +27,41 @@
             android:layout_margin="5dp"
             android:gravity="center_horizontal"
             android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/SPViewServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Services Offered" />
+
+        <Button
+            android:id="@+id/SPAddService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Services" />
+
+        <Button
+            android:id="@+id/SPRemoveServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remove Services" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+
+        <Button
+            android:id="@+id/SPViewAvailability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Current Availability" />
+
+        <Button
+            android:id="@+id/SPSpecifyAvailability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Specify Availability" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
