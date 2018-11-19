@@ -61,6 +61,7 @@
             android:id="@+id/SPSpecifyAvailability"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onSpecifyAvailabilityClick"
             android:text="Specify Availability" />
     </LinearLayout>
 

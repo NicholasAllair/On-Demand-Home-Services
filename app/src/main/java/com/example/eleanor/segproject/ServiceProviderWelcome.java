@@ -1,7 +1,9 @@
 package com.example.eleanor.segproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import static com.example.eleanor.segproject.ServiceProvider.SPNAME;
@@ -17,7 +19,10 @@ public class ServiceProviderWelcome extends AppCompatActivity {
         setUserName(SPNAME);
     }
 
-
+    public void onSpecifyAvailabilityClick(View view){
+        Intent specAvail = new Intent(ServiceProviderWelcome.this, SpecifyAvailability.class);
+        startActivity(specAvail);
+    }
 
     public void setUserName(String name){
         SPusername = findViewById(R.id.SPusername);
