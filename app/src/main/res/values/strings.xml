@@ -2,4 +2,14 @@
     <string name="app_name">SEGProject</string>
     <string name="welcome">Service provider app</string>
     <string name="title_activity_welcome_screen_activity">welcome_screen_activity</string>
+
+    <string-array name="days">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
 </resources>
