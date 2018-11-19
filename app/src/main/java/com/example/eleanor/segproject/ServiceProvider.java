@@ -10,9 +10,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 
 public class ServiceProvider extends User{
     public static String SPNAME;
+    public static ArrayList<Service> servicesOffered;
 
     TextView invalidEmail, invalidName, invalidAddress, invalidPhone;
     EditText editName, editAddress, editPhone, editEmail, editDescription, editPassword;

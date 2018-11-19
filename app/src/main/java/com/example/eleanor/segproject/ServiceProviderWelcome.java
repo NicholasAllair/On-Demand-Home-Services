@@ -6,10 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import static com.example.eleanor.segproject.ServiceProvider.SPNAME;
+import static com.example.eleanor.segproject.ServiceProvider.servicesOffered;
 
 public class ServiceProviderWelcome extends AppCompatActivity {
     TextView SPusername;
+
+    public ArrayList<Service> servicesOffered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,4 +33,5 @@ public class ServiceProviderWelcome extends AppCompatActivity {
         SPusername = findViewById(R.id.SPusername);
         SPusername.setText(name);
     }
+
 }
