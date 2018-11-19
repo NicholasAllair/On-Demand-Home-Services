@@ -17,6 +17,8 @@ public class ServiceProviderWelcome extends AppCompatActivity {
         setUserName(SPNAME);
     }
 
+
+
     public void setUserName(String name){
         SPusername = findViewById(R.id.SPusername);
         SPusername.setText(name);

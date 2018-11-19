@@ -82,18 +82,23 @@ public abstract class User extends AppCompatActivity {
     }
 
     public final static boolean isValidPhone(CharSequence target) {
-        /*if (TextUtils.isEmpty(target)) {
+
+        //FOLLOWING CODE IS NOT WORKING -- FIX
+        /*String sTarget = target.toString();
+
+        if (TextUtils.isEmpty(sTarget)) {
             return false;
-        } else if (((Integer) target.length()).equals(10)) {
+        } else if (((Integer) sTarget.length()).equals(10)) {
             return false;
         } else {
-            for (int i = 0; i < target.length(); i++) {
-                if (isLetter(target.charAt(i))) {
+            for (int i = 0; i < sTarget.length(); i++) {
+                if (isLetter(sTarget.charAt(i))) {
                     return false;
                 }
             }
         }
-        return true;*/
+        return true;
+        */
 
         return (!TextUtils.isEmpty(target));
     }
