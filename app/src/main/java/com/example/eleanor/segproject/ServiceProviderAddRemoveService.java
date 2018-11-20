@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 
-public class ServiceProviderAddService extends ServiceProvider {
+public class ServiceProviderAddRemoveService extends ServiceProvider {
 
     public ServiceList serviceList = new ServiceList();
 
@@ -55,7 +55,25 @@ public class ServiceProviderAddService extends ServiceProvider {
 
             servicesOffered.add(serviceList.getService(serviceName.getText().toString()));
 
-            Intent HOIntent = new Intent(ServiceProviderAddService.this, ServiceProviderWelcome.class);
+            Intent HOIntent = new Intent(ServiceProviderAddRemoveService.this, ServiceProviderWelcome.class);
+            startActivity(HOIntent);
+        }
+    }
+
+    public void onRemoveServiceSPClick(View view){
+
+        serviceName = findViewById(R.id.SPserviceToAdd);
+
+        TextView ServiceDoesNotExist = findViewById(R.id.SPserviceDoesNotExist);
+
+        if (!serviceList.isIn(serviceName.getText().toString())){
+            ServiceDoesNotExist.setText("That Service Does Not Exist");
+        }
+        else {
+
+            servicesOffered.add(serviceList.getService(serviceName.getText().toString()));
+
+            Intent HOIntent = new Intent(ServiceProviderAddRemoveService.this, ServiceProviderWelcome.class);
             startActivity(HOIntent);
         }
     }

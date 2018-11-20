@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:padding="8dp"
-            android:text="Add Service to Your Profile"
+            android:text="Add/Remove Service "
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
             tools:fontFamily="sans-serif"
@@ -45,6 +45,12 @@
             android:layout_height="wrap_content"
             android:onClick="onAddServiceSPClick"
             android:text="Add Service And Return Home" />
+
+        <Button
+            android:id="@+id/removeServiceAndReturnHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remove Service And Return Home" />
 
         <TextView
             android:id="@+id/serviceProviderProfile2"
