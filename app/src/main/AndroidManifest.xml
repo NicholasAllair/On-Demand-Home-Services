@@ -29,6 +29,7 @@
         <activity android:name=".ServiceProviderWelcome" />
         <activity android:name=".Service"/>
         <activity android:name=".ServiceProviderAddRemoveService"/>
+        <activity android:name=".ServiceProviderViewServices"/>
         <activity android:name=".SpecifyAvailability"/>
         <activity android:name=".ViewList"/>
 
