@@ -86,6 +86,10 @@ public class ServiceProvider extends User{
         return false;
     }
 
+    public void addService (Service e){
+        servicesOffered.add(e);
+    }
+
     public String getDescription(){
         return this.description;
     }

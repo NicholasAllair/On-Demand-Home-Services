@@ -13,9 +13,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
-import static com.example.eleanor.segproject.ServiceProvider.servicesOffered;
 
-public class ServiceProviderAddService extends AppCompatActivity {
+public class ServiceProviderAddService extends ServiceProvider {
 
     public ServiceList serviceList = new ServiceList();
 
@@ -53,6 +52,7 @@ public class ServiceProviderAddService extends AppCompatActivity {
             ServiceDoesNotExist.setText("That Service Does Not Exist");
         }
         else {
+
             servicesOffered.add(serviceList.getService(serviceName.getText().toString()));
 
             Intent HOIntent = new Intent(ServiceProviderAddService.this, ServiceProviderWelcome.class);
