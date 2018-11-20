@@ -11,17 +11,15 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/serviceProviderProfile2"
-            android:layout_width="220dp"
+            android:id="@+id/serviceProviderProfile"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:padding="8dp"
-            android:text="Enter A Service To Add"
+            android:text="Add Service to Your Profile"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
             tools:fontFamily="sans-serif"
-            tools:layout_editor_absoluteX="82dp"
-            tools:layout_editor_absoluteY="0dp"
             tools:layout_margin="12dp" />
 
         <EditText
@@ -33,6 +31,28 @@
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="43dp" />
+
+        <TextView
+            android:id="@+id/serviceDoesNotExist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_red_dark" />
+
+        <Button
+            android:id="@+id/returnHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onEditServiceClick"
+            android:text="Edit Service and Return Home" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Services Available:" />
 
         <ListView
             android:id="@+id/serviceListFromAdmin"
