@@ -1,67 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/addNewAvail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:padding="12dp"
-            android:text="Add New Availability:" />
-
-        <Spinner
-            android:id="@+id/daySpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/startTime"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/addNewAvail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:ems="7"
                 android:gravity="center_horizontal"
-                android:hint="Start Time"
-                android:inputType="time" />
+                android:padding="12dp"
+                android:text="Add new weekly availability:" />
 
-            <EditText
-                android:id="@+id/endTime"
+            <Spinner
+                android:id="@+id/daySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/enterTIme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Enter start and end times:" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:ems="7"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:hint="End Time"
-                android:inputType="time" />
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/startTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="3"
+                    android:gravity="center_horizontal"
+                    android:hint="From"
+                    android:inputType="time" />
+
+                <EditText
+                    android:id="@+id/endTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:hint="Until"
+                    android:inputType="time" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addAvail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onAddAvailClick"
+                android:text="Add Availability" />
+
+            <ListView
+                android:id="@+id/availabilityList"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp">
+
+            </ListView>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floatingActionButton3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:clickable="true"
+                android:foregroundGravity="right"
+                android:onClick="returnSPHome"
+                app:srcCompat="?android:attr/textCheckMarkInverse" />
+
         </LinearLayout>
-
-        <Button
-            android:id="@+id/addAvail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onAddAvailClick"
-            android:text="Add Availability" />
-
-        <ListView
-            android:id="@+id/availabilityList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

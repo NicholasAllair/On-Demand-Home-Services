@@ -54,7 +54,7 @@ public class ServiceProviderAddService extends AppCompatActivity {
         }
         else {
             servicesOffered.add(serviceList.getService(serviceName.getText().toString()));
-            
+
             Intent HOIntent = new Intent(ServiceProviderAddService.this, ServiceProviderWelcome.class);
             startActivity(HOIntent);
         }
