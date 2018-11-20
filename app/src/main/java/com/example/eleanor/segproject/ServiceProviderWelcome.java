@@ -14,8 +14,6 @@ import static com.example.eleanor.segproject.ServiceProvider.servicesOffered;
 public class ServiceProviderWelcome extends AppCompatActivity {
     TextView SPusername;
 
-    public ArrayList<Service> servicesOffered;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,5 +36,7 @@ public class ServiceProviderWelcome extends AppCompatActivity {
         SPusername = findViewById(R.id.SPusername);
         SPusername.setText(name);
     }
+
+
 
 }
