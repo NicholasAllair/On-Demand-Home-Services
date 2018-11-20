@@ -53,11 +53,8 @@ public class ServiceProviderAddService extends AppCompatActivity {
             ServiceDoesNotExist.setText("That Service Does Not Exist");
         }
         else {
-<<<<<<< Updated upstream
             servicesOffered.add(serviceList.getService(serviceName.getText().toString()));
-
-=======
->>>>>>> Stashed changes
+            
             Intent HOIntent = new Intent(ServiceProviderAddService.this, ServiceProviderWelcome.class);
             startActivity(HOIntent);
         }
