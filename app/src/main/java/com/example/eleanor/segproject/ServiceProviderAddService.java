@@ -19,6 +19,20 @@ public class ServiceProviderAddService extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sp_add_service);
 
+        lv = (ListView) findViewById(R.id.serviceListFromAdmin);
+
+        ArrayList<String> StringServiceList = new ArrayList<String>();
+
+        for(int i=0; i<LISTOFSERVICES.size(); i++){
+            StringServiceList.add(LISTOFSERVICES.get(i).toString());
+        }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                StringServiceList );
+
+        lv.setAdapter(arrayAdapter);
     }
 
     public void spServiceAdd(){
@@ -27,3 +41,5 @@ public class ServiceProviderAddService extends AppCompatActivity {
     }
 
 }
+
+
