@@ -43,7 +43,7 @@ public class ServiceProviderAddService extends AppCompatActivity {
         lv.setAdapter(arrayAdapter);
     }
 
-    public void onEditServiceClick(View view){
+    public void onAddServiceSPClick(View view){
 
         serviceName = findViewById(R.id.ServiceToAdd);
 

@@ -40,11 +40,11 @@
             android:textColor="@android:color/holo_red_dark" />
 
         <Button
-            android:id="@+id/returnHome"
+            android:id="@+id/AddServiceAndReturnHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onEditServiceClick"
-            android:text="Edit Service and Return Home" />
+            android:onClick="onAddServiceSPClick"
+            android:text="Add Service And Return Home" />
 
         <TextView
             android:id="@+id/serviceProviderProfile2"
