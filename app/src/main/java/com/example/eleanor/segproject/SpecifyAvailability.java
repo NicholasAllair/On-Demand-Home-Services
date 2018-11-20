@@ -57,6 +57,11 @@ public class SpecifyAvailability extends AppCompatActivity {
         availabilityList.setAdapter(arrayAdapter);
     }
 
+    public void returnSPHome(View view){
+        Intent spHome = new Intent(SpecifyAvailability.this, ServiceProviderWelcome.class);
+        startActivity(spHome);
+    }
+
 
     public String availabilityToString(String day, String startTime, String endTime){
         return (day + ": " + startTime + " - " + endTime);

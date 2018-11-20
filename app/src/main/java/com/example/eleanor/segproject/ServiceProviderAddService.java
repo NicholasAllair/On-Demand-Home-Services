@@ -44,9 +44,9 @@ public class ServiceProviderAddService extends ServiceProvider {
 
     public void onAddServiceSPClick(View view){
 
-        serviceName = findViewById(R.id.ServiceToAdd);
+        serviceName = findViewById(R.id.SPserviceToAdd);
 
-        TextView ServiceDoesNotExist = findViewById(R.id.ServiceDoesNotExist);
+        TextView ServiceDoesNotExist = findViewById(R.id.SPserviceDoesNotExist);
 
         if (!serviceList.isIn(serviceName.getText().toString())){
             ServiceDoesNotExist.setText("That Service Does Not Exist");

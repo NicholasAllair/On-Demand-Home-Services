@@ -23,7 +23,7 @@
             tools:layout_margin="12dp" />
 
         <EditText
-            android:id="@+id/ServiceToAdd"
+            android:id="@+id/SPserviceToAdd"
             android:layout_width="match_parent"
             android:layout_height="61dp"
             android:ems="10"
@@ -33,7 +33,7 @@
             tools:layout_editor_absoluteY="43dp" />
 
         <TextView
-            android:id="@+id/serviceDoesNotExist"
+            android:id="@+id/SPserviceDoesNotExist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
