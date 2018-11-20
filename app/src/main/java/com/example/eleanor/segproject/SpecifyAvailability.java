@@ -3,10 +3,12 @@ package com.example.eleanor.segproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -17,40 +19,47 @@ import java.util.Calendar;
 
 
 public class SpecifyAvailability extends AppCompatActivity {
-    Button addAvailability = findViewById(R.id.addAvail);
-    EditText startTime = findViewById(R.id.startTime);
-    EditText endTime = findViewById(R.id.endTime);
+    EditText startTime;
+    EditText endTime;
     ArrayList<String> availabilities;
-    Spinner day = findViewById(R.id.daySpinner);
+    Spinner day;
+    ListView availabilityList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_availability);
 
-        Spinner daySpinner = findViewById(R.id.daySpinner);
+        startTime = findViewById(R.id.startTime);
+        endTime = findViewById(R.id.endTime);
+        day = findViewById(R.id.daySpinner);
+        availabilityList = findViewById(R.id.availabilityList);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.days, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        daySpinner.setAdapter(adapter);
+        day.setAdapter(adapter);
+
+        availabilities = new ArrayList<String>();
 
     }
 
-    public void onAddAvailClick(){
-        availabilities.add(availabilityToString(this.day.getSelectedItem().toString(), startTime.getText().toString(), endTime.getText().toString()));
+    public void onAddAvailClick(View view){
+        String dayString = day.getSelectedItem().toString();
+        String startTimeString = startTime.getText().toString();
+        String endTimeString = endTime.getText().toString();
+
+        String availString = availabilityToString(dayString, startTimeString, endTimeString);
+
+        availabilities.add(availString);
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, availabilities );
+
+        availabilityList.setAdapter(arrayAdapter);
     }
 
-    public static String formatDate(long milliSeconds, String dateFormat)
-    {
-        SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(milliSeconds);
-        return formatter.format(calendar.getTime());
-    }
 
     public String availabilityToString(String day, String startTime, String endTime){
-        return startTime + ": " + startTime + " - " + endTime;
+        return (day + ": " + startTime + " - " + endTime);
     }
 
 }

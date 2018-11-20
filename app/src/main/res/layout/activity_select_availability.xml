@@ -57,6 +57,11 @@
             android:onClick="onAddAvailClick"
             android:text="Add Availability" />
 
+        <ListView
+            android:id="@+id/availabilityList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
