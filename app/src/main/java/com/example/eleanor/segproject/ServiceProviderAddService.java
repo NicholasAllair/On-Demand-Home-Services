@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 
 public class ServiceProviderAddService extends AppCompatActivity {
-
     ListView lv;
 
     @Override

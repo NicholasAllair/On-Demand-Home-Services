@@ -30,8 +30,8 @@ public class ServiceProviderWelcome extends AppCompatActivity {
     }
 
     public void onServiceProviderAddService(View view){
-        Intent specAvail = new Intent(ServiceProviderWelcome.this, ServiceProviderAddService.class);
-        startActivity(specAvail);
+        Intent addSPService = new Intent(ServiceProviderWelcome.this, ServiceProviderAddService.class);
+        startActivity(addSPService);
     }
 
     public void setUserName(String name){

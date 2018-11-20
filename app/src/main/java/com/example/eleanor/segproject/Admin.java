@@ -54,5 +54,12 @@ public class Admin extends User {
         startActivity(viewServices);
     }
 
+    public void onHomeClick(View view){
+        Intent home = new Intent(Admin.this, MainActivity.class);
+        startActivity(home);
+    }
+
+
+
 }
 
