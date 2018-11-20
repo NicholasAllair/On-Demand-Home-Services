@@ -35,5 +35,9 @@ public class ServiceProviderAddService extends AppCompatActivity {
         lv.setAdapter(arrayAdapter);
     }
 
-  
+    public void spServiceAdd(){
+
+
+    }
+
 }

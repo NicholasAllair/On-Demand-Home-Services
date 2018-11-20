@@ -5,32 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/serviceProviderProfile2"
-        tools:fontFamily="sans-serif"
-        tools:layout_margin="12dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:padding="8dp"
-        android:text="Create a New Service Provider Profile"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/serviceName"
-        android:layout_width="match_parent"
-        android:layout_height="78dp"
-        android:ems="10"
-        android:hint="Service Name"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="43dp" />
+        <TextView
+            android:id="@+id/serviceProviderProfile2"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:text="Enter A Service To Add"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            tools:fontFamily="sans-serif"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_margin="12dp" />
 
-    <ListView
-        android:id="@+id/serviceListFromAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="563dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="127dp" />
+        <EditText
+            android:id="@+id/serviceName"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:ems="10"
+            android:hint="Service Name"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="43dp" />
+
+        <ListView
+            android:id="@+id/serviceListFromAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="563dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="127dp" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

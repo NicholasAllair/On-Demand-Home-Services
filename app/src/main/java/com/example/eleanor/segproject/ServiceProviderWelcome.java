@@ -29,6 +29,11 @@ public class ServiceProviderWelcome extends AppCompatActivity {
         startActivity(specAvail);
     }
 
+    public void onServiceProviderAddService(View view){
+        Intent specAvail = new Intent(ServiceProviderWelcome.this, ServiceProviderAddService.class);
+        startActivity(specAvail);
+    }
+
     public void setUserName(String name){
         SPusername = findViewById(R.id.SPusername);
         SPusername.setText(name);

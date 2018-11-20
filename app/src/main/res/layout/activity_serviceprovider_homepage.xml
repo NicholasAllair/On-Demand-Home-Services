@@ -38,6 +38,7 @@
             android:id="@+id/SPAddService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onServiceProviderAddService"
             android:text="Add Services" />
 
         <Button
