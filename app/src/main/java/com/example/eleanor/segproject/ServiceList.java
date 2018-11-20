@@ -66,6 +66,15 @@ public class ServiceList extends AppCompatActivity {
         return false;
     }
 
+    public Service getService (String serviceName) {//return the service, given the services name
+        for (int i = 0; i < LISTOFSERVICES.size(); i++) {
+            if (serviceName.equals(LISTOFSERVICES.get(i).getServiceName())) {
+                return LISTOFSERVICES.get(i);
+            }
+        }
+        return LISTOFSERVICES.get(LISTOFSERVICES.size()-1);
+    }
+
     public static String getSize(){
         if(LISTOFSERVICES.isEmpty()){
             return "0";
