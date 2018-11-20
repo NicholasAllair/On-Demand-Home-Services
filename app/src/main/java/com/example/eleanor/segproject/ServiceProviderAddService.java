@@ -45,16 +45,19 @@ public class ServiceProviderAddService extends AppCompatActivity {
 
     public void onAddServiceSPClick(View view){
 
-        serviceName = findViewById(R.id.ServiceToAdd);
+        serviceName = findViewById(R.id.SPserviceToAdd);
 
-        TextView ServiceDoesNotExist = findViewById(R.id.ServiceDoesNotExist);
+        TextView ServiceDoesNotExist = findViewById(R.id.SPserviceDoesNotExist);
 
         if (!serviceList.isIn(serviceName.getText().toString())){
             ServiceDoesNotExist.setText("That Service Does Not Exist");
         }
         else {
+<<<<<<< Updated upstream
             servicesOffered.add(serviceList.getService(serviceName.getText().toString()));
 
+=======
+>>>>>>> Stashed changes
             Intent HOIntent = new Intent(ServiceProviderAddService.this, ServiceProviderWelcome.class);
             startActivity(HOIntent);
         }
