@@ -28,7 +28,7 @@ public class ServiceProviderWelcome extends AppCompatActivity {
     }
 
     public void onServiceProviderAddService(View view){
-        Intent addSPService = new Intent(ServiceProviderWelcome.this, ServiceProviderAddService.class);
+        Intent addSPService = new Intent(ServiceProviderWelcome.this, ServiceProviderAddRemoveService.class);
         startActivity(addSPService);
     }
 
