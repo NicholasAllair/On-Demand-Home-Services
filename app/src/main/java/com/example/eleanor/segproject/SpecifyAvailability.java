@@ -37,7 +37,7 @@ public class SpecifyAvailability extends AppCompatActivity {
     }
 
     public void onAddAvailClick(){
-        availabilities.add(availabilityToString(this.day))
+        availabilities.add(availabilityToString(this.day.getSelectedItem().toString(), startTime.getText().toString(), endTime.getText().toString()));
     }
 
     public static String formatDate(long milliSeconds, String dateFormat)
