@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 import static java.lang.Character.isLetter;
 
 
@@ -16,6 +18,7 @@ public abstract class User extends AppCompatActivity {
     EditText editName, editEmail, editPassword;
     String content;
     public static String userName, password, email, address, phone;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     public User() {
     }
@@ -102,5 +105,6 @@ public abstract class User extends AppCompatActivity {
 
         return (!TextUtils.isEmpty(target));
     }
+
 
 }

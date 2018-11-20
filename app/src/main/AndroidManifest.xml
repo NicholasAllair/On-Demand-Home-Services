@@ -29,7 +29,10 @@
         <activity android:name=".ServiceProviderWelcome" />
         <activity android:name=".Service"/>
         <activity android:name=".ServiceProviderAddRemoveService"/>
+<<<<<<< Updated upstream
         <activity android:name=".ServiceProviderViewServices"/>
+=======
+>>>>>>> Stashed changes
         <activity android:name=".SpecifyAvailability"/>
         <activity android:name=".ViewList"/>
 
