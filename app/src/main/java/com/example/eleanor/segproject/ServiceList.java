@@ -9,6 +9,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,6 +20,7 @@ import java.util.ServiceConfigurationError;
 public class ServiceList extends AppCompatActivity {
 
     public static ArrayList<Service> LISTOFSERVICES = new ArrayList<>(10);
+    private DatabaseReference mDatabase;
 
     public ServiceList(){
 
@@ -25,14 +29,13 @@ public class ServiceList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     public static void addService(String serviceName, double payrate){
         Service aService = new Service(serviceName, payrate);
 
         LISTOFSERVICES.add(aService);
-
-        aService.writeNewService(aService.getServiceName(), Double.toString(aService.getServiceRate()));
     }
 
     public void removeService(String serviceName){

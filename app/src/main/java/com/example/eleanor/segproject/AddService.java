@@ -18,6 +18,7 @@ public class AddService extends AppCompatActivity {
 
     public ServiceList serviceList = new ServiceList();
 
+    Service newService;
     EditText serviceName;
     EditText hourlyPrice;
 
@@ -43,6 +44,9 @@ public class AddService extends AppCompatActivity {
         }
         else {
             serviceList.addService(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
+
+            newService = new Service(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
+            newService.writeNewService(newService.getServiceName(), Double.toString(newService.getServiceRate()));
 
             Intent HOIntent = new Intent(AddService.this, Admin.class);
             startActivity(HOIntent);
