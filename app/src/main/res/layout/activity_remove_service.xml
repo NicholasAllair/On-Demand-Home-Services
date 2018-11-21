@@ -42,7 +42,5 @@
             android:onClick="onRemoveServiceClick"
             android:text="Remove Service and Return Home" />
 
-
-
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
