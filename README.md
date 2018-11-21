@@ -8,7 +8,9 @@ Github URL: https://github.com/NicholasAllair/SEG2105_Project
 Umple UML Diagram : https://cruise.eecs.uottawa.ca/umpleonline/umple.php?model=181025614893
 
 
-:)
+ADMIN LOGIN:
+Username: Admin
+Password: Group5
 
 Members:
 

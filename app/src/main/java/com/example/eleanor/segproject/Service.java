@@ -3,12 +3,17 @@ package com.example.eleanor.segproject;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.*;
+
 public class Service extends AppCompatActivity {
+    private DatabaseReference serviceDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // serviceDB = FirebaseDatabase.getInstance().getReference();
     }
 
     String serviceName;//string variable to hold name of service
@@ -25,6 +30,12 @@ public class Service extends AppCompatActivity {
         this.serviceName = s;
         this.serviceRate = d;
 
+    }
+
+    public void writeNewService(String name, String rate) {
+
+        serviceDB.child("services").child("serviceName").setValue(name);
+        serviceDB.child("services").child("serviceRate").setValue(rate);
     }
 
 
