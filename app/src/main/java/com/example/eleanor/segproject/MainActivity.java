@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(HOIntent);
     }
 
-    public void onCreateServiceProviderButtonClick(View view){
+    public void onCreateServiceProviderButtonClick(View view) {
         Intent SPIntent = new Intent(MainActivity.this, ServiceProvider.class);
         startActivity(SPIntent);
     }
 
-    public void onCreateAdminButtonClick(View view){
-        Intent AdminIntent = new Intent(MainActivity.this, AdminLogin.class);
-        startActivity(AdminIntent);
+    public void onLoginAdminButtonClick(View view) {
+        Intent aIntent = new Intent(MainActivity.this, LoginAdmin.class);
+        startActivity(aIntent);
     }
 }

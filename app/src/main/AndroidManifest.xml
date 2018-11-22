@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".AddService"/>
         <activity android:name=".Admin"/>
-        <activity android:name=".AdminLogin"/>
+        <activity android:name=".LoginAdmin"/>
         <activity android:name=".EditService"/>
         <activity android:name=".HomeOwner" />
         <activity android:name=".HomeOwnerWelcome" />

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 public class AddService extends AppCompatActivity {
 
     public ServiceList serviceList = new ServiceList();
+    private DatabaseReference mDatabase;
 
     Service newService;
     EditText serviceName;
@@ -36,6 +38,7 @@ public class AddService extends AppCompatActivity {
         TextView isNameValid = findViewById(R.id.ServiceNameValid);
         TextView isPriceValid = findViewById(R.id.priceValid);
 
+
         if(serviceName.getText().toString().isEmpty()){
             isNameValid.setText("Service name invalid");
         }
@@ -43,11 +46,16 @@ public class AddService extends AppCompatActivity {
             isPriceValid.setText("Price invalid");
         }
         else {
+            // this is how you write to the database
+            String name = serviceName.getText().toString();
+            Double price = Double.valueOf(hourlyPrice.getText().toString());
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            Service service = new Service(name, price);
+            mDatabase.child("service").push().setValue(service);
+
             serviceList.addService(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
 
             newService = new Service(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
-            newService.writeNewService(newService.getServiceName(), Double.toString(newService.getServiceRate()));
-
             Intent HOIntent = new Intent(AddService.this, Admin.class);
             startActivity(HOIntent);
         }

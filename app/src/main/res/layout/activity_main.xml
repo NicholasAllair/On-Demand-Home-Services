@@ -60,7 +60,7 @@
             android:id="@+id/Admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onCreateAdminButtonClick"
+            android:onClick="onLoginAdminButtonClick"
             android:text="Access Admin Profile" />
 
     </LinearLayout>

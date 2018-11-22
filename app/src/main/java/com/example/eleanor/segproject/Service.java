@@ -16,18 +16,12 @@ import com.google.firebase.database.core.view.View;
 
 import java.util.ServiceConfigurationError;
 
-public class Service extends AppCompatActivity {
+public class Service {
     String serviceName;//string variable to hold name of service
     double serviceRate;//double variable to hold hourly rate of the service
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     //default Constructor
-    public Service (){
+    public Service () {
         this.serviceName = "EmptyService";
         this.serviceRate = 0.0;
     }

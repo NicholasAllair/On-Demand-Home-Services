@@ -1,6 +1,7 @@
 package com.example.eleanor.segproject;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,16 +26,18 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 
-public class ServiceProvider extends User{
+
+public class ServiceProvider extends User {
     public static String SPNAME;
     public static ArrayList<Service> servicesOffered;
+    private FirebaseAuth mAuth;
 
     TextView invalidEmail, invalidName, invalidAddress, invalidPhone;
     EditText editName, editAddress, editPhone, editEmail, editDescription, editPassword;
     String description;
     CheckBox checkLicensed;
 
-    public ServiceProvider(){
+    public ServiceProvider() {
         //inherits userName, password, email
         super();
     }
@@ -39,6 +47,14 @@ public class ServiceProvider extends User{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_provider_create);
+        this.mAuth = FirebaseAuth.getInstance();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = this.mAuth.getCurrentUser();
+        System.out.println(currentUser);
     }
 
     public void onClickCreateSPProfile(View view){
@@ -53,6 +69,9 @@ public class ServiceProvider extends User{
         editEmail = findViewById(R.id.enterSPEmail);
         editDescription = findViewById(R.id.enterSPDescription);
         editPassword = findViewById(R.id.enterSPPassword);
+
+        String email = editEmail.getText().toString();
+        String password = editPassword.getText().toString();
 
         setName(editName.getText().toString());
         setAddress(editAddress.getText().toString());
@@ -77,8 +96,27 @@ public class ServiceProvider extends User{
             }
         }
         else {
-            Intent SPIntent = new Intent(ServiceProvider.this, ServiceProviderWelcome.class);
-            startActivity(SPIntent);
+            this.mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                System.out.println(user);
+                                // new user created succesfully
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
+
+                                Intent SPIntent = new Intent(ServiceProvider.this, ServiceProviderWelcome.class);
+                                startActivity(SPIntent);
+                            } else {
+                                System.out.println("Failed to create user");
+                                System.out.println(task.getException());
+                            }
+                        }
+                    });
         }
 
         SPNAME = getName();

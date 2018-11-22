@@ -10,7 +10,7 @@ import android.widget.TextView;
 import static com.example.eleanor.segproject.Admin.ADMINUSERNAME;
 import static com.example.eleanor.segproject.Admin.ADMINPASSWORD;
 
-public class AdminLogin extends AppCompatActivity {
+public class LoginAdmin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class AdminLogin extends AppCompatActivity {
         if (!(AdminPasswordEntered.getText().toString().equals(ADMINPASSWORD))) {
             invalidPassword.setText(("Password invalid"));
         }else {
-            Intent AdminIntent = new Intent(AdminLogin.this, Admin.class);
+            Intent AdminIntent = new Intent(LoginAdmin.this, Admin.class);
             startActivity(AdminIntent);
         }
 
