@@ -40,7 +40,7 @@ public class ViewList extends AppCompatActivity {
         lv.setAdapter(arrayAdapter);
     }
 
-    addFireBaseDatabaseListner() {
+    public void addFireBaseDatabaseListener() {
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

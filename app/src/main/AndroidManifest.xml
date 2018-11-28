@@ -25,6 +25,7 @@
         <activity android:name=".HomeOwner" />
         <activity android:name=".HomeOwnerWelcome" />
         <activity android:name=".RemoveService"/>
+        <activity android:name=".SearchForProvider"/>
         <activity android:name=".ServiceProvider"/>
         <activity android:name=".ServiceProviderWelcome" />
         <activity android:name=".Service"/>

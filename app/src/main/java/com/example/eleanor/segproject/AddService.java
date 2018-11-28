@@ -55,7 +55,7 @@ public class AddService extends AppCompatActivity {
 
             serviceList.addService(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
 
-            newService = new Service(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
+            //newService = new Service(serviceName.getText().toString(), Double.parseDouble(hourlyPrice.getText().toString()));
             Intent HOIntent = new Intent(AddService.this, Admin.class);
             startActivity(HOIntent);
         }
