@@ -8,14 +8,50 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="86dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <ListView
-            android:id="@+id/serviceListView"
+            android:id="@+id/dataListView"
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+        </ListView>
+
+        <EditText
+            android:id="@+id/itemText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addButtton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addItem"
+                android:text="Add" />
+
+            <Button
+                android:id="@+id/findButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="findItems"
+                android:text="Find" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="deleteItem"
+                android:text="Delete" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
