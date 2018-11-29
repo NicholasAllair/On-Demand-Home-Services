@@ -110,7 +110,7 @@ public class ViewList extends AppCompatActivity {
         dbRef.addChildEventListener(childListener);
     }
 
-    public void addItem(View view) {/*
+    public void addItem(View view) {
 
         String item = itemText.getText().toString();
         String key = dbRef.push().getKey();
@@ -118,7 +118,7 @@ public class ViewList extends AppCompatActivity {
         itemText.setText("");
         dbRef.child(key).child("service").setValue(item);
 
-        adapter.notifyDataSetChanged(); */
+        adapter.notifyDataSetChanged();
     }
 
     public void deleteItem(View view) {
@@ -126,7 +126,7 @@ public class ViewList extends AppCompatActivity {
         dbRef.child(listKeys.get(selectedPosition)).removeValue();
     }
 
-    public void findItems(View view) { /*
+    public void findItems(View view) {
 
         Query query;
 
@@ -174,7 +174,7 @@ public class ViewList extends AppCompatActivity {
         @Override
         public void onCancelled(DatabaseError databaseError) {
 
-        } */
+        }
     };
 
 
