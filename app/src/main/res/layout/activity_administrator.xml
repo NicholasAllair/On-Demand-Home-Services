@@ -36,32 +36,6 @@
             android:layout_margin="30dp" />
 
         <TextView
-            android:id="@+id/currentlistHas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Number of Elements in Current List of Services:" />
-
-        <TextView
-            android:id="@+id/numServices"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
-
-        <TextView
-            android:id="@+id/mostrecent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Most Recent Element Added" />
-
-        <TextView
-            android:id="@+id/mostRecentElement"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
-
-        <TextView
             android:id="@+id/adminActions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -23,12 +23,6 @@ public class Admin extends User {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrator);
 
-        TextView numServices = findViewById(R.id.numServices);
-        numServices.setText(ServiceList.getSize());
-
-        TextView mostRecentElement = findViewById(R.id.mostRecentElement);
-        mostRecentElement.setText(ServiceList.getLast());
-
         this.setName(ADMINUSERNAME);
         this.setPassword(ADMINPASSWORD);
 
