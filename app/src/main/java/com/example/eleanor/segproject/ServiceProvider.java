@@ -109,13 +109,13 @@ public class ServiceProvider extends User {
                                 DatabaseReference dbRef = database.getReference().child("serviceProviders");
 
                                 String key = dbRef.push().getKey();
-                                dbRef.child(key).child("serviceProviders").child("CompanyName").setValue(getName());
-                                dbRef.child(key).child("serviceProviders").child("Address").setValue(getAddress());
-                                dbRef.child(key).child("serviceProviders").child("PhoneNumber").setValue(getPhone());
-                                dbRef.child(key).child("serviceProviders").child("Email").setValue(getEmail());
-                                dbRef.child(key).child("serviceProviders").child("Description").setValue(getDescription());
-                                dbRef.child(key).child("serviceProviders").child("Licensed").setValue(isLicensed());
-                                dbRef.child(key).child("serviceProviders").child("Password").setValue(getPassword());
+                                dbRef.child(key).child(getName());
+                                dbRef.child(key).child(getName()).child("Address").setValue(getAddress());
+                                dbRef.child(key).child(getName()).child("PhoneNumber").setValue(getPhone());
+                                dbRef.child(key).child(getName()).child("Email").setValue(getEmail());
+                                dbRef.child(key).child(getName()).child("Description").setValue(getDescription());
+                                dbRef.child(key).child(getName()).child("Licensed").setValue(isLicensed());
+                                dbRef.child(key).child(getName()).child("Password").setValue(getPassword());
 
                                 Intent SPIntent = new Intent(ServiceProvider.this, ServiceProviderWelcome.class);
                                 startActivity(SPIntent);
