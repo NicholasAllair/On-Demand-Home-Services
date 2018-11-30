@@ -23,6 +23,7 @@ import java.util.Iterator;
 public class ViewList extends AppCompatActivity {
     private ListView dataListView;
     private EditText itemText;
+    private EditText rateText;
     private Button findButton;
     private Button deleteButton;
     private Boolean searchMode = false;
@@ -43,6 +44,7 @@ public class ViewList extends AppCompatActivity {
 
         dataListView = (ListView) findViewById(R.id.dataListView);
         itemText = (EditText) findViewById(R.id.itemText);
+        rateText = (EditText) findViewById(R.id.viewListRate);
         findButton = (Button) findViewById(R.id.findButton);
         deleteButton = (Button) findViewById(R.id.deleteButton);
         deleteButton.setEnabled(false);
@@ -112,11 +114,14 @@ public class ViewList extends AppCompatActivity {
 
     public void addItem(View view) {
 
-        String item = itemText.getText().toString();
+        String serviceName = itemText.getText().toString();
+        String serviceRate = rateText.getText().toString();
+        String serviceString = serviceName + ": $" + serviceRate + "per hour";
         String key = dbRef.push().getKey();
 
         itemText.setText("");
-        dbRef.child(key).child("service").setValue(item);
+        rateText.setText("");
+        dbRef.child(key).child("service").setValue(serviceString);
 
         adapter.notifyDataSetChanged();
     }

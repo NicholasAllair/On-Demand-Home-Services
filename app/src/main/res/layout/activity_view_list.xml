@@ -15,19 +15,28 @@
         <ListView
             android:id="@+id/dataListView"
             android:layout_width="match_parent"
-            android:layout_height="400dp">
-        </ListView>
+            android:layout_height="350dp"></ListView>
 
         <EditText
             android:id="@+id/itemText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Service Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/viewListRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Rate"
             android:inputType="textPersonName" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <Button

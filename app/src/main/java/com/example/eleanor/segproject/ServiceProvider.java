@@ -106,11 +106,20 @@ public class ServiceProvider extends User {
                                 System.out.println(user);
                                 // new user created succesfully
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference dbRef = database.getReference().child("serviceProviders");
 
-
+                                String key = dbRef.push().getKey();
+                                dbRef.child(key).child("serviceProviders").child("CompanyName").setValue(getName());
+                                dbRef.child(key).child("serviceProviders").child("Address").setValue(getAddress());
+                                dbRef.child(key).child("serviceProviders").child("PhoneNumber").setValue(getPhone());
+                                dbRef.child(key).child("serviceProviders").child("Email").setValue(getEmail());
+                                dbRef.child(key).child("serviceProviders").child("Description").setValue(getDescription());
+                                dbRef.child(key).child("serviceProviders").child("Licensed").setValue(isLicensed());
+                                dbRef.child(key).child("serviceProviders").child("Password").setValue(getPassword());
 
                                 Intent SPIntent = new Intent(ServiceProvider.this, ServiceProviderWelcome.class);
                                 startActivity(SPIntent);
+
                             } else {
                                 System.out.println("Failed to create user");
                                 System.out.println(task.getException());
