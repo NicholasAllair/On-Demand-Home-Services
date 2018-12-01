@@ -10,4 +10,6 @@ public class SearchForProvider extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_for_provider);
     }
+
+
 }

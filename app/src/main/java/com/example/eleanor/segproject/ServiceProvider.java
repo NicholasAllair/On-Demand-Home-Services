@@ -108,14 +108,13 @@ public class ServiceProvider extends User {
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 DatabaseReference dbRef = database.getReference().child("serviceProviders");
 
-                                String key = dbRef.push().getKey();
-                                dbRef.child(key).child(getName());
-                                dbRef.child(key).child(getName()).child("Address").setValue(getAddress());
-                                dbRef.child(key).child(getName()).child("PhoneNumber").setValue(getPhone());
-                                dbRef.child(key).child(getName()).child("Email").setValue(getEmail());
-                                dbRef.child(key).child(getName()).child("Description").setValue(getDescription());
-                                dbRef.child(key).child(getName()).child("Licensed").setValue(isLicensed());
-                                dbRef.child(key).child(getName()).child("Password").setValue(getPassword());
+                                dbRef.child(getName());
+                                dbRef.child(getName()).child("Address").setValue(getAddress());
+                                dbRef.child(getName()).child("PhoneNumber").setValue(getPhone());
+                                dbRef.child(getName()).child("Email").setValue(getEmail());
+                                dbRef.child(getName()).child("Description").setValue(getDescription());
+                                dbRef.child(getName()).child("Licensed").setValue(isLicensed());
+                                dbRef.child(getName()).child("Password").setValue(getPassword());
 
                                 Intent SPIntent = new Intent(ServiceProvider.this, ServiceProviderWelcome.class);
                                 startActivity(SPIntent);

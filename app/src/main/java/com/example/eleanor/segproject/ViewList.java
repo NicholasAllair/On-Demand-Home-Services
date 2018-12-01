@@ -116,12 +116,11 @@ public class ViewList extends AppCompatActivity {
 
         String serviceName = itemText.getText().toString();
         String serviceRate = rateText.getText().toString();
-        String serviceString = serviceName + ": $" + serviceRate + "per hour";
         String key = dbRef.push().getKey();
 
         itemText.setText("");
-        rateText.setText("");
-        dbRef.child(key).child("service").setValue(serviceString);
+        dbRef.child(key).child("service").setValue(serviceName);
+
 
         adapter.notifyDataSetChanged();
     }
