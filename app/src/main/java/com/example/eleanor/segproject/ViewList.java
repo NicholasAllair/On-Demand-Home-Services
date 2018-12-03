@@ -49,10 +49,6 @@ public class ViewList extends AppCompatActivity {
         deleteButton = (Button) findViewById(R.id.deleteButton);
         deleteButton.setEnabled(false);
 
-        System.out.println("here");
-        System.out.println(listItems);
-
-
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_single_choice,
                 listItems);

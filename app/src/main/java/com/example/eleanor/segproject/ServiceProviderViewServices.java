@@ -1,6 +1,8 @@
 package com.example.eleanor.segproject;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -18,7 +20,7 @@ public class ServiceProviderViewServices extends ServiceProvider {
     ListView lv;
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayList<String> listKeys = new ArrayList<String>();
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +31,16 @@ public class ServiceProviderViewServices extends ServiceProvider {
 
         lv = (ListView) findViewById(R.id.SPlistview);
 
-        //TODO: Change this to read from Firebase!!!
-        for(int i=0; i< servicesOffered.size(); i++){
-            StringServiceList.add(servicesOffered.get(i).toString());
-        }
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("service");
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        readFromDB(mDatabase);
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+        arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
                 StringServiceList );
 
         lv.setAdapter(arrayAdapter);
 
-    }
-
-    public void readFromDB(DatabaseReference databaseReference){
+        addChildEventListener();
 
     }
 
@@ -57,7 +51,7 @@ public class ServiceProviderViewServices extends ServiceProvider {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String value = (String) dataSnapshot.child("service").getValue();
                 if (value != null) {
-                    adapter.add(value);
+                    arrayAdapter.add(value);
                     listKeys.add(dataSnapshot.getKey());
                 }
             }
@@ -79,7 +73,7 @@ public class ServiceProviderViewServices extends ServiceProvider {
                 if (index != -1) {
                     listItems.remove(index);
                     listKeys.remove(index);
-                    adapter.notifyDataSetChanged();
+                    arrayAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -87,6 +81,6 @@ public class ServiceProviderViewServices extends ServiceProvider {
             public void onCancelled(DatabaseError databaseError) {
             }
         };
-        dbRef.addChildEventListener(childListener);
+        mDatabase.addChildEventListener(childListener);
     }
 }
