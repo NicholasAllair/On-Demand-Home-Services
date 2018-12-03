@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,18 +31,12 @@ import java.util.ArrayList;
 public class ServiceProvider extends User {
     public static String SPNAME;
     public static ArrayList<Service> servicesOffered;
-    private FirebaseAuth mAuth;
+    public FirebaseAuth mAuth;
 
     TextView invalidEmail, invalidName, invalidAddress, invalidPhone;
     EditText editName, editAddress, editPhone, editEmail, editDescription, editPassword;
     String description;
     CheckBox checkLicensed;
-
-    public ServiceProvider() {
-        //inherits userName, password, email
-        super();
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +103,12 @@ public class ServiceProvider extends User {
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 DatabaseReference dbRef = database.getReference().child("serviceProviders");
 
+                                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(getName()).build();
+                                user.updateProfile(profileUpdates);
+                                System.out.println("CURRENT NAME: " + getName());
+                                System.out.println("DB DISPLAY NAME: " + user.getDisplayName());
+
                                 dbRef.child(getName());
                                 dbRef.child(getName()).child("Address").setValue(getAddress());
                                 dbRef.child(getName()).child("PhoneNumber").setValue(getPhone());
@@ -129,6 +130,12 @@ public class ServiceProvider extends User {
 
         SPNAME = getName();
     }
+
+    public void existingUser(View view){
+        Intent login = new Intent(ServiceProvider.this, ServiceProviderLogin.class);
+        startActivity(login);
+    }
+
 
     public boolean isLicensed(){
         checkLicensed = findViewById(R.id.licensedCheckBox);

@@ -43,8 +43,8 @@
             android:id="@+id/AddServiceAndReturnHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onAddServiceSPClick"
-            android:text="Add Service And Return Home" />
+            android:onClick="addItem"
+            android:text="Add Service" />
 
         <Button
             android:id="@+id/removeServiceAndReturnHome"

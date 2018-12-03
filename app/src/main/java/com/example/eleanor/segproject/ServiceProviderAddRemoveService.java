@@ -3,10 +3,12 @@ package com.example.eleanor.segproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,21 +29,37 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
     //public ServiceList serviceList = new ServiceList();
 
     DatabaseReference mDatabase;
+    DatabaseReference spDB;
     EditText serviceName;
     ListView servicesAvailable;
+    ListView viewMyServices;
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayList<String> listKeys = new ArrayList<String>();
+    ArrayList<String> myServices = new ArrayList<String>();
     ArrayAdapter<String> arrayAdapter;
     ArrayAdapter<String> myServicesAdapter;
+    private Button findButton;
+    private Button addButton;
+    private Button deleteButton;
+    private Boolean searchMode = false;
+    private Boolean itemSelected = false;
+    private int selectedPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sp_add_service);
 
-        servicesAvailable = (ListView) findViewById(R.id.serviceListFromAdmin);
+        serviceName = findViewById(R.id.SPserviceToAdd);
+
+        addButton = findViewById(R.id.AddServiceAndReturnHome);
+        deleteButton = findViewById(R.id.removeServiceAndReturnHome);
+
+        servicesAvailable = findViewById(R.id.serviceListFromAdmin);
+        viewMyServices = findViewById(R.id.myServices);
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("service");
+        spDB = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
 
         //ArrayList<String> StringServiceList = new ArrayList<String>();
 
@@ -54,9 +72,28 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
                 android.R.layout.simple_list_item_single_choice,
                 listItems);
 
-        myServicesAdapter
+        myServicesAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                myServices);
 
         servicesAvailable.setAdapter(arrayAdapter);
+        servicesAvailable.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
+        viewMyServices.setAdapter(myServicesAdapter);
+
+        servicesAvailable.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        selectedPosition = position;
+                        itemSelected = true;
+                        addButton.setEnabled(true);
+
+                        String selectedFromList = (String) (servicesAvailable.getItemAtPosition(position));
+                        serviceName.setText(selectedFromList);
+                    }
+                });
+
 
         addChildEventListener();
     }
@@ -99,6 +136,22 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
             }
         };
         mDatabase.addChildEventListener(childListener);
+    }
+
+    public void addItem(View view) {
+        myServices.add(serviceName.getText().toString());
+        System.out.println(serviceName.getText().toString());
+/*
+
+        String serviceName = itemText.getText().toString();
+        String serviceRate = rateText.getText().toString();
+        String key = dbRef.push().getKey();
+
+        itemText.setText("");
+        dbRef.child(key).child("service").setValue(serviceName);
+
+
+        adapter.notifyDataSetChanged();*/
     }
 
     /*public void onAddServiceSPClick(View view){
