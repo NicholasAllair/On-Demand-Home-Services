@@ -49,7 +49,7 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
 
         serviceName = findViewById(R.id.SPserviceToAdd);
 
-        addButton = findViewById(R.id.AddServiceAndReturnHome);
+        addButton = findViewById(R.id.addItem);
         deleteButton = findViewById(R.id.removeServiceAndReturnHome);
 
         servicesAvailable = findViewById(R.id.serviceListFromAdmin);
@@ -129,21 +129,12 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
         mDatabase.addChildEventListener(childListener);
     }
 
-    public void addItem(View view) {
-        myServices.add(serviceName.getText().toString());
+    public void addToMyServices(View view) {
+        myServicesArray.add(serviceName.getText().toString());
         System.out.println(serviceName.getText().toString());
-        System.out.println(myServices);
-/*
+        System.out.println(myServicesArray);
 
-        String serviceName = itemText.getText().toString();
-        String serviceRate = rateText.getText().toString();
-        String key = dbRef.push().getKey();
-
-        itemText.setText("");
-        dbRef.child(key).child("service").setValue(serviceName);
-
-
-        adapter.notifyDataSetChanged();*/
+        myServicesAdapter.notifyDataSetChanged();
     }
 
     /*public void onAddServiceSPClick(View view){

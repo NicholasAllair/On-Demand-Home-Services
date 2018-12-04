@@ -45,32 +45,11 @@
             android:text="Administrator Actions" />
 
         <Button
-            android:id="@+id/addServices"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onAddServiceClick"
-            android:text="Add Services" />
-
-        <Button
-            android:id="@+id/editServices"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onEditServiceClick"
-            android:text="Edit Services" />
-
-        <Button
-            android:id="@+id/removeServices"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onRemoveServiceClick"
-            android:text="Remove Services" />
-
-        <Button
             android:id="@+id/viewServiceList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onViewServicesClick"
-            android:text="View Services" />
+            android:text="Add/Remove Services" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/backHome"

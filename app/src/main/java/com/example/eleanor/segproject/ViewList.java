@@ -30,12 +30,12 @@ public class ViewList extends AppCompatActivity {
     private Boolean itemSelected = false;
     private int selectedPosition = 0;
 
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference dbRef = database.getReference().child("service");
+    private DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("service");
 
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayList<String> listKeys = new ArrayList<String>();
     ArrayAdapter<String> adapter;
+    String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,7 @@ public class ViewList extends AppCompatActivity {
         findButton = (Button) findViewById(R.id.findButton);
         deleteButton = (Button) findViewById(R.id.deleteButton);
         deleteButton.setEnabled(false);
+
 
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_single_choice,
@@ -65,59 +66,62 @@ public class ViewList extends AppCompatActivity {
                     }
                 });
 
-        addChildEventListener();
+        addValueEventListener();
     }
 
-    private void addChildEventListener() {
-        ChildEventListener childListener = new ChildEventListener() {
+    private void addValueEventListener() {
+        ValueEventListener valueEventListener = new ValueEventListener() {
 
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String value = (String) dataSnapshot.child("service").getValue();
-                if (value != null) {
-                    adapter.add(value);
-                    listKeys.add(dataSnapshot.getKey());
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
+                Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
+
+                adapter.clear();
+                listKeys.clear();
+
+                while (iterator.hasNext()) {
+                    DataSnapshot next = (DataSnapshot) iterator.next();
+                    System.out.println("Current datasnapshot: " + next);
+
+                    String key = next.getKey();
+
+                    String serviceType = (String) next.child("serviceType").getValue();
+                    System.out.println("service type:" + serviceType);
+
+                    String rate = (String) next.child("rate").getValue();
+                    System.out.println("service rate:" + rate);
+
+                    listKeys.add(key);
+                    adapter.add(serviceToString(serviceType, rate));
                 }
-            }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                String key = dataSnapshot.getKey();
-                int index = listKeys.indexOf(key);
-
-                if (index != -1) {
-                    listItems.remove(index);
-                    listKeys.remove(index);
-                    adapter.notifyDataSetChanged();
-                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         };
-        dbRef.addChildEventListener(childListener);
+        dbRef.addValueEventListener(valueEventListener);
     }
 
     public void addItem(View view) {
 
         String serviceName = itemText.getText().toString();
         String serviceRate = rateText.getText().toString();
-        String key = dbRef.push().getKey();
+
+        key = dbRef.push().getKey();
+
+        System.out.println("CURRENTKEY: " + key);
 
         itemText.setText("");
-        dbRef.child(key).child("service").setValue(serviceName);
+        rateText.setText("");
 
+        dbRef.child(key).child("serviceType").setValue(serviceName);
+        dbRef.child(key).child("rate").setValue(serviceRate);
 
+        adapter.add(serviceToString(serviceName, serviceRate));
         adapter.notifyDataSetChanged();
     }
 
@@ -176,6 +180,10 @@ public class ViewList extends AppCompatActivity {
 
         }
     };
+
+    public String serviceToString(String service, String rate){
+        return service + ": $" + rate + "/hour";
+    }
 
 
 }

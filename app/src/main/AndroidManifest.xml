@@ -18,13 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddService"/>
         <activity android:name=".Admin"/>
         <activity android:name=".LoginAdmin"/>
-        <activity android:name=".EditService"/>
         <activity android:name=".HomeOwner" />
         <activity android:name=".HomeOwnerWelcome" />
-        <activity android:name=".RemoveService"/>
         <activity android:name=".SearchForProvider"/>
         <activity android:name=".ServiceProvider"/>
         <activity android:name=".ServiceProviderWelcome" />

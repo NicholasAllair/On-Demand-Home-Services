@@ -40,11 +40,11 @@
             android:textColor="@android:color/holo_red_dark" />
 
         <Button
-            android:id="@+id/AddServiceAndReturnHome"
+            android:id="@+id/addItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="addItem"
-            android:text="Add Service" />
+            android:onClick="addToMyServices"
+            android:text="Add to My Services" />
 
         <Button
             android:id="@+id/removeServiceAndReturnHome"
