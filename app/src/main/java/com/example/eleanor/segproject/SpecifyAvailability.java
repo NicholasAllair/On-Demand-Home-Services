@@ -35,13 +35,20 @@ public class SpecifyAvailability extends AppCompatActivity {
         day = findViewById(R.id.daySpinner);
         availabilityList = findViewById(R.id.availabilityList);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.days, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.days,
+                android.R.layout.simple_spinner_item);
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         day.setAdapter(adapter);
 
         availabilities = new ArrayList<String>();
 
     }
+
+
+
 
     public void onAddAvailClick(View view){
         String dayString = day.getSelectedItem().toString();
@@ -52,7 +59,10 @@ public class SpecifyAvailability extends AppCompatActivity {
 
         availabilities.add(availString);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, availabilities );
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                availabilities );
 
         availabilityList.setAdapter(arrayAdapter);
     }

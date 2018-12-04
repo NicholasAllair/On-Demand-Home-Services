@@ -11,50 +11,19 @@
         android:orientation="vertical"
         android:paddingBottom = "16dp">
 
-        <EditText
-            android:id="@+id/enterName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Username"
-            android:inputType="textPersonName"
-            />
-
-        <EditText
-            android:id="@+id/enterPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword|textVisiblePassword" />
-
-        <Button
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Log in " />
-
-        <TextView
-            android:id="@+id/or"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:padding="10dp"
-            android:text=" - or -" />
-
         <Button
             android:id="@+id/ServiceProviderProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onCreateServiceProviderButtonClick"
-            android:text="Create a Service Provider Profile" />
+            android:text="Create/Access Service Provider Profile" />
 
         <Button
             android:id="@+id/HomeownerProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onCreateHomeOwnerButtonClick"
-            android:text="Create a Homeowner Profile" />
+            android:text="Create/Access Homeowner Profile" />
 
         <Button
             android:id="@+id/Admin"

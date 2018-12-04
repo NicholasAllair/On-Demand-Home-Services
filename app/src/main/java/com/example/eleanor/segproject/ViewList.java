@@ -29,12 +29,13 @@ public class ViewList extends AppCompatActivity {
     private Boolean searchMode = false;
     private Boolean itemSelected = false;
     private int selectedPosition = 0;
+    public static int numServices;
 
     private DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("service");
 
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayList<String> listKeys = new ArrayList<String>();
-    ArrayAdapter<String> adapter;
+    static ArrayAdapter<String> adapter;
     String key;
 
     @Override
@@ -48,7 +49,6 @@ public class ViewList extends AppCompatActivity {
         findButton = (Button) findViewById(R.id.findButton);
         deleteButton = (Button) findViewById(R.id.deleteButton);
         deleteButton.setEnabled(false);
-
 
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_single_choice,
@@ -95,6 +95,8 @@ public class ViewList extends AppCompatActivity {
 
                     listKeys.add(key);
                     adapter.add(serviceToString(serviceType, rate));
+
+                    setNumServices(listKeys.size());
                 }
 
             }
@@ -181,8 +183,16 @@ public class ViewList extends AppCompatActivity {
         }
     };
 
-    public String serviceToString(String service, String rate){
+    public static String serviceToString(String service, String rate){
         return service + ": $" + rate + "/hour";
+    }
+
+    public void setNumServices(int n){
+        numServices = n;
+    }
+
+    public static int getNumServices(){
+        return numServices;
     }
 
 

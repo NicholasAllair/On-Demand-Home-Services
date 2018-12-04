@@ -6,11 +6,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,7 +20,6 @@ import java.util.Iterator;
 public class ServiceProviderViewServices extends ServiceProvider {
     private DatabaseReference mDatabase;
     ListView lv;
-    ArrayList<String> listItems = new ArrayList<String>();
     ArrayList<String> listKeys = new ArrayList<String>();
     ArrayAdapter<String> arrayAdapter;
 
@@ -31,7 +32,7 @@ public class ServiceProviderViewServices extends ServiceProvider {
 
         lv = (ListView) findViewById(R.id.SPlistview);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("service");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
 
         arrayAdapter = new ArrayAdapter<String>(
                 this,
@@ -40,47 +41,46 @@ public class ServiceProviderViewServices extends ServiceProvider {
 
         lv.setAdapter(arrayAdapter);
 
-        addChildEventListener();
+        FirebaseUser currentUser = this.mAuth.getCurrentUser();
+        String uid = currentUser.getUid();
+
+        addValueEventListener();
 
     }
 
-    private void addChildEventListener() {
-        ChildEventListener childListener = new ChildEventListener() {
+    private void addValueEventListener() {
+        ValueEventListener valueEventListener = new ValueEventListener() {
 
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String value = (String) dataSnapshot.child("service").getValue();
-                if (value != null) {
-                    arrayAdapter.add(value);
-                    listKeys.add(dataSnapshot.getKey());
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
+                Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
+
+                listKeys.clear();
+
+                while (iterator.hasNext()) {
+                    DataSnapshot next = (DataSnapshot) iterator.next();
+                    int count = (int) next.child("myServices").getChildrenCount();
+
+                    String key = next.getKey();
+
+                    for(int i=0; i< count; i++){
+                        String n = Integer.toString(i);
+                        String service = (String) next.child("myServices")
+                                .child(n).getValue();
+                        arrayAdapter.add(service);
+                    }
+
+                    listKeys.add(key);
                 }
-            }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                String key = dataSnapshot.getKey();
-                int index = listKeys.indexOf(key);
-
-                if (index != -1) {
-                    listItems.remove(index);
-                    listKeys.remove(index);
-                    arrayAdapter.notifyDataSetChanged();
-                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         };
-        mDatabase.addChildEventListener(childListener);
+        mDatabase.addValueEventListener(valueEventListener);
     }
 }

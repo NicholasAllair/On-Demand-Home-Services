@@ -28,21 +28,6 @@ public class Admin extends User {
 
     }
 
-    public void onAddServiceClick(View view){
-        Intent addService = new Intent(Admin.this, AddService.class);
-        startActivity(addService);
-    }
-
-    public void onEditServiceClick(View view){
-        Intent editService = new Intent(Admin.this, EditService.class);
-        startActivity(editService);
-    }
-
-    public void onRemoveServiceClick(View view){
-        Intent removeService = new Intent(Admin.this, RemoveService.class);
-        startActivity(removeService);
-    }
-
     public void onViewServicesClick(View view){
         Intent viewServices = new Intent(Admin.this, ViewList.class);
         startActivity(viewServices);

@@ -26,8 +26,6 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-
-
 public class ServiceProvider extends User {
     public static String SPNAME;
     public static ArrayList<Service> servicesOffered;

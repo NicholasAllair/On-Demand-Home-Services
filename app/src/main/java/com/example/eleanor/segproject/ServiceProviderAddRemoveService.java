@@ -13,14 +13,17 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 
@@ -55,8 +58,12 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
         servicesAvailable = findViewById(R.id.serviceListFromAdmin);
         viewMyServices = findViewById(R.id.myServices);
 
+        ViewList serviceList = new ViewList();
+        System.out.println(serviceList);
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child("service");
         spDB = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
+        System.out.println("***********************SPs:" + spDB);
 
         arrayAdapter = new ArrayAdapter<String>(
                 this,
@@ -86,47 +93,38 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
                 });
 
 
-        addChildEventListener();
+        addValueEventListener();
     }
 
-    private void addChildEventListener() {
-        ChildEventListener childListener = new ChildEventListener() {
+    private void addValueEventListener() {
+        ValueEventListener valueEventListener = new ValueEventListener() {
 
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String value = (String) dataSnapshot.child("service").getValue();
-                if (value != null) {
-                    arrayAdapter.add(value);
-                    listKeys.add(dataSnapshot.getKey());
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
+                Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
+
+                listKeys.clear();
+
+                while (iterator.hasNext()) {
+                    DataSnapshot next = (DataSnapshot) iterator.next();
+
+                    String key = next.getKey();
+                    String serviceType = (String) next.child("serviceType").getValue();
+                    String rate = (String) next.child("rate").getValue();
+
+                    listKeys.add(key);
+                    arrayAdapter.add(ViewList.serviceToString(serviceType, rate));
                 }
-            }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                String key = dataSnapshot.getKey();
-                int index = listKeys.indexOf(key);
-
-                if (index != -1) {
-                    listItems.remove(index);
-                    listKeys.remove(index);
-                    arrayAdapter.notifyDataSetChanged();
-                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         };
-        mDatabase.addChildEventListener(childListener);
+        mDatabase.addValueEventListener(valueEventListener);
     }
 
     public void addToMyServices(View view) {
@@ -135,43 +133,12 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
         System.out.println(myServicesArray);
 
         myServicesAdapter.notifyDataSetChanged();
+
+        FirebaseUser currentUser = this.mAuth.getCurrentUser();
+        System.out.println("USER UID:" + currentUser.getUid());
+
+        spDB.child(currentUser.getUid()).child("myServices").setValue(myServicesArray);
     }
-
-    /*public void onAddServiceSPClick(View view){
-
-        serviceName = findViewById(R.id.SPserviceToAdd);
-
-        TextView ServiceDoesNotExist = findViewById(R.id.SPserviceDoesNotExist);
-
-        if (!serviceList.isIn(serviceName.getText().toString())){
-            ServiceDoesNotExist.setText("That Service Does Not Exist");
-        }
-        else {
-
-            servicesOffered.add(serviceList.getService(serviceName.getText().toString()));
-
-            Intent HOIntent = new Intent(ServiceProviderAddRemoveService.this, ServiceProviderWelcome.class);
-            startActivity(HOIntent);
-        }
-    }
-
-    public void onRemoveServiceSPClick(View view){
-
-        serviceName = findViewById(R.id.SPserviceToAdd);
-
-        TextView ServiceDoesNotExist = findViewById(R.id.SPserviceDoesNotExist);
-
-        if (!serviceList.isIn(serviceName.getText().toString())){
-            ServiceDoesNotExist.setText("That Service Does Not Exist");
-        }
-        else {
-
-            servicesOffered.add(serviceList.getService(serviceName.getText().toString()));
-
-            Intent HOIntent = new Intent(ServiceProviderAddRemoveService.this, ServiceProviderWelcome.class);
-            startActivity(HOIntent);
-        }
-    }*/
 }
 
 
