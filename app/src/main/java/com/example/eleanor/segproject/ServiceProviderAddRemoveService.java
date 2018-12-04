@@ -31,7 +31,7 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
 
     //public ServiceList serviceList = new ServiceList();
 
-    DatabaseReference mDatabase, spDB;
+    DatabaseReference serviceDB, spDB;
     EditText serviceName;
     ListView servicesAvailable,viewMyServices;
     ArrayList<String> listItems = new ArrayList<String>();
@@ -41,27 +41,23 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
     private Button findButton;
     private Button addButton;
     private Button deleteButton;
-    private Boolean searchMode = false;
-    private Boolean itemSelected = false;
-    private int selectedPosition = 0;
+    ViewList serviceList = new ViewList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sp_add_service);
 
+        //Assign all UML element references
         serviceName = findViewById(R.id.SPserviceToAdd);
-
         addButton = findViewById(R.id.addItem);
         deleteButton = findViewById(R.id.removeServiceAndReturnHome);
-
         servicesAvailable = findViewById(R.id.serviceListFromAdmin);
         viewMyServices = findViewById(R.id.myServices);
 
-        ViewList serviceList = new ViewList();
-        System.out.println(serviceList);
+        System.out.println("CURRENT SERVICE LIST:" + serviceList);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("service");
+        serviceDB = FirebaseDatabase.getInstance().getReference().child("service");
         spDB = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
 
         arrayAdapter = new ArrayAdapter<String>(
@@ -71,26 +67,24 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
 
         myServicesAdapter = new ArrayAdapter<String>(
                 this,
-                android.R.layout.simple_list_item_1,
+                android.R.layout.simple_list_item_single_choice,
                 myServicesArray);
 
         servicesAvailable.setAdapter(arrayAdapter);
         servicesAvailable.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         viewMyServices.setAdapter(myServicesAdapter);
+        servicesAvailable.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         servicesAvailable.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        selectedPosition = position;
-                        itemSelected = true;
                         addButton.setEnabled(true);
 
                         String selectedFromList = (String) (servicesAvailable.getItemAtPosition(position));
                         serviceName.setText(selectedFromList);
                     }
                 });
-
 
         addValueEventListener();
     }
@@ -100,7 +94,7 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                //READ ALL SERVICES AVAILABLE FROM DATABASE
                 Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
                 Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
 
@@ -123,7 +117,7 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
             public void onCancelled(DatabaseError databaseError) {
             }
         };
-        mDatabase.addValueEventListener(valueEventListener);
+        serviceDB.addValueEventListener(valueEventListener);
     }
 
     public void addToMyServices(View view) {

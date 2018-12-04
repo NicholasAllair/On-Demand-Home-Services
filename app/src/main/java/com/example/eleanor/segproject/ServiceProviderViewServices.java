@@ -32,7 +32,10 @@ public class ServiceProviderViewServices extends ServiceProvider {
 
         lv = (ListView) findViewById(R.id.SPlistview);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
+        FirebaseUser currentUser = this.mAuth.getCurrentUser();
+        String uid = currentUser.getUid();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("serviceProviders").child(uid);
 
         arrayAdapter = new ArrayAdapter<String>(
                 this,
@@ -40,9 +43,6 @@ public class ServiceProviderViewServices extends ServiceProvider {
                 StringServiceList );
 
         lv.setAdapter(arrayAdapter);
-
-        FirebaseUser currentUser = this.mAuth.getCurrentUser();
-        String uid = currentUser.getUid();
 
         addValueEventListener();
 
@@ -53,29 +53,18 @@ public class ServiceProviderViewServices extends ServiceProvider {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
-                Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
-                Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
+                //Read myServices from database for current user
 
                 arrayAdapter.clear();
-                listKeys.clear();
 
-                while (iterator.hasNext()) {
-                    DataSnapshot next = (DataSnapshot) iterator.next();
-                    int count = (int) next.child("myServices").getChildrenCount();
+                long n = dataSnapshot.child("myServices").getChildrenCount();
+                int numChildren = (int) n;
 
-                    String key = next.getKey();
-
-                    for(int i=0; i< count; i++){
-                        String n = Integer.toString(i);
-                        String service = (String) next.child("myServices")
-                                .child(n).getValue();
-                        arrayAdapter.add(service);
-                    }
-
-                    listKeys.add(key);
+                for(int i=0; i<numChildren; i++){
+                    String iString = Integer.toString(i);
+                    arrayAdapter.add(dataSnapshot.child("myServices")
+                            .child(iString).getValue().toString());
                 }
-
             }
 
             @Override

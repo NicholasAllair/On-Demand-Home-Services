@@ -160,6 +160,7 @@ public class ViewList extends AppCompatActivity {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
 
+            //NEED ITERATOR TO READ ALL DATA FROM ALL USERS
             Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
             Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
 

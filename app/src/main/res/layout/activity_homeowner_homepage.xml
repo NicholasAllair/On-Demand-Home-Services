@@ -26,6 +26,13 @@
             android:layout_margin="5dp"
             android:gravity="center_horizontal"
             android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/searchForProvider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search for a Service Provider" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

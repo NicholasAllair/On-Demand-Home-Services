@@ -21,6 +21,7 @@ public class ViewAvailability extends ServiceProvider {
     private DatabaseReference mDatabase;
     ListView lv;
     ArrayList<String> listKeys = new ArrayList<String>();
+    ArrayList<String> AvailabilityList = new ArrayList<String>();
     ArrayAdapter<String> arrayAdapter;
 
     @Override
@@ -28,11 +29,14 @@ public class ViewAvailability extends ServiceProvider {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_availabilities);
 
-        ArrayList<String> AvailabilityList = new ArrayList<String>();
-
         lv = (ListView) findViewById(R.id.viewAvailabilities);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
+        FirebaseUser currentUser = this.mAuth.getCurrentUser();
+        String uid = currentUser.getUid();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("serviceProviders").child(uid);
+
+        System.out.println("*******Current:" + mDatabase);
 
         arrayAdapter = new ArrayAdapter<String>(
                 this,
@@ -41,8 +45,6 @@ public class ViewAvailability extends ServiceProvider {
 
         lv.setAdapter(arrayAdapter);
 
-        FirebaseUser currentUser = this.mAuth.getCurrentUser();
-        String uid = currentUser.getUid();
 
         addValueEventListener();
 
@@ -53,26 +55,17 @@ public class ViewAvailability extends ServiceProvider {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                //Read Availabilities from database for current user
 
-                Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
-                Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
+                arrayAdapter.clear();
 
-                listKeys.clear();
+                long n = dataSnapshot.child("Availabilities").getChildrenCount();
+                int numChildren = (int) n;
 
-                while (iterator.hasNext()) {
-                    DataSnapshot next = (DataSnapshot) iterator.next();
-                    int count = (int) next.child("Availabilities").getChildrenCount();
-
-                    String key = next.getKey();
-
-                    for(int i=0; i< count; i++){
-                        String n = Integer.toString(i);
-                        String availability = (String) next.child("Availabilities")
-                                .child(n).getValue();
-                        arrayAdapter.add(availability);
-                    }
-
-                    listKeys.add(key);
+                for(int i=0; i<numChildren; i++){
+                    String iString = Integer.toString(i);
+                    arrayAdapter.add(dataSnapshot.child("Availabilities")
+                            .child(iString).getValue().toString());
                 }
 
             }

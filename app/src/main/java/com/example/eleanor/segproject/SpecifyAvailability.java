@@ -29,12 +29,12 @@ import java.util.Iterator;
 
 public class SpecifyAvailability extends AppCompatActivity {
     public FirebaseAuth mAuth;
-    EditText startTime;
-    EditText endTime;
+    EditText startTime, endTime;
     ArrayList<String> availabilities;
     Spinner day;
     ListView availabilityList;
     String uid;
+    ArrayAdapter<String> arrayAdapter;
 
     DatabaseReference mDatabase;
 
@@ -57,12 +57,20 @@ public class SpecifyAvailability extends AppCompatActivity {
         day.setAdapter(adapter);
 
         availabilities = new ArrayList<String>();
-
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
+        System.out.println("AVAILABILITIES ARRAY: " + availabilities);
 
         this.mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = this.mAuth.getCurrentUser();
         uid = currentUser.getUid();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("serviceProviders").child(uid);
+
+        arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                availabilities );
+
+        availabilityList.setAdapter(arrayAdapter);
 
         addValueEventListener();
     }
@@ -72,25 +80,18 @@ public class SpecifyAvailability extends AppCompatActivity {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                //Read Availabilities from database for current user
 
-                Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
-                Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
+                arrayAdapter.clear();
 
-                while (iterator.hasNext()) {
-                    DataSnapshot next = (DataSnapshot) iterator.next();
-                    int count = (int) next.child("Availabilities").getChildrenCount();
+                long n = dataSnapshot.child("Availabilities").getChildrenCount();
+                int numChildren = (int) n;
 
-                    String key = next.getKey();
-
-                    for(int i=0; i< count; i++){
-                        String n = Integer.toString(i);
-                        String availability = (String) next.child("Availabilities")
-                                .child(n).getValue();
-                        availabilities.add(availability);
-                    }
-
+                for(int i=0; i<numChildren; i++){
+                    String iString = Integer.toString(i);
+                    arrayAdapter.add(dataSnapshot.child("Availabilities")
+                            .child(iString).getValue().toString());
                 }
-
             }
 
             @Override
@@ -111,14 +112,9 @@ public class SpecifyAvailability extends AppCompatActivity {
 
         availabilities.add(availString);
 
-        mDatabase.child(uid).child("Availabilities").setValue(availabilities);
+        mDatabase.child("Availabilities").setValue(availabilities);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                availabilities );
 
-        availabilityList.setAdapter(arrayAdapter);
     }
 
     public void returnSPHome(View view){
