@@ -64,14 +64,26 @@
             tools:fontFamily="sans-serif"
             tools:layout_margin="12dp" />
 
-        <ListView
-            android:id="@+id/serviceListFromAdmin"
+        <ScrollView
+            android:id="@+id/scrollServicesAvailable"
             android:layout_width="match_parent"
-            android:layout_height="98dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="127dp">
+            android:layout_height="wrap_content">
 
-        </ListView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/serviceListFromAdmin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="127dp">
+
+                </ListView>
+            </LinearLayout>
+        </ScrollView>
 
         <TextView
             android:id="@+id/myServicesTitle"
@@ -84,12 +96,24 @@
             tools:fontFamily="sans-serif"
             tools:layout_margin="12dp" />
 
-        <ListView
-            android:id="@+id/myServices"
+        <ScrollView
+            android:id="@+id/scrollMyServices"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="127dp"></ListView>
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/myServices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="127dp"></ListView>
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 

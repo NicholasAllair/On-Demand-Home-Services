@@ -8,31 +8,68 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 import static com.example.eleanor.segproject.ServiceProvider.SPNAME;
 
 public class ServiceProviderWelcome extends AppCompatActivity {
     TextView SPusername;
-
-    String name, email;
+    DatabaseReference userRef;
+    String name, email, uid;
+    ArrayList<String> listKeys, listItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serviceprovider_homepage);
 
+        listKeys = new ArrayList<String>();
+        listItems = new ArrayList<String>();
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // User is signed in
-            System.out.println("EMAIL: " + user.getEmail());
-            name = user.getDisplayName();
-            email = user.getEmail();
+            uid = user.getUid();
         } else {
             // No user is signed in
             System.out.println("no");
         }
 
-        setUserName(name);
+        userRef = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
+
+        addValueEventListener();
+
+
+
+    }
+
+    private void addValueEventListener() {
+        ValueEventListener valueEventListener = new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println("dataSnapshot");
+                System.out.println(dataSnapshot);
+                String value = (String) dataSnapshot.child(uid).child("Company").getValue().toString();
+                System.out.println("COMPANY: " + value);
+                setUserName(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError){
+
+            }
+
+        };
+        userRef.addValueEventListener(valueEventListener);
+
     }
 
     public void onSpecifyAvailabilityClick(View view){

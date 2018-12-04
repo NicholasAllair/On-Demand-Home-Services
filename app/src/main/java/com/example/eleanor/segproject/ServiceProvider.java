@@ -99,23 +99,18 @@ public class ServiceProvider extends User {
                             if(task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 System.out.println(user);
-                                // new user created succesfully
+                                // new user created successfully
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 DatabaseReference dbRef = database.getReference().child("serviceProviders");
 
-                                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                        .setDisplayName(getName()).build();
-                                user.updateProfile(profileUpdates);
-                                System.out.println("CURRENT NAME: " + getName());
-                                System.out.println("DB DISPLAY NAME: " + user.getDisplayName());
-
-                                dbRef.child(getName());
-                                dbRef.child(getName()).child("Address").setValue(getAddress());
-                                dbRef.child(getName()).child("PhoneNumber").setValue(getPhone());
-                                dbRef.child(getName()).child("Email").setValue(getEmail());
-                                dbRef.child(getName()).child("Description").setValue(getDescription());
-                                dbRef.child(getName()).child("Licensed").setValue(isLicensed());
-                                dbRef.child(getName()).child("Password").setValue(getPassword());
+                                dbRef.child(user.getUid());
+                                dbRef.child(user.getUid()).child("Company").setValue(getName());
+                                dbRef.child(user.getUid()).child("Address").setValue(getAddress());
+                                dbRef.child(user.getUid()).child("PhoneNumber").setValue(getPhone());
+                                dbRef.child(user.getUid()).child("Email").setValue(getEmail());
+                                dbRef.child(user.getUid()).child("Description").setValue(getDescription());
+                                dbRef.child(user.getUid()).child("Licensed").setValue(isLicensed());
+                                dbRef.child(user.getUid()).child("Password").setValue(getPassword());
 
                                 Intent SPIntent = new Intent(ServiceProvider.this, ServiceProviderWelcome.class);
                                 startActivity(SPIntent);

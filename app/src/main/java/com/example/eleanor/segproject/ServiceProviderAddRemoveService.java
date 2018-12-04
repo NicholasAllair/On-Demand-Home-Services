@@ -28,16 +28,13 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
 
     //public ServiceList serviceList = new ServiceList();
 
-    DatabaseReference mDatabase;
-    DatabaseReference spDB;
+    DatabaseReference mDatabase, spDB;
     EditText serviceName;
-    ListView servicesAvailable;
-    ListView viewMyServices;
+    ListView servicesAvailable,viewMyServices;
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayList<String> listKeys = new ArrayList<String>();
-    ArrayList<String> myServices = new ArrayList<String>();
-    ArrayAdapter<String> arrayAdapter;
-    ArrayAdapter<String> myServicesAdapter;
+    ArrayList<String> myServicesArray = new ArrayList<String>();
+    ArrayAdapter<String> arrayAdapter,  myServicesAdapter;
     private Button findButton;
     private Button addButton;
     private Button deleteButton;
@@ -61,12 +58,6 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("service");
         spDB = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
 
-        //ArrayList<String> StringServiceList = new ArrayList<String>();
-
-        /*for(int i=0; i<LISTOFSERVICES.size(); i++){
-            StringServiceList.add(LISTOFSERVICES.get(i).toString());
-        }*/
-
         arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_single_choice,
@@ -75,7 +66,7 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
         myServicesAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
-                myServices);
+                myServicesArray);
 
         servicesAvailable.setAdapter(arrayAdapter);
         servicesAvailable.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -141,6 +132,7 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
     public void addItem(View view) {
         myServices.add(serviceName.getText().toString());
         System.out.println(serviceName.getText().toString());
+        System.out.println(myServices);
 /*
 
         String serviceName = itemText.getText().toString();
