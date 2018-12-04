@@ -77,6 +77,11 @@ public class ServiceProviderWelcome extends AppCompatActivity {
         startActivity(specAvail);
     }
 
+    public void onViewAvailabilityClick(View view){
+        Intent viewAvail = new Intent(ServiceProviderWelcome.this, ViewAvailability.class);
+        startActivity(viewAvail);
+    }
+
     public void onServiceProviderAddService(View view){
         Intent addSPService = new Intent(ServiceProviderWelcome.this, ServiceProviderAddRemoveService.class);
         startActivity(addSPService);

@@ -63,7 +63,6 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("service");
         spDB = FirebaseDatabase.getInstance().getReference().child("serviceProviders");
-        System.out.println("***********************SPs:" + spDB);
 
         arrayAdapter = new ArrayAdapter<String>(
                 this,

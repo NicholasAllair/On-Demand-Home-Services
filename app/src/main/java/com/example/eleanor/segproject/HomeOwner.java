@@ -8,30 +8,30 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import org.w3c.dom.Text;
 
 
 public class HomeOwner extends User{
     public static String HONAME;
 
-    EditText editName;
-    EditText editEmail;
-    EditText editPassword;
+    public FirebaseAuth mAuth;
 
-    public HomeOwner(){
-        //inherits userName, password, email
-        super();
-    }
+    TextView invalidEmail, invalidName;
+    EditText editName, editEmail, editPassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_owner_create);
+        this.mAuth = FirebaseAuth.getInstance();
     }
 
     public void onClickCreateHOProfile(View view){
-        TextView invalidEmail = findViewById(R.id.InvalidEmail);
-        TextView invalidName = findViewById(R.id.InvalidUsername);
+        invalidEmail = findViewById(R.id.InvalidEmail);
+        invalidName = findViewById(R.id.InvalidUsername);
 
         editName = findViewById(R.id.EnterHOName);
         editEmail = findViewById(R.id.EnterHOEmail);

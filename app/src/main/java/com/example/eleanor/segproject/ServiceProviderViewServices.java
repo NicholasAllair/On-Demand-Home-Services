@@ -57,6 +57,7 @@ public class ServiceProviderViewServices extends ServiceProvider {
                 Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
                 Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
 
+                arrayAdapter.clear();
                 listKeys.clear();
 
                 while (iterator.hasNext()) {

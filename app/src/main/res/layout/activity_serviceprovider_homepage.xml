@@ -50,6 +50,7 @@
             android:id="@+id/SPViewAvailability"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onViewAvailabilityClick"
             android:text="View Current Availability" />
 
         <Button

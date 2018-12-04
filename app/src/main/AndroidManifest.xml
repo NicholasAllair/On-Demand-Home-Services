@@ -30,6 +30,7 @@
         <activity android:name=".ServiceProviderAddRemoveService"/>
         <activity android:name=".ServiceProviderViewServices"/>
         <activity android:name=".SpecifyAvailability"/>
+        <activity android:name=".ViewAvailability"/>
         <activity android:name=".ViewList"/>
 
 

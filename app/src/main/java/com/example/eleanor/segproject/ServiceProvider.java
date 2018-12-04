@@ -43,13 +43,6 @@ public class ServiceProvider extends User {
         this.mAuth = FirebaseAuth.getInstance();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = this.mAuth.getCurrentUser();
-        System.out.println(currentUser);
-    }
-
     public void onClickCreateSPProfile(View view){
         invalidEmail = findViewById(R.id.invalidSPEmail);
         invalidName = findViewById(R.id.invalidSPUsername);
