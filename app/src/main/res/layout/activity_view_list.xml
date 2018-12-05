@@ -16,10 +16,25 @@
             tools:layout_editor_absoluteX="86dp"
             tools:layout_editor_absoluteY="0dp">
 
-            <ListView
-                android:id="@+id/dataListView"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="350dp"></ListView>
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="86dp"
+                    tools:layout_editor_absoluteY="0dp">
+
+                    <ListView
+                        android:id="@+id/dataListView"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"></ListView>
+
+                </LinearLayout>
+
+            </ScrollView>
 
             <EditText
                 android:id="@+id/itemText"
@@ -64,8 +79,8 @@
                     android:onClick="deleteItem"
                     android:text="Delete" />
 
-
             </LinearLayout>
+
             <EditText
                 android:id="@+id/editName"
                 android:layout_width="match_parent"

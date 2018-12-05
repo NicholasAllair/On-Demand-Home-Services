@@ -5,116 +5,113 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/serviceProviderProfile"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:padding="4dp"
-            android:text="Add/Remove Service "
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            tools:fontFamily="sans-serif"
-            tools:layout_margin="12dp" />
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/SPserviceToAdd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Service Name"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="43dp" />
-
-        <TextView
-            android:id="@+id/SPserviceDoesNotExist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:textColor="@android:color/holo_red_dark" />
-
-        <Button
-            android:id="@+id/addItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="addToMyServices"
-            android:text="Add to My Services" />
-
-        <Button
-            android:id="@+id/removeServiceAndReturnHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="removeService"
-            android:text="Remove Service And Return Home" />
-
-        <TextView
-            android:id="@+id/serviceProviderProfile2"
-            android:layout_width="253dp"
-            android:layout_height="wrap_content"
-            android:padding="0dp"
-            android:text="Services Available: "
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            tools:fontFamily="sans-serif"
-            tools:layout_margin="12dp" />
-
-        <ScrollView
-            android:id="@+id/scrollServicesAvailable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical">
-
-                <ListView
-                    android:id="@+id/serviceListFromAdmin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="127dp">
-
-                </ListView>
-            </LinearLayout>
-        </ScrollView>
-
-        <TextView
-            android:id="@+id/myServicesTitle"
-            android:layout_width="253dp"
-            android:layout_height="wrap_content"
-            android:padding="0dp"
-            android:text="My Services: "
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            tools:fontFamily="sans-serif"
-            tools:layout_margin="12dp" />
-
-        <ScrollView
-            android:id="@+id/scrollMyServices"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent">
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/serviceProviderProfile"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="4dp"
+                android:text="Add/Remove Service "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                tools:fontFamily="sans-serif"
+                tools:layout_margin="12dp" />
 
-                <ListView
-                    android:id="@+id/myServices"
+            <EditText
+                android:id="@+id/SPserviceToAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Service Name"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="43dp" />
+
+            <Button
+                android:id="@+id/addItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addToMyServices"
+                android:text="Add to My Services" />
+
+            <Button
+                android:id="@+id/removeServiceAndReturnHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="removeService"
+                android:text="Remove Service And Return Home" />
+
+            <TextView
+                android:id="@+id/serviceProviderProfile2"
+                android:layout_width="253dp"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="Services Available: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                tools:fontFamily="sans-serif"
+                tools:layout_margin="12dp" />
+
+            <ScrollView
+                android:id="@+id/scrollServicesAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <ListView
+                        android:id="@+id/serviceListFromAdmin"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="127dp">
+
+                    </ListView>
+                </LinearLayout>
+            </ScrollView>
+
+            <TextView
+                android:id="@+id/myServicesTitle"
+                android:layout_width="253dp"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="My Services: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                tools:fontFamily="sans-serif"
+                tools:layout_margin="12dp" />
+
+            <ScrollView
+                android:id="@+id/scrollMyServices"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="127dp"></ListView>
-            </LinearLayout>
-        </ScrollView>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-    </LinearLayout>
+                    <ListView
+                        android:id="@+id/myServices"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="127dp"></ListView>
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
