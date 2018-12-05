@@ -29,4 +29,9 @@ public class HomeOwnerWelcome extends AppCompatActivity{
         Intent searchSP = new Intent(HomeOwnerWelcome.this, SearchForProvider.class);
         startActivity(searchSP);
     }
+
+    public void viewBookings(View view){
+        Intent vb = new Intent(HomeOwnerWelcome.this, ViewHOBookings.class);
+        startActivity(vb);
+    }
 }

@@ -3,7 +3,9 @@ package com.example.eleanor.segproject;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,6 +30,9 @@ public class ViewHOBookings extends AppCompatActivity {
     ArrayAdapter<String> bookingsAdapter;
     ArrayList<String> bookingsArray = new ArrayList<String>();
     ArrayList<String> bookingsKeys = new ArrayList<String>();
+    int selectedResult = 0;
+    boolean itemSelected = false;
+    EditText rate, comment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,14 @@ public class ViewHOBookings extends AppCompatActivity {
         bookingsList.setAdapter(bookingsAdapter);
         bookingsList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
+        bookingsList.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        selectedResult = position;
+                        itemSelected = true;
+                    }
+                });
+
         readBookings();
     }
 
@@ -64,9 +77,12 @@ public class ViewHOBookings extends AppCompatActivity {
                 Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
 
                 bookingsAdapter.clear();
+                bookingsKeys.clear();
 
                 while (iterator.hasNext()) {
                     DataSnapshot next = (DataSnapshot) iterator.next();
+
+                    bookingsKeys.add(next.getKey());
 
                     String c = next.child("Company").getValue().toString();
                     System.out.println("COMPANY: " + c);
@@ -85,9 +101,21 @@ public class ViewHOBookings extends AppCompatActivity {
         bookingsRef.addValueEventListener(valueEventListener);
     }
 
-    public void rateBooking(){
+    public void rateBooking(View view){
+        rate = findViewById(R.id.rating);
+        comment = findViewById(R.id.comment);
+
+        String r = rate.getText().toString();
+        String c = comment.getText().toString();
+
+        String bookingID = bookingsKeys.get(selectedResult);
+
+        bookingsRef.child(bookingID).child("Rating").child("Score").setValue(r);
+        bookingsRef.child(bookingID).child("Rating").child("Comments").setValue(c);
+
 
     }
+
 
     public String bookingToString(String company, String service, String time){
         System.out.println("STRING: " + company + " - " + service + " - " + time);

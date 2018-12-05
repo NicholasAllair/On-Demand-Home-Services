@@ -21,16 +21,41 @@
                 android:text="My bookings"
                 android:textSize="20sp" />
 
+            <TextView
+                android:id="@+id/selectToRateTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Select to Rate" />
+
             <ListView
                 android:id="@+id/bookingsList"
                 android:layout_width="match_parent"
-                android:layout_height="400dp" />
+                android:layout_height="300dp" />
+
+            <EditText
+                android:id="@+id/rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Rating (1-5)"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Comments"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/rateButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="rateBooking"
                 android:text="Rate this booking" />
+
 
         </LinearLayout>
     </ScrollView>

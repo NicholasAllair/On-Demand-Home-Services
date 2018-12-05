@@ -59,6 +59,21 @@
             android:layout_height="wrap_content"
             android:onClick="onSpecifyAvailabilityClick"
             android:text="Specify Availability" />
+
+        <Button
+            android:id="@+id/viewRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onGetRating"
+            android:text="see rating" />
+
+        <TextView
+            android:id="@+id/ratingText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="12dp"
+            android:text="No ratings yet!" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

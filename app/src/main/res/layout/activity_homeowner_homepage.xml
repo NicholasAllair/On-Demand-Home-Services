@@ -34,6 +34,13 @@
             android:onClick="onSearchForSP"
             android:text="Search for a Service Provider" />
 
+        <Button
+            android:id="@+id/myBookings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="viewBookings"
+            android:text="View My Bookings" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

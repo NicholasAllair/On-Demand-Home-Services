@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 
 public class ServiceProviderWelcome extends AppCompatActivity {
-    TextView SPusername;
+    TextView SPusername, ratingText;
     DatabaseReference userRef;
-    String name, email, uid;
+    String name, uid;
     ArrayList<String> listKeys, listItems;
 
     @Override
@@ -31,6 +31,9 @@ public class ServiceProviderWelcome extends AppCompatActivity {
 
         listKeys = new ArrayList<String>();
         listItems = new ArrayList<String>();
+        ratingText = findViewById(R.id.ratingText);
+
+        ratingText.setVisibility(View.INVISIBLE);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -89,6 +92,11 @@ public class ServiceProviderWelcome extends AppCompatActivity {
     public void onServiceProviderViewServices(View view){
         Intent viewServiceSP = new Intent( ServiceProviderWelcome.this, ServiceProviderViewServices.class );
         startActivity(viewServiceSP);
+    }
+
+    public void onGetRating(View view){
+        Intent gr = new Intent(ServiceProviderWelcome.this, SPGetRating.class);
+        startActivity(gr);
     }
 
     public void setUserName(String name){
