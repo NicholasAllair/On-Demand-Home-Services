@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Admin"/>
+        <activity android:name=".Booking"/>
         <activity android:name=".LoginAdmin"/>
         <activity android:name=".HomeOwner" />
         <activity android:name=".HomeOwnerWelcome" />
