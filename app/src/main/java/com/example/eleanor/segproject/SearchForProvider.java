@@ -77,11 +77,13 @@ public class SearchForProvider extends AppCompatActivity {
                     String nextResult = next.child(s).getValue().toString();
                     System.out.println("RESULT: " + nextResult);
 
-                    //compare result to desired text
-                    int lengthOfText = filterText.length();
-                    
+                    if(filterString.equals("Service Type")){
+                        if(searchMyServices(next.child("myServices"), filterText)){
+                            resultsAdapter.add(next.child("Company").getValue().toString());
+                        }
+                    }
 
-                    resultsAdapter.add(nextResult);
+                    //resultsAdapter.add(nextResult);
 
                     allSPsArray.add(next.getKey().toString());
                     System.out.println("ARRAY: " + allSPsArray);
@@ -128,6 +130,32 @@ public class SearchForProvider extends AppCompatActivity {
         }
 
         return "String not compatible";
+    }
+
+    public boolean searchMyServices(DataSnapshot dataSnapshot, String searchString){
+        //dataSnapshot is the reference to the array myServices in the SP
+        System.out.println("SNAP: " + dataSnapshot);
+
+        //find length of searchString
+        int sLength = searchString.length();
+
+        //add items that match searchString to resultsAdapter
+        for(int i=0; i<dataSnapshot.getChildrenCount(); i++){
+            String iString = Integer.toString(i)
+            String service = dataSnapshot.child(iString).getValue().toString();
+
+            service = extractSubstring(service, sLength);
+
+            if(service.equals(searchString)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public String extractSubstring(String fromDB, int length){
+        return fromDB.substring(0, length);
     }
 
 }
