@@ -93,7 +93,7 @@ public class SearchForProvider extends AppCompatActivity {
         setText(text);
     }
 
-    private void addValueEventListener(final String filterString, final String text) {
+    private void addValueEventListener(final String filterString, final EditText filterText) {
         //READ ALL SPs FROM DB filtered by selection --> NEED ITERATOR
         //filterString: options are Service Type, Availability, Rating
         //filterText: based on user input
@@ -102,22 +102,31 @@ public class SearchForProvider extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                //Define which array in db is being probed -- availabilities, myServices, ratings
+                String s = convertToRefName(filterString);
+                String t = filterTextToString(filterText);
+
+                //Iterate through service providers in DB
                 Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
                 Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
 
                 resultsAdapter.clear();
+                resultsArray.clear();
+
 
                 while (iterator.hasNext()) {
                     //Read UIDs of all SPs into array allSPsArray
                     DataSnapshot next = (DataSnapshot) iterator.next();
-                    String s = convertToRefName(filterString);
-                    String nextResult = next.child(s).getValue().toString();
-                    System.out.println("RESULT: " + nextResult);
+
+                    //find relevant array child -- myServices Availabilities, etc.
+                    DataSnapshot nextArray = next.child(s);
+                    System.out.println("NEXT ARRAY: " + nextArray);
 
                     if(filterString.equals("Service Type")){
                         filterText.setHint("Service");
-                        if(searchArray(next.child("myServices"), text)){
+                        if(searchArray(nextArray, t)){
                             resultsAdapter.add(next.child("Company").getValue().toString());
+                            System.out.println("COMPANY TRUE: " + next.child("Company").getValue().toString());
                         }
                     }
 
@@ -127,7 +136,6 @@ public class SearchForProvider extends AppCompatActivity {
                             resultsAdapter.add(next.child("Company").getValue().toString());
                         }
                     }
-
 
                     allSPsArray.add(next.getKey().toString());
                     System.out.println("ARRAY: " + allSPsArray);
@@ -144,8 +152,9 @@ public class SearchForProvider extends AppCompatActivity {
 
         //Fill resultsArray with ServiceProviders from SPs array that match the filterString and text
 
-        addValueEventListener(filterString, text);
-
+        resultsArray.clear();
+        System.out.println("Results array: " +  resultsArray);
+        addValueEventListener(filterString, filterText);
 
         for(int i=0; i<allSPsArray.size(); i++){
             String spKey = allSPsArray.get(i);
@@ -177,24 +186,32 @@ public class SearchForProvider extends AppCompatActivity {
 
         //find length of searchString
         int sLength = searchString.length();
+        System.out.println("sLENGTH" + sLength);
 
         //add items that match searchString to resultsAdapter
         for(int i=0; i<dataSnapshot.getChildrenCount(); i++){
             String iString = Integer.toString(i);
+            System.out.println("iSTRING: " + iString);
             String service = dataSnapshot.child(iString).getValue().toString();
+            System.out.println("CURRENT SERVICE:" + service);
+
 
             service = extractSubstring(service, sLength);
+            System.out.println("CURRENT SERVICE SUBSTRING:" + service);
 
             if(service.equals(searchString)){
                 return true;
             }
         }
-
+        System.out.println("Result not found");
         return false;
     }
 
 
     public String extractSubstring(String fromDB, int length){
+        System.out.println("From Db: " + fromDB);
+        System.out.println("length: " + length);
+        System.out.println("substring: " + fromDB.substring(0, length));
         return fromDB.substring(0, length);
     }
 
@@ -210,10 +227,10 @@ public class SearchForProvider extends AppCompatActivity {
 
         db.child("Bookings").child(key).child("Company").setValue(selectedCompany);
         db.child("Bookings").child(key).child("Homeowner").setValue(uid);
-        db.child("Bookings").child(key).child("RequestedService").setValue(getText());
+        db.child("Bookings").child(key).child("RequestedService").setValue(filterTextToString(filterText));
 
-//        Intent book = new Intent(SearchForProvider.this, Booking.class);
-//        startActivity(book);
+        Intent book = new Intent(SearchForProvider.this, Booking.class);
+        startActivity(book);
 
     }
 
@@ -231,5 +248,9 @@ public class SearchForProvider extends AppCompatActivity {
     public String getText(){
         System.out.println("GETTING TEXT:" + text);
         return text;
+    }
+
+    public String filterTextToString(EditText filterText){
+        return filterText.getText().toString();
     }
 }
