@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,15 +32,17 @@ public class SearchForProvider extends AppCompatActivity {
     ArrayAdapter<String> resultsAdapter;
     ArrayList<String> resultsArray = new ArrayList<String>();
     ArrayList<String> allSPsArray = new ArrayList<String>();
+    ArrayList<String> bookingsArray = new ArrayList<String>();
+    ArrayList<String> bookingKeys = new ArrayList<String>();
     EditText filterText;
     Boolean itemSelected = false;
     int selectedPosition = 0;
     public FirebaseAuth mAuth;
     FirebaseUser currentUser;
-    String uid;
-    ArrayList<String> bookingsArray = new ArrayList<String>();
-    ArrayList<String> bookingKeys = new ArrayList<String>();
-    String filterString, text;
+    RatingBar ratingBar;
+    String filterString, text, uid;
+    TextView ratingText;
+    Button rateProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,17 @@ public class SearchForProvider extends AppCompatActivity {
         //Assign UML references
         filter = findViewById(R.id.searchBy);
         filterText = findViewById(R.id.filterText);
+        ratingBar = findViewById(R.id.ratingBar);
+        rateProvider = findViewById(R.id.rateProvider);
+        ratingText = findViewById(R.id.rating);
+
+        //set rating options to invisible until an SP is selected
+        rateProvider.setVisibility(View.INVISIBLE);
+        ratingBar.setVisibility(View.INVISIBLE);
+        ratingText.setVisibility(View.INVISIBLE);
+
+
+        addListenerOnRatingBar();
 
 
         //Set up spinner adapter -- options are Service Type, Availability, Rating
@@ -79,6 +95,9 @@ public class SearchForProvider extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         selectedPosition = position;
                         itemSelected = true;
+                        rateProvider.setVisibility(View.VISIBLE);
+                        ratingBar.setVisibility(View.VISIBLE);
+                        ratingText.setVisibility(View.VISIBLE);
                     }
                 });
 
@@ -234,10 +253,23 @@ public class SearchForProvider extends AppCompatActivity {
 
     }
 
-    public String bookingToString(String Homeowner, String Company){
-        System.out.println("H: " + Homeowner + " C: " + Company);
-        return("H: " + Homeowner + " C: " + Company);
+    public void onRateProvider(View view){
+        String sp = resultsArray.get(selectedPosition);
+        
+    }
 
+    public void addListenerOnRatingBar() {
+
+        //if rating value is changed,
+        //display the current rating value in the result (textview) automatically
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            public void onRatingChanged(RatingBar ratingBar, float rating,
+                                        boolean fromUser) {
+
+                ratingText.setText(String.valueOf(rating));
+
+            }
+        });
     }
 
     public void setText(String text){

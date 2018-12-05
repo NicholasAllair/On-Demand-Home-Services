@@ -3,68 +3,98 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="fill_parent">
 
-        <TextView
-            android:id="@+id/SearchForTitle"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:padding="12dp"
-            android:text="Search for a Service Provider"
-            android:textColor="@android:color/black"
-            android:textSize="17sp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/FilterTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Search by:" />
-
-        <Spinner
-            android:id="@+id/searchBy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/filterText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <Button
-            android:id="@+id/search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onSearch"
-            android:text="Search" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/SearchForTitle"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="12dp"
+                android:text="Search for a Service Provider"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
 
-                <ListView
-                    android:id="@+id/resultsList"
+            <TextView
+                android:id="@+id/FilterTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search by:" />
+
+            <Spinner
+                android:id="@+id/searchBy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/filterText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onSearch"
+                android:text="Search" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" />
-            </LinearLayout>
-        </ScrollView>
+                    android:layout_height="200dp"
+                    android:orientation="vertical">
 
-        <Button
-            android:id="@+id/createBooking"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onCreateBooking"
-            android:text="Book with this Service Provider" />
-    </LinearLayout>
+                    <ListView
+                        android:id="@+id/resultsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+                </LinearLayout>
+            </ScrollView>
+
+            <Button
+                android:id="@+id/createBooking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onCreateBooking"
+                android:text="Book with this Service Provider" />
+
+            <Button
+                android:id="@+id/rateProvider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onRateProvider"
+                android:text="Rate this Provider" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="12dp"
+                android:numStars="5"
+                android:rating="2.0"
+                android:stepSize="1.0" />
+
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

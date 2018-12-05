@@ -78,6 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
+            android:onClick="onFinishBooking"
             android:padding="12dp"
             android:text="Finish booking and return home" />
     </LinearLayout>

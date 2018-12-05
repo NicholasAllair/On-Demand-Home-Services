@@ -1,5 +1,6 @@
 package com.example.eleanor.segproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -28,7 +29,7 @@ public class Booking extends AppCompatActivity {
     String company, homeowner, service, uid, bookingID;
     ListView timesList;
     ArrayAdapter<String> timesAdapter;
-    ArrayList<String> timesArray;
+    ArrayList<String> timesArray = new ArrayList<String>();
     Boolean itemSelected = false;
     int selectedPosition = 0;
 
@@ -91,6 +92,7 @@ public class Booking extends AppCompatActivity {
 
                         String company = next.child("Company").getValue().toString();
                         companyText.setText(company);
+                        serviceText.setText(next.child("RequestedService").getValue().toString());
 
                         findCompanyID(company);
                     }
@@ -129,17 +131,32 @@ public class Booking extends AppCompatActivity {
         spRef.addValueEventListener(valueEventListener);
     }
 
-    public void displayTimes(String companyID){
+    public void displayTimes(final String companyID){
         ValueEventListener valueEventListener_times = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                
+                dataSnapshot = dataSnapshot.child(companyID).child("Availabilities");
+
+                for(int i=0; i<dataSnapshot.getChildrenCount(); i++){
+                    String iString = Integer.toString(i);
+                    String thisTime = dataSnapshot.child(iString).getValue().toString();
+                    System.out.println("THIS TIME:" + thisTime);
+                    timesAdapter.add(thisTime);
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) { }
         };
         spRef.addValueEventListener(valueEventListener_times);
+    }
+
+    public void onFinishBooking(View view){
+        String selectedTime = timesArray.get(selectedPosition);
+        bookingDB.child(bookingID).child("SelectedTime").setValue(selectedTime);
+
+        Intent home = new Intent(Booking.this, HomeOwnerWelcome.class);
+        startActivity(home);
     }
 
     private void setCompany(String company){
