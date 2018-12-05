@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 
 public class Admin extends User {
     public static String ADMINUSERNAME = "Admin";

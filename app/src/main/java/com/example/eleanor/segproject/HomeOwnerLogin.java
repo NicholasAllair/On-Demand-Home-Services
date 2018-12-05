@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,7 +14,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class ServiceProviderLogin extends AppCompatActivity {
+public class HomeOwnerLogin extends AppCompatActivity {
     FirebaseAuth mAuth;
     TextView loginFailed;
     EditText emailText, passwordText;
@@ -24,17 +22,17 @@ public class ServiceProviderLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service_provider_login);
+        setContentView(R.layout.activity_homeowner_login);
 
         this.mAuth = FirebaseAuth.getInstance();
 
-        loginFailed = findViewById(R.id.loginFailed);
+        loginFailed = findViewById(R.id.HOloginFailed);
 
-        emailText = findViewById(R.id.SPemail);
-        passwordText = findViewById(R.id.SPpassword);
+        emailText = findViewById(R.id.HOemail);
+        passwordText = findViewById(R.id.HOpassword);
     }
 
-    public void signIn(View view){
+    public void signHOIn(View view){
 
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
@@ -46,8 +44,8 @@ public class ServiceProviderLogin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            Intent spWelcome = new Intent(ServiceProviderLogin.this,
-                                    ServiceProviderWelcome.class);
+                            Intent spWelcome = new Intent(HomeOwnerLogin.this,
+                                    HomeOwnerWelcome.class);
                             startActivity(spWelcome);
 
                         } else {
@@ -56,7 +54,4 @@ public class ServiceProviderLogin extends AppCompatActivity {
                     }
                 });
     }
-
-
-
 }

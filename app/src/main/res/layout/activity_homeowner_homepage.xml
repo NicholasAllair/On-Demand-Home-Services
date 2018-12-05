@@ -31,6 +31,7 @@
             android:id="@+id/searchForProvider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onSearchForSP"
             android:text="Search for a Service Provider" />
 
     </LinearLayout>

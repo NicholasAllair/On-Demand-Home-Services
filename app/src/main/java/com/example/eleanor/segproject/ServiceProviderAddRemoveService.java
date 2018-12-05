@@ -25,7 +25,6 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static com.example.eleanor.segproject.ServiceList.LISTOFSERVICES;
 
 public class ServiceProviderAddRemoveService extends ServiceProvider {
 

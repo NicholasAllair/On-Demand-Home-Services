@@ -17,7 +17,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import static com.example.eleanor.segproject.ServiceProvider.SPNAME;
 
 public class ServiceProviderWelcome extends AppCompatActivity {
     TextView SPusername;

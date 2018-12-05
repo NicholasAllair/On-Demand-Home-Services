@@ -22,6 +22,7 @@
         <activity android:name=".LoginAdmin"/>
         <activity android:name=".HomeOwner" />
         <activity android:name=".HomeOwnerWelcome" />
+        <activity android:name=".HomeOwnerLogin" />
         <activity android:name=".SearchForProvider"/>
         <activity android:name=".ServiceProvider"/>
         <activity android:name=".ServiceProviderWelcome" />

@@ -27,7 +27,6 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class ServiceProvider extends User {
-    public static String SPNAME;
     public static ArrayList<Service> servicesOffered;
     public FirebaseAuth mAuth;
 
@@ -62,8 +61,8 @@ public class ServiceProvider extends User {
         setName(editName.getText().toString());
         setAddress(editAddress.getText().toString());
         setPhone(editPhone.getText().toString());
-        setEmail(editEmail.getText().toString());
-        setPassword(editPassword.getText().toString());
+        setEmail(email);
+        setPassword(password);
         setDescription(editDescription.getText().toString());
 
         if(!isValidEmail(getEmail()) || !isValidUsername(getName())
@@ -114,7 +113,6 @@ public class ServiceProvider extends User {
                     });
         }
 
-        SPNAME = getName();
     }
 
     public void existingUser(View view){

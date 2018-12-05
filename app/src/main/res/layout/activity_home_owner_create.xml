@@ -69,6 +69,13 @@
             android:onClick="onClickCreateHOProfile"
             android:text="Create Profile and Return Home" />
 
+        <Button
+            android:id="@+id/HOlogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="existingHOUser"
+            android:text="I already have an account" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
