@@ -84,7 +84,7 @@ public class SPGetRating extends AppCompatActivity {
                 }
                 String avgString = Double.toString(getAverage());
                 System.out.println("SUMSTRING: " + avgString);
-                
+
                 ratingText.setText(avgString);
                 ratingText.setVisibility(View.VISIBLE);
             }
