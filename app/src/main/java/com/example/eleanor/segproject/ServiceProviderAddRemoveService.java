@@ -85,6 +85,18 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
                     }
                 });
 
+        viewMyServices.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        deleteButton.setEnabled(true);
+
+                        String selectedFromList = (String) (servicesAvailable.getItemAtPosition(position));
+                        serviceName.setText(selectedFromList);
+
+                    }
+                });
+
+
         addValueEventListener();
     }
 
@@ -130,6 +142,18 @@ public class ServiceProviderAddRemoveService extends ServiceProvider {
         System.out.println("USER UID:" + currentUser.getUid());
 
         spDB.child(currentUser.getUid()).child("myServices").setValue(myServicesArray);
+    }
+
+    public void removeService(View view){
+        myServicesArray.remove(serviceName.getText().toString());
+
+        myServicesAdapter.notifyDataSetChanged();
+
+        FirebaseUser currentUser = this.mAuth.getCurrentUser();
+        System.out.println("USER UID:" + currentUser.getUid());
+
+        //TODO: communication with dB
+
     }
 }
 

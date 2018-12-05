@@ -6,12 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RatingBar;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,9 +23,8 @@ import java.util.Iterator;
 
 public class SearchForProvider extends AppCompatActivity {
     Spinner filter;
-    DatabaseReference db;
-    DatabaseReference spRef;
-    ListView resultsList;
+    DatabaseReference db,spRef,hodb;
+    ListView resultsList, timesList;
     ArrayAdapter<String> resultsAdapter;
     ArrayList<String> resultsArray = new ArrayList<String>();
     ArrayList<String> allSPsArray = new ArrayList<String>();
@@ -36,13 +32,12 @@ public class SearchForProvider extends AppCompatActivity {
     ArrayList<String> bookingKeys = new ArrayList<String>();
     EditText filterText;
     Boolean itemSelected = false;
-    int selectedPosition = 0;
-    public FirebaseAuth mAuth;
+    int selectedResult = 0, selectedTime = 0;
+    FirebaseAuth mAuth;
     FirebaseUser currentUser;
-    RatingBar ratingBar;
-    String filterString, text, uid;
-    TextView ratingText;
-    Button rateProvider;
+    String filterString, text, uid, companyID, time, selectedCompany;
+    ArrayAdapter<String> timesAdapter;
+    ArrayList<String> timesArray = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,20 +51,13 @@ public class SearchForProvider extends AppCompatActivity {
         currentUser = this.mAuth.getCurrentUser();
         uid = currentUser.getUid();
 
+        //find current user in database
+        hodb = db.child("homeOwners").child(uid);
+
         //Assign UML references
         filter = findViewById(R.id.searchBy);
         filterText = findViewById(R.id.filterText);
-        ratingBar = findViewById(R.id.ratingBar);
-        rateProvider = findViewById(R.id.rateProvider);
-        ratingText = findViewById(R.id.rating);
-
-        //set rating options to invisible until an SP is selected
-        rateProvider.setVisibility(View.INVISIBLE);
-        ratingBar.setVisibility(View.INVISIBLE);
-        ratingText.setVisibility(View.INVISIBLE);
-
-
-        addListenerOnRatingBar();
+        timesList = findViewById(R.id.timesList);
 
 
         //Set up spinner adapter -- options are Service Type, Availability, Rating
@@ -93,11 +81,27 @@ public class SearchForProvider extends AppCompatActivity {
         resultsList.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        selectedPosition = position;
+                        selectedResult = position;
                         itemSelected = true;
-                        rateProvider.setVisibility(View.VISIBLE);
-                        ratingBar.setVisibility(View.VISIBLE);
-                        ratingText.setVisibility(View.VISIBLE);
+                        setSelectedCompany(resultsArray.get(position));
+                        findCompanyID();
+                        selectTime();
+                    }
+                });
+
+        //adapter for timesList
+        timesAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_single_choice,
+                timesArray);
+
+        timesList.setAdapter(timesAdapter);
+        timesList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
+        timesList.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        selectedTime = position;
+                        itemSelected = true;
                     }
                 });
 
@@ -139,13 +143,11 @@ public class SearchForProvider extends AppCompatActivity {
 
                     //find relevant array child -- myServices Availabilities, etc.
                     DataSnapshot nextArray = next.child(s);
-                    System.out.println("NEXT ARRAY: " + nextArray);
 
                     if(filterString.equals("Service Type")){
                         filterText.setHint("Service");
                         if(searchArray(nextArray, t)){
                             resultsAdapter.add(next.child("Company").getValue().toString());
-                            System.out.println("COMPANY TRUE: " + next.child("Company").getValue().toString());
                         }
                     }
 
@@ -156,8 +158,7 @@ public class SearchForProvider extends AppCompatActivity {
                         }
                     }
 
-                    allSPsArray.add(next.getKey().toString());
-                    System.out.println("ARRAY: " + allSPsArray);
+                    allSPsArray.add(next.getKey());
                 }
             }
             @Override
@@ -172,16 +173,12 @@ public class SearchForProvider extends AppCompatActivity {
         //Fill resultsArray with ServiceProviders from SPs array that match the filterString and text
 
         resultsArray.clear();
-        System.out.println("Results array: " +  resultsArray);
         addValueEventListener(filterString, filterText);
 
         for(int i=0; i<allSPsArray.size(); i++){
             String spKey = allSPsArray.get(i);
-            System.out.println("SP: " + spKey);
             String sp = spRef.child(spKey).toString();
             String filteredValue = spRef.child(spKey).child(filterString).toString();
-            System.out.println("FILTERED VALUE: " + filteredValue);
-
         }
     }
 
@@ -201,22 +198,15 @@ public class SearchForProvider extends AppCompatActivity {
 
     public boolean searchArray(DataSnapshot dataSnapshot, String searchString){
         //dataSnapshot is the reference to the array myServices in the SP
-        System.out.println("SNAP: " + dataSnapshot);
 
         //find length of searchString
         int sLength = searchString.length();
-        System.out.println("sLENGTH" + sLength);
 
         //add items that match searchString to resultsAdapter
         for(int i=0; i<dataSnapshot.getChildrenCount(); i++){
             String iString = Integer.toString(i);
-            System.out.println("iSTRING: " + iString);
             String service = dataSnapshot.child(iString).getValue().toString();
-            System.out.println("CURRENT SERVICE:" + service);
-
-
             service = extractSubstring(service, sLength);
-            System.out.println("CURRENT SERVICE SUBSTRING:" + service);
 
             if(service.equals(searchString)){
                 return true;
@@ -226,11 +216,7 @@ public class SearchForProvider extends AppCompatActivity {
         return false;
     }
 
-
     public String extractSubstring(String fromDB, int length){
-        System.out.println("From Db: " + fromDB);
-        System.out.println("length: " + length);
-        System.out.println("substring: " + fromDB.substring(0, length));
         return fromDB.substring(0, length);
     }
 
@@ -238,51 +224,105 @@ public class SearchForProvider extends AppCompatActivity {
 
         System.out.println("TEXT: " + getText());
 
-        String selectedCompany = resultsArray.get(selectedPosition);
-        System.out.println("SELECTED POSITION: " + selectedCompany);
+        System.out.println("SELECTED POSITION: " + getSelectedCompany());
 
         String key = db.push().getKey();
         bookingKeys.add(key);
 
-        db.child("Bookings").child(key).child("Company").setValue(selectedCompany);
-        db.child("Bookings").child(key).child("Homeowner").setValue(uid);
-        db.child("Bookings").child(key).child("RequestedService").setValue(filterTextToString(filterText));
+        time = timesArray.get(selectedTime);
 
-        Intent book = new Intent(SearchForProvider.this, Booking.class);
+        hodb.child("Bookings").child(key).child("Company").setValue(selectedCompany);
+        hodb.child("Bookings").child(key).child("RequestedService").setValue(filterTextToString(filterText));
+        hodb.child("Bookings").child(key).child("Timeslot").setValue(time);
+
+        Intent book = new Intent(SearchForProvider.this, ViewHOBookings.class);
         startActivity(book);
 
     }
 
-    public void onRateProvider(View view){
-        String sp = resultsArray.get(selectedPosition);
-        
+    public void selectTime(){
+        //read db of service providers to show available times for selected SP
+        ValueEventListener valueEventListener_times = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println("SELECTED COMPANY: " + getSelectedCompany());
+                System.out.println("COMPANY ID: " + getCompanyID());
+
+                dataSnapshot = dataSnapshot.child(getCompanyID()).child("Availabilities");
+
+                for(int i=0; i<dataSnapshot.getChildrenCount(); i++){
+                    String iString = Integer.toString(i);
+                    String thisTime = dataSnapshot.child(iString).getValue().toString();
+                    System.out.println("THIS TIME:" + thisTime);
+                    timesAdapter.add(thisTime);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        };
+        spRef.addValueEventListener(valueEventListener_times);
+
+
     }
 
-    public void addListenerOnRatingBar() {
+    public void findCompanyID(){
+        ValueEventListener valueEventListener_CID = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-        //if rating value is changed,
-        //display the current rating value in the result (textview) automatically
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            public void onRatingChanged(RatingBar ratingBar, float rating,
-                                        boolean fromUser) {
+                System.out.println("Finding Company ID");
 
-                ratingText.setText(String.valueOf(rating));
+                Iterable<DataSnapshot> snapshotIterator = dataSnapshot.getChildren();
+                Iterator<DataSnapshot> iterator = snapshotIterator.iterator();
 
+                while (iterator.hasNext()) {
+
+                    DataSnapshot next = (DataSnapshot) iterator.next();
+                    System.out.println("DB HERE: " + next);
+
+                    String c = next.child("Company").getValue().toString();
+                    System.out.println("C: " + c);
+                    if(c.equals(getSelectedCompany())){
+                        setCompanyID(next.getKey());
+                        System.out.println("CID: " + getCompanyID());
+                    }
+                }
             }
-        });
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        };
+        spRef.addValueEventListener(valueEventListener_CID);
     }
 
     public void setText(String text){
-        System.out.println("SETTING TEXT:" + text);
         this.text = text;
     }
 
     public String getText(){
-        System.out.println("GETTING TEXT:" + text);
         return text;
     }
 
     public String filterTextToString(EditText filterText){
         return filterText.getText().toString();
     }
+
+    public void setSelectedCompany(String selectedCompany){
+        System.out.println("Setting company to : " + selectedCompany);
+        this.selectedCompany = selectedCompany;
+    }
+
+    public String getSelectedCompany(){
+        return this.selectedCompany;
+    }
+
+    public void setCompanyID(String companyID){
+        this.companyID = companyID;
+    }
+
+    public String getCompanyID(){
+        return this.companyID;
+    }
+
 }

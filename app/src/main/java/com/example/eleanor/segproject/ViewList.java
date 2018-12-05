@@ -22,10 +22,8 @@ import java.util.Iterator;
 
 public class ViewList extends AppCompatActivity {
     private ListView dataListView;
-    private EditText itemText;
-    private EditText rateText;
-    private Button findButton;
-    private Button deleteButton;
+    private EditText itemText,rateText, editName, editRate;
+    private Button editButton, deleteButton, confirmEdits;
     private Boolean searchMode = false;
     private Boolean itemSelected = false;
     private int selectedPosition = 0;
@@ -46,9 +44,18 @@ public class ViewList extends AppCompatActivity {
         dataListView = (ListView) findViewById(R.id.dataListView);
         itemText = (EditText) findViewById(R.id.itemText);
         rateText = (EditText) findViewById(R.id.viewListRate);
-        findButton = (Button) findViewById(R.id.findButton);
+        editButton = (Button) findViewById(R.id.editButton);
         deleteButton = (Button) findViewById(R.id.deleteButton);
+        confirmEdits = findViewById(R.id.confirmEdits);
         deleteButton.setEnabled(false);
+
+        editName = findViewById(R.id.editName);
+        editName.setVisibility(View.INVISIBLE);
+
+        editRate = findViewById(R.id.editRate);
+        editRate.setVisibility(View.INVISIBLE);
+
+        confirmEdits.setVisibility(View.INVISIBLE);
 
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_single_choice,
@@ -63,6 +70,7 @@ public class ViewList extends AppCompatActivity {
                         selectedPosition = position;
                         itemSelected = true;
                         deleteButton.setEnabled(true);
+                        editButton.setEnabled(true);
                     }
                 });
 
@@ -132,27 +140,21 @@ public class ViewList extends AppCompatActivity {
         dbRef.child(listKeys.get(selectedPosition)).removeValue();
     }
 
-    public void findItems(View view) {
+    public void editItem(View view){
+        editName.setVisibility(View.VISIBLE);
+        editRate.setVisibility(View.VISIBLE);
+        confirmEdits.setVisibility(View.VISIBLE);
 
-        Query query;
+    }
 
-        if (!searchMode) {
-            findButton.setText("Clear");
-            query = dbRef.orderByChild("service").equalTo(itemText.getText().toString());
-            searchMode = true;
-        } else {
-            searchMode = false;
-            findButton.setText("Find");
-            query = dbRef.orderByKey();
-        }
+    public void confirmEdits(View view){
+        String newName = editName.getText().toString();
+        String newRate = editRate.getText().toString();
 
-        if (itemSelected) {
-            dataListView.setItemChecked(selectedPosition, false);
-            itemSelected = false;
-            deleteButton.setEnabled(false);
-        }
+        dbRef.child(listKeys.get(selectedPosition)).child("rate").setValue(newRate);
+        dbRef.child(listKeys.get(selectedPosition)).child("serviceType").setValue(newName);
 
-        query.addListenerForSingleValueEvent(queryValueListener);
+        adapter.notifyDataSetChanged();
     }
 
     ValueEventListener queryValueListener = new ValueEventListener() {

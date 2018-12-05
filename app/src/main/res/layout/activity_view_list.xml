@@ -5,62 +5,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <ListView
-            android:id="@+id/dataListView"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"></ListView>
-
-        <EditText
-            android:id="@+id/itemText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Service Name"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/viewListRate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Rate"
-            android:inputType="textPersonName" />
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <ListView
+                android:id="@+id/dataListView"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"></ListView>
+
+            <EditText
+                android:id="@+id/itemText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Service Name"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/viewListRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Rate"
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/addButtton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="addItem"
+                    android:text="Add" />
+
+                <Button
+                    android:id="@+id/editButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="editItem"
+                    android:text="Edit" />
+
+                <Button
+                    android:id="@+id/deleteButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="deleteItem"
+                    android:text="Delete" />
+
+
+            </LinearLayout>
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="New Name" />
+
+            <EditText
+                android:id="@+id/editRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="New Rate"/>
 
             <Button
-                android:id="@+id/addButtton"
-                android:layout_width="wrap_content"
+                android:id="@+id/confirmEdits"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="addItem"
-                android:text="Add" />
+                android:onClick="confirmEdits"
+                android:text="Confirm Edits" />
 
-            <Button
-                android:id="@+id/findButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="findItems"
-                android:text="Find" />
-
-            <Button
-                android:id="@+id/deleteButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="deleteItem"
-                android:text="Delete" />
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
