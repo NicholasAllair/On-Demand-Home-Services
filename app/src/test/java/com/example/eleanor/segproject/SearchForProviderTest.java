@@ -10,7 +10,6 @@ public class SearchForProviderTest {
     public void convertToRefName() {
         String input = "Service Type";
         String intendedInput = "Service Type";
-        convertToRefName();
         assertEquals(intendedInput, input);
 
     }
@@ -19,7 +18,6 @@ public class SearchForProviderTest {
     public void getText() {
         String text = "HI";
         String intendedText = "HI";
-        getText();
         assertEquals(intendedText, text);
 
     }
@@ -29,7 +27,6 @@ public class SearchForProviderTest {
     public void getSelectedCompany() {
         String selectedCompany = "MIT";
         String intendedSelectedCompany = "MIT";
-        getSelectedCompany();
         assertEquals(intendedSelectedCompany,selectedCompany);
 
     }
@@ -38,7 +35,6 @@ public class SearchForProviderTest {
     public void getCompanyID() {
         String companyID = "12GDT";
         String intendedCompanyID = "12GDT";
-        getCompanyID();
         assertEquals(intendedCompanyID,companyID);
     }
 
