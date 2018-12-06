@@ -20,10 +20,9 @@ public class SPGetRatingTest {
     @Test
     public void getNumRatings() {
 
-        int numRatings = 10;
-        int intendedRatings = 10;
-        double range= 0.1;
-
+        int numRatings = 8;
+        int intendedRatings = 8;
+        double range= 0.2;
         getNumRatings();
         assertEquals(intendedRatings, numRatings, range);
     }
@@ -35,7 +34,7 @@ public class SPGetRatingTest {
     public void getAverage() {
         int avg = 5;
         int intendedAvg = 5;
-        double range = 0.1;
+        double range = 0.3;
         getAverage();
         assertEquals(intendedAvg, avg, range);
     }
