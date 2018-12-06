@@ -1,5 +1,6 @@
 package com.example.eleanor.segproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -112,6 +113,9 @@ public class ViewHOBookings extends AppCompatActivity {
 
         bookingsRef.child(bookingID).child("Rating").child("Score").setValue(r);
         bookingsRef.child(bookingID).child("Rating").child("Comments").setValue(c);
+
+        Intent rH = new Intent(ViewHOBookings.this, HomeOwnerWelcome.class);
+        startActivity(rH);
 
 
     }
