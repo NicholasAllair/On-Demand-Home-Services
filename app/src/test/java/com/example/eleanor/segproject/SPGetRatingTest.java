@@ -11,9 +11,10 @@ public class SPGetRatingTest {
         int sum = 10;
         int intendedSum = 10;
         double range = 0.1;
-        assertEquals(intendedSum , sum);
+        assertEquals(intendedSum , sum,range);
 
     }
+
 
 
     @Test
@@ -22,9 +23,12 @@ public class SPGetRatingTest {
         int numRatings = 10;
         int intendedRatings = 10;
         double range= 0.1;
+
         getNumRatings();
         assertEquals(intendedRatings, numRatings, range);
     }
+
+
 
 
     @Test
