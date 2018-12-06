@@ -12,6 +12,14 @@ ADMIN LOGIN:
 Username: Admin
 Password: Group5
 
+SAMPLE SERVICE PROVIDER LOGIN:
+Email: z@z.com
+Password: 111111
+
+SAMPLE HOMEOWNER LOGIN:
+Email: ellie@email.com
+Password: 123456
+
 Members:
 
 Nicholas Allair (student number: 8147249)
@@ -22,6 +30,10 @@ Joseph Ezema (student number: 8339504)
 
 Charles Obasi (student number: 300028945)
 
-
+#Starts Here
+Build Status
+[![Build
+Status](https://circleci.com/gh/SEG2105F18/ProductCatalog.png?branch=master)](https://circleci.com/gh/SEG2105F18/ProductCatalog)
+#Ends Here
 
 
