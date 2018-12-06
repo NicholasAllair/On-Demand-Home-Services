@@ -43,6 +43,8 @@ public class HomeOwnerWelcome extends AppCompatActivity{
 
     }
 
+
+
     public void setUserName(){
         HOusername = findViewById(R.id.HOusername);
 
