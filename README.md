@@ -33,8 +33,7 @@ Charles Obasi (student number: 300028945)
 #Starts Here
 Build Status
 [![Build
-Status](https://circleci.com/gh/SEG2105F18/ProductCatalog.png?branch=master)](https://circle
-ci.com/gh/SEG2105F18/ProductCatalog)
+Status](https://circleci.com/gh/SEG2105F18/ProductCatalog.png?branch=master)](https://circleci.com/gh/SEG2105F18/ProductCatalog)
 #Ends Here
 
 
